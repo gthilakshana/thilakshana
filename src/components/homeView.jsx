@@ -27,14 +27,14 @@ export default function HomeView() {
             if (window.innerWidth < 640) return 90;
             if (window.innerWidth < 768) return 110;
         }
-        return 130; // desktop
+        return 130;
     };
 
     return (
-        <section className="flex flex-col-reverse md:flex-row items-center justify-between bg-gray-100 px-6 md:px-16 py-10 md:py-0 min-h-screen">
+        <section id="homeView" className="flex flex-col-reverse md:flex-row items-center justify-between bg-gray-50 px-6 md:px-16 py-10 md:py-0 min-h-screen border-b-2 border-gray-200">
 
             {/* Left Content (Text) */}
-            <div className="w-full md:w-1/2 text-center md:text-left mt-6 md:mt-0 border border-gray-600 p-6 rounded-2xl">
+            <div className="w-full md:w-1/2 text-center md:text-left mt-6 md:mt-0  ">
                 <p className="text-yellow-500 text-lg font-medium">
                     Hey, I'm Gavrawa Thilakshana
                 </p>
@@ -100,7 +100,7 @@ export default function HomeView() {
                     <img
                         src="/logoP.png"
                         alt="Profile"
-                        className="relative z-10 w-36 sm:w-44 md:w-48 h-36 sm:h-44 md:h-48 rounded-full border-4 border-blue-300 hover:scale-105 transition-transform duration-300"
+                        className="relative z-10 w-40 sm:w-44 md:w-48 h-40 sm:h-44 md:h-48 rounded-full border-4 border-blue-300 hover:scale-105 transition-transform duration-300"
                     />
 
                     {/* Tech Icons */}

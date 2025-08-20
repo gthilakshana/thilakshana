@@ -1,6 +1,6 @@
 export default function Contact() {
     return (
-        <section className="bg-gray-50 py-20 px-6 md:px-16">
+        <section id="contact" className="bg-gray-50 py-20 px-6 md:px-16">
             <div className="max-w-6xl mx-auto text-start">
                 {/* Section Header */}
                 <p className="text-sm font-medium text-blue-600">Get In Touch</p>
@@ -14,44 +14,47 @@ export default function Contact() {
             </div>
 
             {/* Contact Form */}
-            <form className="max-w-6xl mx-auto mt-12 bg-white shadow-lg rounded-3xl p-10 space-y-6">
+            <form className="max-w-6xl mx-auto mt-12 bg-white shadow-lg p-10 space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
                         <input
                             type="text"
-                            className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+                            placeholder="First Name"
+                            className="w-full px-5 py-3 border  border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
                         />
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Last Name</label>
                         <input
                             type="text"
-                            className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+                            placeholder="Last Name"
+                            className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
                         />
                     </div>
                 </div>
-
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Email</label>
                         <input
                             type="email"
-                            className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+                            placeholder="Email"
+                            className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
                         />
                     </div>
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">Phone Number</label>
                         <input
                             type="text"
-                            className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+                            placeholder="Phone Number"
+                            className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
                         />
                     </div>
                 </div>
 
                 <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Choose a Topic</label>
-                    <select className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-400 focus:outline-none transition">
+                    <select className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-200 focus:outline-none transition">
                         <option>Select One...</option>
                         <option>Web Development</option>
                         <option>UI/UX Design</option>
@@ -64,15 +67,12 @@ export default function Contact() {
                     <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
                     <textarea
                         rows="5"
-                        className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-400 focus:outline-none transition"
+                        className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-200 focus:outline-none transition"
                         placeholder="Type your message..."
                     ></textarea>
                 </div>
 
-                <div className="flex items-center space-x-2">
-                    <input type="checkbox" className="w-5 h-5 text-blue-600 rounded border-gray-300" />
-                    <label className="text-sm text-gray-700">I accept the terms</label>
-                </div>
+
 
                 <div className="text-center">
                     <button

@@ -3,7 +3,7 @@ import { FaDownload } from "react-icons/fa";
 
 export default function About() {
     return (
-        <section id="about" className="bg-white py-16 px-6 md:px-16">
+        <section id="about" className="bg-white py-16 px-6 md:px-16 border-b-2 border-gray-200">
             <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
                 {/* Left Side - Image */}
@@ -38,7 +38,7 @@ export default function About() {
                     {/* Animated Button */}
                     <Link
                         to="/contact"
-                        className="inline-flex items-center gap-2 px-6 py-3 rounded-md 
+                        className="inline-flex items-center gap-2 px-6 py-3 uppercase 
                         bg-blue-500 text-white font-medium shadow-md
                         hover:bg-blue-600 hover:scale-105 active:scale-95
                         transition-transform duration-300 ease-in-out"

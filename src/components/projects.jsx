@@ -47,7 +47,7 @@ export default function Projects() {
     const displayedProjects = showMore ? projects : projects.slice(0, initialCount);
 
     return (
-        <section className="bg-gray-100 py-16 px-6 md:px-16 border-b-2 border-gray-200">
+        <section className="bg-gray-50 py-16 px-6 md:px-16 border-b-2 border-gray-200">
             {/* Section Header */}
             <div className="flex items-center justify-between mb-10 max-w-6xl mx-auto">
                 <div>

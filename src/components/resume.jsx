@@ -22,7 +22,7 @@ export default function Resume() {
     ];
 
     return (
-        <section id="resume" className="bg-gray-50 py-20 px-6 md:px-16  ">
+        <section id="resume" className="bg-gray-50 py-20 px-6 md:px-16 border-b-2 border-gray-200 ">
             <div className="max-w-6xl mx-auto ">
 
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-start uppercase">
