@@ -30,18 +30,18 @@ export default function Projects() {
             demo: "https://react-register-p.vercel.app/",
         },
         {
-            title: "Portfolio Website",
+            title: "Google style search bar",
             description:
-                "A modern responsive portfolio website built with React and Tailwind CSS.",
-            image: "/project4.png",
-            github: "https://github.com/yourusername/portfolio",
+                "A simple Google-style search bar built using HTML & CSS. This project is part of CS50 Problem Set 0 and serves as a beginner-friendly exercise in web development.",
+            image: "/project/google_img1.png",
+            github: "https://github.com/gthilakshana/google-search-bar",
         },
         {
-            title: "E-commerce Store",
+            title: "Customer Management Crud (Node.Js)",
             description:
-                "A full-stack e-commerce platform with payment integration and user authentication.",
-            image: "/project5.png",
-            github: "https://github.com/yourusername/ecommerce",
+                "Customer Management CRUD (Node.js & Handlebars) – A web application for managing customer records with Create, Read, Update, and Delete operations. Built using Node.js, Express, MySQL, and Handlebars for dynamic UI rendering with structured routes, controllers, and database integration.",
+            image: "/project/Crud_Node.png",
+            github: "https://github.com/gthilakshana/CustomerApp-Node",
         },
     ];
 
