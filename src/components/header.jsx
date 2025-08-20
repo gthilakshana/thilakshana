@@ -18,9 +18,9 @@ export default function Header() {
         <header className="fixed top-0 left-0 w-full z-50 bg-gray-900 backdrop-blur-md shadow-md border-b-2 border-gray-700">
             <div className="w-full mx-auto flex items-center justify-between px-6 md:px-8 py-4">
                 {/* Logo */}
-                <div className="flex items-center justify-center w-full md:w-auto">
+                <div className="flex items-center justify-start w-full md:w-auto">
                     <span
-                        className="text-xl sm:text-2xl font-bold text-blue-500 uppercase cursor-pointer"
+                        className="text-xl sm:text-1xl font-bold text-blue-500 uppercase cursor-pointer"
                         onClick={() => handleScroll("home")}
                     >
                         Thilakshana
