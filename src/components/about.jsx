@@ -1,20 +1,23 @@
+import { Link } from "react-router-dom";
+import { FaDownload } from "react-icons/fa";
+
 export default function About() {
     return (
-        <section id="about" className="bg-white py-20 px-6 md:px-16">
+        <section id="about" className="bg-white py-16 px-6 md:px-16">
             <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
 
                 {/* Left Side - Image */}
-                <div className="flex justify-center items-center  ">
+                <div className="flex justify-center items-center">
                     <img
-                        src="/profile.jpg" // replace with your image path
+                        src="/profile.jpg"
                         alt="Profile"
-                        className="w-80 h-80 object-cover p-2 shadow-lg border-4 border-blue-100 hover:scale-105 transition-transform duration-300"
+                        className="w-40 sm:w-60 md:w-80 rounded-lg object-cover p-2 shadow-lg border-4 border-blue-100 hover:scale-105 transition-transform duration-300"
                     />
                 </div>
 
                 {/* Right Side - Text */}
-                <div>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                <div className="text-center md:text-left">
+                    <h2 className="text-3xl md:text-4xl font-bold uppercase text-gray-900 mb-4">
                         About Me
                     </h2>
                     <p className="text-gray-600 leading-relaxed mb-6">
@@ -32,13 +35,17 @@ export default function About() {
                         to ensure my projects are both functional and visually appealing.
                     </p>
 
-                    {/* Button */}
-                    <a
-                        href="/resume.pdf" // replace with your resume file
-                        className="inline-block px-6 py-3 bg-blue-500 text-white rounded-lg shadow-md hover:bg-blue-600 transition-colors duration-300 animate-pulse"
+                    {/* Animated Button */}
+                    <Link
+                        to="/contact"
+                        className="inline-flex items-center gap-2 px-6 py-3 rounded-md 
+                        bg-blue-500 text-white font-medium shadow-md
+                        hover:bg-blue-600 hover:scale-105 active:scale-95
+                        transition-transform duration-300 ease-in-out"
                     >
-                        Download Resume
-                    </a>
+                        <FaDownload className="animate-bounce text-lg" />
+                        Resume
+                    </Link>
                 </div>
             </div>
         </section>

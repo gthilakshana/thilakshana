@@ -1,8 +1,8 @@
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaFacebook, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
     return (
-        <footer className="bg-gray-900 text-gray-300 py-8 mt-16">
+        <footer className="bg-gray-900 text-gray-300 py-8">
             <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
                 {/* Left Side */}
                 <p className="text-sm">
@@ -32,6 +32,22 @@ export default function Footer() {
                         className="hover:text-white transition"
                     >
                         <FaEnvelope />
+                    </a>
+                    <a
+                        href="https://facebook.com/yourusername"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-white transition"
+                    >
+                        <FaFacebook />
+                    </a>
+                    <a
+                        href="https://instagram.com/yourusername"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="hover:text-white transition"
+                    >
+                        <FaInstagram />
                     </a>
                 </div>
             </div>
