@@ -1,30 +1,33 @@
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
+import { FiExternalLink } from "react-icons/fi";
 
 export default function Projects() {
     const [showMore, setShowMore] = useState(false);
 
     const projects = [
         {
-            title: "Ahuse",
+            title: "Mahee Fashion Store",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-            image: "/IIC_Logo.png",
-            github: "https://github.com/yourusername/ahuse",
+            image: "/project/mahee_store.png",
+            github: "https://github.com/gthilakshana/frontend_cbc",
+            demo: "https://frontend-cbc.vercel.app/",
         },
         {
-            title: "App Dashboard",
+            title: "Cosmatic Backend",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-            image: "/project2.png",
-            github: "https://github.com/yourusername/dashboard",
+            image: "/project/Node_api.png",
+            github: "https://github.com/gthilakshana/cosmatic_backend",
         },
         {
-            title: "Easy Rentn",
+            title: "React Register Page",
             description:
                 "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-            image: "/project3.png",
-            github: "https://github.com/yourusername/rentn",
+            image: "/project/react_signup.png",
+            github: "https://github.com/gthilakshana/react-register_p",
+            demo: "https://react-register-p.vercel.app/",
         },
         {
             title: "Portfolio Website",
@@ -74,28 +77,43 @@ export default function Projects() {
                         key={index}
                         className="bg-white shadow-md hover:shadow-xl transition overflow-hidden"
                     >
+
                         <img
                             src={project.image}
                             alt={project.title}
-                            className="w-full h-56 object-cover"
+                            className="w-full h-56 object-cover shadow-md transition p-2"
                         />
+
                         <div className="p-6">
-                            <h3 className="text-xl font-semibold text-gray-900">
-                                {project.title}
-                            </h3>
+                            <h3 className="text-xl font-semibold text-gray-900">{project.title}</h3>
                             <p className="text-gray-600 mt-2">{project.description}</p>
-                            <a
-                                href={project.github}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="mt-4 flex items-center text-sm font-medium text-gray-900 hover:text-blue-400 transition"
-                            >
-                                <FaGithub className="mr-2" /> View in GitHub
-                            </a>
+
+                            <div className="mt-4 flex items-center gap-4">
+                                {/* GitHub Icon */}
+                                <a
+                                    href={project.github}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center text-sm font-medium text-gray-900 hover:text-blue-600 transition"
+                                >
+                                    <FaGithub className="mr-2" /> GitHub
+                                </a>
+
+
+                                <a
+                                    href={project.demo}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="flex items-center text-sm font-medium text-gray-900 hover:text-red-500 transition cursor-pointer"
+                                >
+                                    <FiExternalLink className="mr-2" /> Live Demo
+                                </a>
+                            </div>
                         </div>
                     </div>
                 ))}
             </div>
+
 
             {/* See More Button */}
             {projects.length > initialCount && (
