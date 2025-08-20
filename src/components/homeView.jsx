@@ -1,4 +1,4 @@
-import { FaFacebookF, FaLinkedinIn, FaGithub, FaTwitter } from "react-icons/fa";
+import { FaFacebookF, FaLinkedinIn, FaGithub, FaEnvelope } from "react-icons/fa";
 import { useEffect, useState } from "react";
 import { FaNodeJs, FaReact, FaJava, FaDatabase, FaLinux, FaAws } from "react-icons/fa";
 
@@ -39,11 +39,11 @@ export default function HomeView() {
     }, []);
 
     const socialLinks = [
-        { icon: <FaFacebookF />, url: "https://facebook.com" },
-        { icon: <FaLinkedinIn />, url: "https://linkedin.com" },
-        { icon: <FaGithub />, url: "https://github.com" },
-        { icon: <FaTwitter />, url: "https://twitter.com" },
+        { icon: <FaEnvelope />, url: "mailto:gavrawavanniarachchi@gmail.com" },
+        { icon: <FaLinkedinIn />, url: "https://linkedin.com/in/gavrawa-thilakshana" },
+        { icon: <FaGithub />, url: "https://github.com/gthilakshana" },
     ];
+
 
     return (
         <section

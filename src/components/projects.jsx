@@ -57,7 +57,7 @@ export default function Projects() {
                     </h2>
                 </div>
                 <a
-                    href="https://github.com/yourusername"
+                    href="https://github.com/gthilakshana"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-5 py-2  text-gray-800font-medium shadow hover:bg-gary-800 transition flex items-center gap-2"

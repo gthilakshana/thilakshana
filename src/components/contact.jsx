@@ -77,7 +77,7 @@ export default function Contact() {
                 <div className="text-center">
                     <button
                         type="submit"
-                        className="px-10 py-3 bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold rounded-xl shadow-lg hover:from-blue-600 hover:to-blue-700 transition"
+                        className="px-10 py-3 bg-gradient-to-r text-white bg-blue-400 hover:bg-blue-500 transition duration-300"
                     >
                         Submit
                     </button>

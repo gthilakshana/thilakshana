@@ -29,7 +29,7 @@ export default function Header() {
 
 
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex space-x-8 text-base uppercase items-center justify-end font-medium w-[80%]">
+                <nav className="hidden md:flex space-x-8 text-base uppercase items-center justify-end font-medium w-[80%] ">
                     {["homeView", "resume", "about", "skills", "contact"].map((section) => (
                         <span
                             key={section}

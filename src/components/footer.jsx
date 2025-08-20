@@ -12,7 +12,7 @@ export default function Footer() {
                 {/* Right Side - Social Icons */}
                 <div className="flex space-x-6 mt-4 md:mt-0 text-xl">
                     <a
-                        href="https://github.com/yourusername"
+                        href="https://github.com/gthilakshana"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-white transition"
@@ -28,21 +28,21 @@ export default function Footer() {
                         <FaLinkedin />
                     </a>
                     <a
-                        href="mailto:your@email.com"
+                        href="mailto:gavrawavanniarachchi@gmail.com"
                         className="hover:text-white transition"
                     >
                         <FaEnvelope />
                     </a>
-                    <a
+                    {/* <a
                         href="https://facebook.com/yourusername"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-white transition"
                     >
                         <FaFacebook />
-                    </a>
+                    </a> */}
                     <a
-                        href="https://instagram.com/yourusername"
+                        href="https://instagram.com/gavrawa_thilakshana_"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="hover:text-white transition"
