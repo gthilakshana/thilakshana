@@ -10,7 +10,7 @@ export default function Skills() {
         { icon: <SiMongodb />, name: "MongoDB", color: "text-green-600", bg: "bg-green-100" },
         { icon: <SiMysql />, name: "MySQL", color: "text-blue-700", bg: "bg-blue-100" },
         { icon: <FaFigma />, name: "UI/UX, Figma", color: "text-pink-500", bg: "bg-pink-100" },
-        { icon: <FaLinux />, name: "Linux", color: "text-yellow-600", bg: "bg-yellow-100" },
+        { icon: <FaLinux />, name: "Linux", color: "text-gray-900", bg: "bg-gray-100" },
         { icon: <FaHtml5 />, name: "HTML", color: "text-orange-600", bg: "bg-orange-100" },
         { icon: <FaCss3Alt />, name: "CSS", color: "text-blue-600", bg: "bg-blue-100" },
         { icon: <FaBootstrap />, name: "Bootstrap", color: "text-purple-600", bg: "bg-purple-100" },
@@ -33,7 +33,7 @@ export default function Skills() {
                     {skills.map((skill, index) => (
                         <div
                             key={index}
-                            className="flex flex-col items-center p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition transform hover:scale-105 duration-300"
+                            className="cursor-pointer flex flex-col items-center p-4 bg-white rounded-2xl shadow-lg hover:shadow-xl transition transform hover:scale-105 duration-300"
                         >
                             <div className={`w-16 h-16 flex items-center justify-center rounded-full ${skill.bg} mb-3`}>
                                 <span className={`text-3xl ${skill.color}`}>{skill.icon}</span>

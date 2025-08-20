@@ -1,17 +1,19 @@
 import { useState } from "react";
-import { FaGraduationCap, FaCertificate } from "react-icons/fa";
+import { FaGraduationCap } from "react-icons/fa";
+import { FiSearch, FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
 
 export default function Resume() {
     const [showMore, setShowMore] = useState(false);
+    const [zoomed, setZoomed] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState(0);
 
     const certifications = [
-        { title: "AWS Cloud Practitioner", org: "Amazon Web Services", year: "2023", link: "https://aws.amazon.com/certification/", img: "/logoP.png" },
-        { title: "Responsive Web Design", org: "FreeCodeCamp", year: "2022", link: "https://www.freecodecamp.org/certification/", img: "/images/freecodecamp.png" },
-        { title: "JavaScript Algorithms & Data Structures", org: "FreeCodeCamp", year: "2022", link: "https://www.freecodecamp.org/certification/", img: "/images/freecodecamp.png" },
-        { title: "UI/UX Design Fundamentals", org: "Coursera", year: "2021", link: "https://www.coursera.org/certificates/", img: "/images/coursera.png" },
-        { title: "Front-End Web Development", org: "Coursera", year: "2021", link: "https://www.coursera.org/certificates/", img: "/images/coursera.png" },
-        { title: "Back-End Web Development", org: "Coursera", year: "2021", link: "https://www.coursera.org/certificates/", img: "/images/coursera.png" },
-        { title: "Python for Everybody", org: "Coursera", year: "2021", link: "https://www.coursera.org/certificates/", img: "/images/coursera.png" },
+        { title: "CS50's Introduction to Database with SQL", org: "Harvard University", year: "2023", link: "", img: "CS50_SQL.png" },
+        { title: "CS50's Introduction to Programming with Python", org: "Harvard University", year: "2022", link: "", img: "CS50_Python.png" },
+        { title: "AWSome Day Online Conference", org: "Amazon Web Services (AWS)", year: "2022", link: "", img: "aws.jpg" },
+        { title: "Java Programming", org: "Evotech Education", year: "2021", link: "", img: "java_evo.jpg" },
+        { title: "Photoshop Basics to Advanced", org: "Kelani External Degree Institute", year: "2021", link: "", img: "photoshop.jpg" },
+
     ];
 
     const education = [
@@ -21,18 +23,20 @@ export default function Resume() {
         { title: "Thihagoda National School Matara", org: "Advanced Level", year: "2017 – 2020", img: "/school.jpg" },
     ];
 
-    return (
-        <section id="resume" className="bg-gray-50 py-20 px-6 md:px-16 border-b-2 border-gray-200 ">
-            <div className="max-w-6xl mx-auto ">
+    const zoomImages = certifications.map(cert => cert.img);
 
+
+
+    return (
+        <section id="resume" className="bg-gray-50 py-20 px-6 md:px-16 border-b-2 border-gray-200">
+            <div className="max-w-6xl mx-auto">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-start uppercase">
                     Resume
                 </h2>
 
                 <div className="flex flex-col lg:flex-row gap-12">
 
-
-                    {/* Education - Right */}
+                    {/* Education */}
                     <div className="lg:w-1/2">
                         <h3 className="text-2xl font-semibold text-blue-600 flex items-center gap-2 mb-6 uppercase">
                             <FaGraduationCap className="text-blue-500" /> Education
@@ -54,66 +58,87 @@ export default function Resume() {
                         </div>
                     </div>
 
-                    {/* Certifications - Left */}
+                    {/* Certifications */}
                     <div className="lg:w-1/2">
                         <h3 className="text-2xl font-semibold text-blue-600 flex items-center gap-2 mb-6 uppercase">
                             Certifications
                         </h3>
 
                         <div className="space-y-4">
-                            {certifications.slice(0, 2).map((cert, i) => (
-                                <a
+                            {(showMore ? certifications : certifications.slice(0, 2)).map((cert, i) => (
+                                <div
                                     key={i}
-                                    href={cert.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="flex justify-between items-center bg-white p-4 rounded-lg shadow hover:shadow-lg transition hover:bg-gray-50"
+                                    className="flex justify-between items-center bg-white p-4 rounded-lg shadow hover:shadow-lg transition hover:bg-gray-50 group"
                                 >
-                                    <div className="flex items-center gap-4">
+                                    {/* Image - opens zoom modal */}
+                                    <div
+                                        className="relative cursor-pointer"
+                                        onClick={() => {
+                                            setCurrentIndex(zoomImages.indexOf(cert.img));
+                                            setZoomed(true);
+                                        }}
+                                    >
                                         <img src={cert.img} alt={cert.title} className="w-12 h-12 object-contain rounded" />
-                                        <div>
-                                            <h4 className="text-lg font-semibold text-gray-900">{cert.title}</h4>
-                                            <p className="text-gray-600">{cert.org}</p>
+                                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition duration-300 rounded">
+                                            <FiSearch className="text-white text-xl opacity-0 group-hover:opacity-100 transition duration-300" />
                                         </div>
                                     </div>
-                                    <span className="text-gray-500 ">{cert.year}</span>
-                                </a>
+
+                                    {/* Text - opens link */}
+                                    <div className="ml-4 flex-1">
+                                        <h4 className="text-lg font-semibold text-gray-900">
+                                            <a
+                                                href={cert.link}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="hover:text-blue-600 transition"
+                                            >
+                                                {cert.title}
+                                            </a>
+                                        </h4>
+                                        <p className="text-gray-600">{cert.org}</p>
+                                    </div>
+
+                                    <span className="text-gray-500">{cert.year}</span>
+                                </div>
                             ))}
 
-                            {showMore &&
-                                certifications.slice(2).map((cert, i) => (
-                                    <a
-                                        key={i}
-                                        href={cert.link}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="flex justify-between items-center bg-white p-4 rounded-lg shadow hover:shadow-lg transition hover:bg-gray-50"
-                                    >
-                                        <div className="flex items-center gap-4">
-                                            <img src={cert.img} alt={cert.title} className="w-12 h-12 object-contain rounded" />
-                                            <div>
-                                                <h4 className="text-lg font-semibold text-gray-900">{cert.title}</h4>
-                                                <p className="text-gray-600">{cert.org}</p>
-                                            </div>
-                                        </div>
-                                        <span className="text-gray-500">{cert.year}</span>
-                                    </a>
-                                ))}
                         </div>
 
                         <div className="mt-6 flex justify-start">
                             <button
                                 onClick={() => setShowMore(!showMore)}
-                                className="px-6 py-2 bg-blue-500 text-white font-semibold uppercase shadow hover:bg-blue-600 transition rounded"
+                                className="px-6 py-2 bg-blue-500 text-white font-semibold uppercase shadow hover:bg-blue-600 transition "
                             >
                                 {showMore ? "See Less" : "See More"}
                             </button>
                         </div>
                     </div>
-
-
                 </div>
             </div>
+
+            {/* Zoom Modal */}
+            {zoomed && (
+                <div
+                    className="fixed inset-0 bg-black bg-opacity-80 flex items-center justify-center z-50 p-4"
+                    onClick={() => setZoomed(false)}
+                >
+                    <div className="relative max-w-3xl w-full">
+                        <img
+                            src={zoomImages[currentIndex]}
+                            alt="Zoomed"
+                            className="w-full h-auto rounded-lg shadow-lg"
+                        />
+                        <button
+                            className="absolute top-2 right-2 text-black text-3xl cursor-pointer"
+                            onClick={() => setZoomed(false)}
+                        >
+                            <FiX />
+                        </button>
+
+                    </div>
+                </div>
+            )}
         </section>
     );
 }
