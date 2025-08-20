@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaGithub } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 export default function Projects() {
     const [showMore, setShowMore] = useState(false);
@@ -117,13 +118,13 @@ export default function Projects() {
 
             {/* See More Button */}
             {projects.length > initialCount && (
-                <div className="mt-6 flex justify-center">
-                    <button
+                <div className="mt-6 flex justify-end">
+                    <span
                         onClick={() => setShowMore(!showMore)}
-                        className="px-6 py-2 bg-blue-500 text-white font-semibold uppercase shadow hover:bg-blue-600 transition rounded"
+                        className="p-3 rounded-full bg-gray-200 text-gray-800 cursor-pointer shadow hover:bg-gray-800 hover:text-white transition"
                     >
-                        {showMore ? "See Less" : "See More"}
-                    </button>
+                        {showMore ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
+                    </span>
                 </div>
             )}
         </section>

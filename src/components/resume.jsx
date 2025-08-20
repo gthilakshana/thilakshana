@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaGraduationCap } from "react-icons/fa";
 import { FiSearch, FiChevronLeft, FiChevronRight, FiX } from "react-icons/fi";
+import { ChevronDown, ChevronUp } from "lucide-react"
 
 export default function Resume() {
     const [showMore, setShowMore] = useState(false);
@@ -105,12 +106,12 @@ export default function Resume() {
 
                         </div>
 
-                        <div className="mt-6 flex justify-start">
+                        <div className="mt-6 flex justify-end">
                             <button
                                 onClick={() => setShowMore(!showMore)}
-                                className="px-6 py-2 bg-blue-500 text-white font-semibold uppercase shadow hover:bg-blue-600 transition "
+                                className="p-3 rounded-full bg-gray-200 text-gray-800 cursor-pointer shadow hover:bg-gray-800 hover:text-white transition"
                             >
-                                {showMore ? "See Less" : "See More"}
+                                {showMore ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
                             </button>
                         </div>
                     </div>

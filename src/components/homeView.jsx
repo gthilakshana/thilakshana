@@ -101,7 +101,7 @@ export default function HomeView() {
                     {techIcons.map((item, i) => (
                         <div
                             key={i}
-                            className="absolute text-xl sm:text-2xl md:text-3xl"
+                            className="absolute text-xl sm:text-2xl md:text-3xl animate-pulse"
                             style={{
                                 transform: `rotate(${item.angle}deg) translate(${radius}px) rotate(-${item.angle}deg)`,
                             }}

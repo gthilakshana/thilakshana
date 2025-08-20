@@ -36,16 +36,20 @@ export default function About() {
                     </p>
 
                     {/* Animated Button */}
-                    <Link
-                        to="/contact"
+                    <a
+                        href="/cv/Gavrawa_Thilakshana.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 px-6 py-3 uppercase 
-                        bg-blue-500 text-white font-medium shadow-md
-                        hover:bg-blue-600 hover:scale-105 active:scale-95
-                        transition-transform duration-300 ease-in-out"
+             bg-blue-500 text-white font-medium shadow-md
+             hover:bg-blue-600 hover:scale-105 active:scale-95
+             transition-transform duration-300 ease-in-out rounded-lg"
                     >
                         <FaDownload className="animate-bounce text-lg" />
                         Resume
-                    </Link>
+                    </a>
+
+
                 </div>
             </div>
         </section>
