@@ -57,17 +57,21 @@ export default function Projects() {
                 <div>
                     <p className="text-sm font-medium text-gray-500">Recent Projects</p>
                     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-start uppercase">
-                        My Projects
+                        Projects
                     </h2>
                 </div>
                 <a
                     href="https://github.com/gthilakshana"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-5 py-2  text-gray-800font-medium shadow hover:bg-gary-800 transition flex items-center gap-2"
+                    className="px-5 py-2 rounded-lg bg-gray-200 text-gray-900 font-medium shadow-md 
+             hover:bg-gray-300 hover:scale-105 active:scale-95
+             transition-transform duration-300 ease-in-out flex items-center gap-2"
                 >
-                    <FaGithub /> Visit My GitHub
+                    <FaGithub className="text-lg" />
+                    GitHub
                 </a>
+
 
             </div>
 
