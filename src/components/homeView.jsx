@@ -30,86 +30,80 @@ export default function HomeView() {
         return 130;
     };
 
-    return (
-        <section id="homeView" className="flex flex-col-reverse md:flex-row items-center justify-between bg-gray-50 px-6 md:px-16 py-10 md:py-0 min-h-screen border-b-2 border-gray-200">
+    const [radius, setRadius] = useState(getRadius());
 
+    useEffect(() => {
+        const handleResize = () => setRadius(getRadius());
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
+
+    const socialLinks = [
+        { icon: <FaFacebookF />, url: "https://facebook.com" },
+        { icon: <FaLinkedinIn />, url: "https://linkedin.com" },
+        { icon: <FaGithub />, url: "https://github.com" },
+        { icon: <FaTwitter />, url: "https://twitter.com" },
+    ];
+
+    return (
+        <section
+            id="homeView"
+            className="flex flex-col items-center justify-center md:flex-row md:justify-between bg-gray-50 px-6 md:px-16 py-10 min-h-screen border-b-2 border-gray-200"
+        >
             {/* Left Content (Text) */}
-            <div className="w-full md:w-1/2 text-center md:text-left mt-6 md:mt-0  ">
+            <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0">
                 <p className="text-yellow-500 text-lg font-medium">
                     Hey, I'm Gavrawa Thilakshana
                 </p>
 
                 <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mt-2 leading-snug">
-                    <span className="transition-all duration-500 uppercase">
-                        {textArray[textIndex]}
-                    </span>
+                    <span className="transition-all duration-500 uppercase">{textArray[textIndex]}</span>
                 </h1>
 
                 <p className="text-gray-800 leading-relaxed mb-6 max-w-xl mt-6 mx-auto md:mx-0">
-                    Enthusiastic MERN Stack Developer with strong expertise in React and Node.js,
-                    currently expanding skills in Next.js. Possess a solid foundation in Linux and
-                    AWS, with a passion for building clean, responsive, and user-friendly interfaces
-                    backed by robust back-end functionality. A fast learner eager to contribute to
-                    impactful projects, adapt to new technologies, and thrive in collaborative
-                    environments while combining creativity with technical precision.
+                    Enthusiastic MERN Stack Developer with strong expertise in React and Node.js, currently
+                    expanding skills in Next.js. Possess a solid foundation in Linux and AWS, with a passion
+                    for building clean, responsive, and user-friendly interfaces backed by robust back-end
+                    functionality. A fast learner eager to contribute to impactful projects, adapt to new
+                    technologies, and thrive in collaborative environments while combining creativity with
+                    technical precision.
                 </p>
 
                 {/* Social Icons */}
-                <div className="mt-6 flex flex-col sm:flex-row sm:items-center gap-4">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                     <div className="flex space-x-4 justify-center sm:justify-start">
-                        <a
-                            href="https://facebook.com"
-                            target="_blank"
-                            rel="noreferrer"
-                            className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-white hover:bg-blue-500 transition"
-                        >
-                            <FaFacebookF />
-                        </a>
-                        <a
-                            href="https://linkedin.com"
-                            target="_blank"
-                            rel="noreferrer"
-                            className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-white hover:bg-blue-500 transition"
-                        >
-                            <FaLinkedinIn />
-                        </a>
-                        <a
-                            href="https://github.com"
-                            target="_blank"
-                            rel="noreferrer"
-                            className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-white hover:bg-blue-500 transition"
-                        >
-                            <FaGithub />
-                        </a>
-                        <a
-                            href="https://twitter.com"
-                            target="_blank"
-                            rel="noreferrer"
-                            className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-white hover:bg-blue-500 transition"
-                        >
-                            <FaTwitter />
-                        </a>
+                        {socialLinks.map((link, i) => (
+                            <a
+                                key={i}
+                                href={link.url}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-800 text-white hover:bg-blue-500 transition"
+                            >
+                                {link.icon}
+                            </a>
+                        ))}
                     </div>
                 </div>
             </div>
 
+            {/* Right Content */}
+            <div className="hidden md:flex w-full md:w-1/2 justify-center items-center">
+                <div className="relative w-56 md:w-72 h-56 md:h-72 flex items-center justify-center">
 
-            <div className="hidden md:flex w-full md:w-1/2 justify-center mb-8 md:mb-0 items-center">
-                <div className="relative w-56  md:w-72 h-56  md:h-72 flex items-center justify-center">
-                    {/* Profile Image */}
                     <img
                         src="/logoP.png"
                         alt="Profile"
-                        className="relative z-10 w-40 sm:w-44 md:w-48 h-40 sm:h-44 md:h-48 rounded-full border-4 border-blue-300 hover:scale-105 transition-transform duration-300"
+                        className="relative z-10 w-40 sm:w-44 md:w-48 h-40 sm:h-44 md:h-48 rounded-full border-4 border-blue-300 hover:scale-105 transition-transform duration-300 object-cover"
                     />
 
-                    {/* Tech Icons */}
+
                     {techIcons.map((item, i) => (
                         <div
                             key={i}
                             className="absolute text-xl sm:text-2xl md:text-3xl"
                             style={{
-                                transform: `rotate(${item.angle}deg) translate(${getRadius()}px) rotate(-${item.angle}deg)`,
+                                transform: `rotate(${item.angle}deg) translate(${radius}px) rotate(-${item.angle}deg)`,
                             }}
                         >
                             {item.icon}
@@ -117,7 +111,6 @@ export default function HomeView() {
                     ))}
                 </div>
             </div>
-
         </section>
     );
 }
