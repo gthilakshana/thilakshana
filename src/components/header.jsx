@@ -30,7 +30,7 @@ export default function Header() {
 
                 {/* Desktop Navigation */}
                 <nav className="hidden md:flex space-x-8 text-base uppercase items-center justify-end font-medium w-[80%] ">
-                    {["homeView", "resume", "about", "skills", "contact"].map((section) => (
+                    {["home", "about", "resume", "projects", "skills", "contact"].map((section) => (
                         <span
                             key={section}
                             className="cursor-pointer text-white hover:text-blue-500 transition-colors"
@@ -58,7 +58,7 @@ export default function Header() {
             {/* Mobile Menu */}
             {isOpen && (
                 <div className="md:hidden bg-gray-900 w-full px-6 pb-6 space-y-4 text-center text-white uppercase font-medium">
-                    {["homeView", "resume", "about", "skills", "contact"].map((section) => (
+                    {["home", "about", "resume", "projects", "skills", "contact"].map((section) => (
                         <span
                             key={section}
                             className="block py-2 cursor-pointer hover:text-blue-500 transition-colors"

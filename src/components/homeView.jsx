@@ -47,7 +47,7 @@ export default function HomeView() {
 
     return (
         <section
-            id="homeView"
+            id="home"
             className="flex flex-col items-center justify-center md:flex-row md:justify-between bg-gray-50 px-6 md:px-16 py-10 min-h-screen border-b-2 border-gray-200"
         >
             {/* Left Content (Text) */}
