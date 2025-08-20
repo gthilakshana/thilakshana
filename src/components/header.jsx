@@ -20,7 +20,7 @@ export default function Header() {
                 {/* Logo */}
                 <div className="flex items-center justify-start w-full md:w-auto">
                     <span
-                        className="text-xl sm:text-1xl font-bold text-blue-500 uppercase cursor-pointer"
+                        className="text-xl sm:text-1xl font-bold text-white uppercase cursor-pointer"
                         onClick={() => handleScroll("home")}
                     >
                         Thilakshana
