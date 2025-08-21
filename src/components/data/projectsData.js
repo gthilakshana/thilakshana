@@ -71,7 +71,7 @@ export const projects = [
    {
     title: "CSS Animation Project",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-    video: "/project/css.mp4", 
+    image: "/project/", 
     github: "https://github.com/gthilakshana/CSS-Animation",
   },
 ];

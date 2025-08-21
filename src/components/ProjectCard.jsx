@@ -5,23 +5,11 @@ import { FiExternalLink } from "react-icons/fi";
 export default function ProjectCard({ project }) {
     return (
         <div className="bg-white shadow-md hover:shadow-xl transition overflow-hidden">
-            {project.video ? (
-                <video
-                    src={project.video}
-                    className="w-full h-56 object-cover shadow-md transition p-2"
-                    controls
-                    autoPlay={false}
-                    loop
-                    muted
-                />
-            ) : (
-                <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-56 object-cover shadow-md transition p-2"
-                />
-            )}
-
+            <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-56 object-cover shadow-md transition p-2"
+            />
 
             <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900">{project.title}</h3>
