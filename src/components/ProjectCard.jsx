@@ -9,10 +9,10 @@ export default function ProjectCard({ project }) {
                 <video
                     src={project.video}
                     className="w-full h-56 object-cover shadow-md transition p-2"
-                    controls
-                    autoPlay={false}
+                    autoPlay
                     loop
                     muted
+                    playsInline
                 />
             ) : (
                 <img
@@ -21,6 +21,7 @@ export default function ProjectCard({ project }) {
                     className="w-full h-56 object-cover shadow-md transition p-2"
                 />
             )}
+
 
 
             <div className="p-6">
