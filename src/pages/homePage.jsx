@@ -8,23 +8,31 @@ import Resume from "../components/resume";
 import Projects from "../components/projects";
 import Skills from "../components/skills";
 import HomeView from "../components/homeView";
+import { ClimbingBoxLoader } from "react-spinners";
 
 export default function Home() {
     const [showScrollButton, setShowScrollButton] = useState(false);
+    const [loadingSections, setLoadingSections] = useState(true); // <-- fixed here
     const lastScrollY = useRef(0);
+
 
     useEffect(() => {
         const handleScroll = () => {
             const currentScrollY = window.scrollY;
-
-
             setShowScrollButton(currentScrollY > 200);
-
             lastScrollY.current = currentScrollY;
         };
 
         window.addEventListener("scroll", handleScroll);
         return () => window.removeEventListener("scroll", handleScroll);
+    }, []);
+
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setLoadingSections(false);
+        }, 4000);
+        return () => clearTimeout(timer);
     }, []);
 
     const scrollToTop = () => {
@@ -34,13 +42,23 @@ export default function Home() {
     return (
         <div className="min-h-screen w-full flex flex-col">
             <Header />
-            <HomeView />
-            <About />
-            <Resume />
-            <Projects />
-            <Skills />
-            <Contact />
-            <Footer />
+
+
+            {loadingSections ? (
+                <div className="flex-1 flex items-center justify-center bg-white">
+                    <ClimbingBoxLoader color="#FACC3E" loading={loadingSections} size={15} />
+                </div>
+            ) : (
+                <>
+                    <HomeView />
+                    <About />
+                    <Resume />
+                    <Projects />
+                    <Skills />
+                    <Contact />
+                    <Footer />
+                </>
+            )}
 
             {/* Scroll To Top Button */}
             {showScrollButton && (
