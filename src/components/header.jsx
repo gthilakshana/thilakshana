@@ -19,11 +19,11 @@ export default function Header() {
             <div className="w-full mx-auto flex items-center justify-between px-6 md:px-8 py-4">
                 {/* Logo */}
 
-                <div className="inline-block rounded-md">
+                <div className="inline-block rounded-md  ">
                     <img
                         src="logo.png"
                         alt="Thilakshana Logo"
-                        className="h-6 sm:h-10 md:h-10 w-[100px] sm:w-[100px] md:w-[170px] object-cover"
+                        className="h-10 sm:h-12 md:h-12 w-[140px] sm:w-[150px] md:w-[220px] object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
                     />
                 </div>
 
