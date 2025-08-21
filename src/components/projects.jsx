@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaCode, FaGithub } from "react-icons/fa";
 import { ChevronDown, ChevronUp } from "lucide-react";
 import { FaArrowRight } from "react-icons/fa6";
-import ProjectCard from "./projectCard.jsx";
+import ProjectCard from "./ProjectCard.jsx";
 import { projects } from "../components/data/projectsData.js";
 
 export default function Projects() {
