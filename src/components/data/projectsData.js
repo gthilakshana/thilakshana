@@ -16,6 +16,19 @@ export const projects = [
     github: "https://github.com/gthilakshana/cosmatic_backend",
   },
   {
+    title: "CSS Animation Project",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+    video: "/project/css.mp4", 
+    github: "https://github.com/gthilakshana/CSS-Animation",
+  },
+    {
+    title: "Mr_Kottu-AndroidApp",
+    description:
+      "Mobile Food Delivery application.The purpose of this android app is the ability to order food online, it is a user-friendly mobile app developed with java and firebase.Real-time location tracking via Google Maps enhances transparency. Data is securely stored with Firebase Firestore Storage.",
+    image: "/project/app.png",
+    github: "https://github.com/gthilakshana/Mr_Kottu-AndroidApp",
+  },
+  {
     title: "React Register Page",
     description:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
@@ -68,10 +81,6 @@ export const projects = [
     image: "/project/spring-boot.png",
     github: "https://github.com/gthilakshana/Springboot-crud",
   },
-   {
-    title: "CSS Animation Project",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-    video: "/project/css.mp4", 
-    github: "https://github.com/gthilakshana/CSS-Animation",
-  },
+
+   
 ];
