@@ -1,9 +1,18 @@
 import { useState } from "react";
 import { FaBars, FaTimes, FaUser } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import {
+    FaHome,
+    FaIdCard,
+    FaProjectDiagram,
+    FaTools,
+    FaEnvelope,
+    FaUserGraduate,
+} from "react-icons/fa";
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate();
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -15,11 +24,14 @@ export default function Header() {
         setIsOpen(false);
     };
 
+    const goToLogin = () => {
+        navigate("/login");
+    };
+
     return (
-        <header className="fixed top-0 left-0 w-full z-50 bg-gray-900 backdrop-blur-md shadow-md border-b-2 border-gray-700">
+        <header className="fixed top-0 left-0 w-full z-50 bg-gray-900 shadow-md border-b-2 border-gray-700">
             <div className="w-full mx-auto flex items-center justify-between px-6 md:px-8 py-4">
                 {/* Logo */}
-
                 <Link to="/">
                     <div className="inline-block rounded-md">
                         <img
@@ -30,57 +42,85 @@ export default function Header() {
                     </div>
                 </Link>
 
-
-
-
-
                 {/* Desktop Navigation */}
-                <nav className="hidden md:flex space-x-8 text-base uppercase items-center justify-end font-medium w-[80%] ">
-                    {["home", "about", "resume", "projects", "skills", "contact"].map((section) => (
-                        <span
-                            key={section}
-                            className="cursor-pointer text-white hover:text-blue-500 transition-colors"
-                            onClick={() => handleScroll(section)}
-                        >
-                            {section.charAt(0).toUpperCase() + section.slice(1)}
-                        </span>
-                    ))}
+                <nav className="hidden md:flex space-x-8 text-base uppercase items-center justify-end font-medium w-[80%]">
+                    {["home", "about", "resume", "projects", "skills", "contact"].map(
+                        (section) => (
+                            <span
+                                key={section}
+                                className="cursor-pointer text-white hover:text-blue-500 transition-colors"
+                                onClick={() => handleScroll(section)}
+                            >
+                                {section.charAt(0).toUpperCase() + section.slice(1)}
+                            </span>
+                        )
+                    )}
+
+                    {/* User Icon */}
                     <span
-                        className="p-3 text-white text-2xl hover:text-yellow-500 transition-colors cursor-pointer "
-                        onClick={() => handleScroll("contact")}
+                        className="p-3 text-white text-2xl hover:text-yellow-500 transition-colors cursor-pointer"
+                        onClick={goToLogin}
                     >
-                        <FaUser className="text-xl " />
+                        <FaUser className="text-xl" />
                     </span>
                 </nav>
 
                 {/* Mobile Menu Button */}
                 <div className="md:hidden flex items-center">
-                    <button onClick={toggleMenu} className="text-white text-2xl focus:outline-none">
+                    <button
+                        onClick={toggleMenu}
+                        className="text-white text-2xl focus:outline-none"
+                    >
                         {isOpen ? <FaTimes /> : <FaBars />}
                     </button>
                 </div>
             </div>
 
-            {/* Mobile Menu */}
-            {isOpen && (
-                <div className="md:hidden bg-gray-900 w-full px-6 pb-6 space-y-4 text-center text-white uppercase font-medium">
-                    {["home", "about", "resume", "projects", "skills", "contact"].map((section) => (
-                        <span
-                            key={section}
-                            className="block py-2 cursor-pointer hover:text-blue-500 transition-colors"
-                            onClick={() => handleScroll(section)}
+            {/* Mobile Right-side Sidebar Menu */}
+            <div
+                className={`fixed top-0 right-0 h-full w-64 transform transition-transform duration-300 
+            ${isOpen ? "translate-x-0" : "translate-x-full"} 
+           bg-gray-900 text-white shadow-2xl z-[10000]`}
+            >
+                {/* Navigation */}
+                <nav className="flex flex-col mt-6 space-y-2 px-6">
+                    {[
+                        { name: "Home", icon: <FaHome /> },
+                        { name: "About", icon: <FaIdCard /> },
+                        { name: "Resume", icon: <FaUserGraduate /> },
+                        { name: "Projects", icon: <FaProjectDiagram /> },
+                        { name: "Skills", icon: <FaTools /> },
+                        { name: "Contact", icon: <FaEnvelope /> },
+                    ].map((item) => (
+                        <div
+                            key={item.name}
+                            className="flex items-center gap-4 py-2 px-3 rounded-lg cursor-pointer hover:bg-gray-800 transition-colors"
+                            onClick={() => handleScroll(item.name.toLowerCase())}
                         >
-                            {section.charAt(0).toUpperCase() + section.slice(1)}
-                        </span>
+                            <span className="text-xl">{item.icon}</span>
+                            <span className="text-md">{item.name}</span>
+                        </div>
                     ))}
-                    <span
-                        className="block py-2 px-5 bg-red-500 rounded shadow-md hover:bg-red-600 transition mx-auto w-max cursor-pointer"
-                        onClick={() => handleScroll("contact")}
-                    >
-                        Sign In
-                    </span>
+                </nav>
+
+                {/* User Icon (Login) */}
+                <div
+                    className="flex items-center gap-4 py-2 px-6 mt-6 cursor-pointer hover:bg-yellow-500 transition-colors absolute bottom-6 w-full"
+                    onClick={goToLogin}
+                >
+                    <FaUser className="text-xl" />
+                    <span className="text-md">Login</span>
                 </div>
+            </div>
+
+            {/* Overlay */}
+            {isOpen && (
+                <div
+                    className="fixed inset-0 "
+                    onClick={toggleMenu}
+                ></div>
             )}
+
         </header>
     );
 }
