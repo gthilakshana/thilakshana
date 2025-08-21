@@ -49,7 +49,7 @@ export default function Resume() {
                                     <div className="flex items-center gap-4">
                                         <img src={edu.img} alt={edu.title} className="w-12 h-12 object-contain rounded" />
                                         <div>
-                                            <h4 className="text-lg font-semibold text-gray-900">{edu.title}</h4>
+                                            <h4 className="text-lg font-semibold text-gray-800">{edu.title}</h4>
                                             <p className="text-gray-600">{edu.org}</p>
                                         </div>
                                     </div>
@@ -81,23 +81,27 @@ export default function Resume() {
                                     >
                                         <img src={cert.img} alt={cert.title} className="w-12 h-12 object-contain rounded" />
                                         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition duration-300 rounded">
-                                            <FiSearch className="text-white text-xl opacity-0 group-hover:opacity-100 transition duration-300" />
+                                            <FiSearch className="text-gary-600 text-xl opacity-0 group-hover:opacity-100 transition duration-300" />
                                         </div>
                                     </div>
 
                                     {/* Text - opens link */}
                                     <div className="ml-4 flex-1">
-                                        <h4 className="text-lg font-semibold text-gray-900">
+                                        <h4 className="text-lg font-semibold text-gray-800">
+                                            {cert.title}
+                                        </h4>
+
+                                        <div className="flex items-center gap-2 text-gray-600">
+                                            <span>{cert.org}</span>
                                             <a
                                                 href={cert.link}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="hover:text-blue-600 transition"
+                                                className="text-blue-600 hover:underline transition text-[15px]"
                                             >
-                                                {cert.title}
+                                                View Certificate
                                             </a>
-                                        </h4>
-                                        <p className="text-gray-600">{cert.org}</p>
+                                        </div>
                                     </div>
 
                                     <span className="text-gray-500">{cert.year}</span>

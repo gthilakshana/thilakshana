@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaCode } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 import { ChevronDown, ChevronUp } from "lucide-react";
+import { FaArrowRight } from "react-icons/fa6";
 
 export default function Projects() {
     const [showMore, setShowMore] = useState(false);
@@ -56,7 +57,8 @@ export default function Projects() {
             <div className="flex items-center justify-between mb-10 max-w-6xl mx-auto">
                 <div>
                     <p className="text-sm font-medium text-gray-500">Recent Projects</p>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-start uppercase">
+                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-start uppercase flex items-center gap-3">
+                        <FaCode className="text-gary-600" />
                         Projects
                     </h2>
                 </div>
@@ -65,13 +67,13 @@ export default function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     className="px-5 py-2 rounded-lg bg-gray-200 text-gray-900 font-medium shadow-md 
-             hover:bg-gray-300 hover:scale-105 active:scale-95
-             transition-transform duration-300 ease-in-out flex items-center gap-2"
+     hover:bg-gray-300 hover:scale-105 active:scale-95
+     transition-transform duration-300 ease-in-out flex items-center gap-2"
                 >
                     <FaGithub className="text-lg" />
                     GitHub
+                    <FaArrowRight className="text-sm" />
                 </a>
-
 
             </div>
 

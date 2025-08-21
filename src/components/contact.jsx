@@ -3,9 +3,9 @@ export default function Contact() {
         <section id="contact" className="bg-gray-50 py-20 px-6 md:px-16">
             <div className="max-w-6xl mx-auto text-start">
                 {/* Section Header */}
-                <p className="text-sm font-medium text-blue-600">Get In Touch</p>
+
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-1 uppercase">
-                    Contact Me
+                    Contact
                 </h2>
                 <p className="text-gray-600 mt-2 text-lg">
                     I’d love to hear from you! Whether you have a question, project idea,

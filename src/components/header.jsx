@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { FaBars, FaTimes, FaUser } from "react-icons/fa";
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
@@ -18,14 +18,16 @@ export default function Header() {
         <header className="fixed top-0 left-0 w-full z-50 bg-gray-900 backdrop-blur-md shadow-md border-b-2 border-gray-700">
             <div className="w-full mx-auto flex items-center justify-between px-6 md:px-8 py-4">
                 {/* Logo */}
-                <div className="flex items-center justify-start w-full md:w-auto">
-                    <span
-                        className="text-xl sm:text-1xl font-bold text-white uppercase cursor-pointer"
-                        onClick={() => handleScroll("home")}
-                    >
-                        Thilakshana
-                    </span>
+
+                <div className="inline-block rounded-md">
+                    <img
+                        src="logo.png"
+                        alt="Thilakshana Logo"
+                        className="h-6 sm:h-10 md:h-10 w-[100px] sm:w-[100px] md:w-[170px] object-cover"
+                    />
                 </div>
+
+
 
 
                 {/* Desktop Navigation */}
@@ -40,10 +42,10 @@ export default function Header() {
                         </span>
                     ))}
                     <span
-                        className="px-5 py-2 bg-red-500 text-white font-medium shadow-md hover:bg-red-600 transition cursor-pointer"
+                        className="p-3 text-white text-2xl hover:text-yellow-500 transition-colors cursor-pointer "
                         onClick={() => handleScroll("contact")}
                     >
-                        Sign In
+                        <FaUser className="text-xl " />
                     </span>
                 </nav>
 
