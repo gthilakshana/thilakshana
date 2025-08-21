@@ -13,7 +13,7 @@ export default function LoginPage() {
             <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8 space-y-6">
                 <h1 className="text-3xl font-bold text-center text-gray-800">Welcome Back</h1>
                 <p className="text-center text-red-500 font-semibold">
-                    Admin Only — Please login to your account
+                    Admin Only
                 </p>
 
 
