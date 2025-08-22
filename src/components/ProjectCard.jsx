@@ -4,7 +4,7 @@ import { FiExternalLink } from "react-icons/fi";
 
 export default function ProjectCard({ project }) {
     return (
-        <div className="bg-white shadow-md hover:shadow-xl transition overflow-hidden">
+        <div className="bg-gray-50 shadow-md hover:shadow-xl transition overflow-hidden ">
             {project.video ? (
                 <video
                     src={project.video}
@@ -28,15 +28,15 @@ export default function ProjectCard({ project }) {
                 <h3 className="text-xl font-semibold text-gray-900">{project.title}</h3>
                 <p className="text-gray-600 mt-2">{project.description}</p>
 
-                <div className="mt-4 flex items-center gap-4">
+                <div className="mt-4 flex items-center gap-4 ">
                     {project.github && (
                         <a
                             href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center text-sm font-medium text-gray-900 hover:text-blue-600 transition"
+                            className="flex items-center text-sm font-medium text-gray-900 hover:text-blue-600 transition "
                         >
-                            <FaGithub className="mr-2" /> GitHub
+                            <FaGithub className="mr-2 " /> GitHub
                         </a>
                     )}
 

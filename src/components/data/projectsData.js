@@ -2,8 +2,11 @@
 export const projects = [
   {
     title: "Mahee Fashion Store",
-    description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+    description: `Built a full-stack e-commerce web application with user and admin dashboards, authentication,
+    product management, and advanced search. The frontend was developed with React.js, Vite, and
+   Tailwind CSS, while the backend was powered by Node.js, Express, and MongoDB. Deployed the
+   frontend on Vercel and the backend on Render, ensuring smooth performance and scalability.`,
+
     image: "/project/mahee_store.png",
     github: "https://github.com/gthilakshana/frontend_cbc",
     demo: "https://frontend-cbc.vercel.app/",
@@ -11,7 +14,8 @@ export const projects = [
   {
     title: "Cosmatic Backend",
     description:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+      `Developed a RESTful API using Node.js, Express, and MongoDB with modular controllers and routes
+for managing users, products, and students. Tested and validated endpoints using Postman.`,
     image: "/project/Node_api.png",
     github: "https://github.com/gthilakshana/cosmatic_backend",
   },
