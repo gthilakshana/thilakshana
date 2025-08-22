@@ -47,7 +47,7 @@ export default function HomeView() {
     return (
         <section
             id="home"
-            className="flex flex-col items-center justify-center md:flex-row md:justify-between bg-black px-6 md:px-16 py-10 min-h-screen border-b-2 border-gray-200"
+            className="flex flex-col items-center justify-center md:flex-row md:justify-between bg-gray-800 px-6 md:px-16 py-10 min-h-screen border-b-2 border-gray-200"
         >
 
             <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0 ">
