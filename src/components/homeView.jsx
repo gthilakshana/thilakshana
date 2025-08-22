@@ -21,19 +21,19 @@ export default function HomeView() {
 
     const techIcons = [
         { icon: <FaNodeJs className="text-green-500" />, style: { top: "5%", left: "15%" } },
-        { icon: <SiExpress className="text-gray-700" />, style: { top: "20%", right: "12%" } },
+        { icon: <SiExpress className="text-gray-100" />, style: { top: "20%", right: "12%" } },
         { icon: <FaJava className="text-red-500" />, style: { bottom: "22%", left: "8%" } },
         { icon: <SiFigma className="text-pink-500" />, style: { top: "10%", right: "35%" } },
         { icon: <FaReact className="text-blue-400" />, style: { top: "15%", right: "10%" } },
         { icon: <SiMongodb className="text-green-600" />, style: { bottom: "5%", left: "20%" } },
-        { icon: <SiMysql className="text-blue-700" />, style: { bottom: "12%", right: "20%" } },
+        { icon: <SiMysql className="text-blue-100" />, style: { bottom: "12%", right: "20%" } },
         { icon: <FaHtml5 className="text-orange-600" />, style: { top: "35%", left: "-5%" } },
         { icon: <FaCss3Alt className="text-blue-600" />, style: { top: "40%", right: "-5%" } },
         { icon: <FaBootstrap className="text-purple-600" />, style: { bottom: "30%", right: "5%" } },
         { icon: <SiTailwindcss className="text-sky-400" />, style: { top: "50%", left: "-8%" } },
         { icon: <FaGitAlt className="text-red-600" />, style: { bottom: "10%", left: "-5%" } },
-        { icon: <FaGithub className="text-black" />, style: { top: "60%", right: "5%" } },
-        { icon: <FaLinux className="text-gray-800" />, style: { top: "55%", left: "5%" } },
+        { icon: <FaGithub className="text-white" />, style: { top: "60%", right: "5%" } },
+        { icon: <FaLinux className="text-gray-50" />, style: { top: "55%", left: "5%" } },
         { icon: <FaAws className="text-orange-500" />, style: { bottom: "20%", right: "-5%" } },
     ];
 
@@ -47,21 +47,21 @@ export default function HomeView() {
     return (
         <section
             id="home"
-            className="flex flex-col items-center justify-center md:flex-row md:justify-between bg-gray-50 px-6 md:px-16 py-10 min-h-screen border-b-2 border-gray-200"
+            className="flex flex-col items-center justify-center md:flex-row md:justify-between bg-black px-6 md:px-16 py-10 min-h-screen border-b-2 border-gray-200"
         >
 
             <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0 ">
-                <p className="text-gray-500 text-[20px] font-medium">
+                <p className="text-yellow-500 text-[20px] font-medium">
                     Hey, I'm Gavrawa Thilakshana
                 </p>
 
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mt-2 leading-snug">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-2 leading-snug">
                     <span className="transition-all duration-500 uppercase">
                         {textArray[textIndex]}
                     </span>
                 </h1>
 
-                <p className="text-gray-800 leading-relaxed mb-6 max-w-[1000px] mt-6 mx-auto md:mx-0 ">
+                <p className="text-gray-50 leading-relaxed mb-6 max-w-[1000px] mt-6 mx-auto md:mx-0 ">
                     Enthusiastic MERN Stack Developer with strong expertise in React and Node.js, currently
                     expanding skills in Next.js. Possess a solid foundation in Linux and AWS, with a passion
                     for building clean, responsive, and user-friendly interfaces backed by robust back-end

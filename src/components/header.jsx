@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaBars, FaTimes, FaUser } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import {
@@ -12,6 +12,7 @@ import {
 
 export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState("home");
     const navigate = useNavigate();
 
     const toggleMenu = () => setIsOpen(!isOpen);
@@ -20,6 +21,7 @@ export default function Header() {
         const section = document.getElementById(id);
         if (section) {
             section.scrollIntoView({ behavior: "smooth" });
+            setActiveSection(id);
         }
         setIsOpen(false);
     };
@@ -28,10 +30,36 @@ export default function Header() {
         navigate("/login");
     };
 
+
+    useEffect(() => {
+        const sections = document.querySelectorAll("section[id]");
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        setActiveSection(entry.target.id);
+                    }
+                });
+            },
+            { threshold: 0.6 }
+        );
+
+        sections.forEach((sec) => observer.observe(sec));
+        return () => sections.forEach((sec) => observer.unobserve(sec));
+    }, []);
+
+    const sections = [
+        { name: "home", icon: <FaHome /> },
+        { name: "about", icon: <FaIdCard /> },
+        { name: "resume", icon: <FaUserGraduate /> },
+        { name: "projects", icon: <FaProjectDiagram /> },
+        { name: "skills", icon: <FaTools /> },
+        { name: "contact", icon: <FaEnvelope /> },
+    ];
+
     return (
         <header className="fixed top-0 left-0 w-full z-50 bg-gray-900 shadow-md border-b-2 border-gray-700">
             <div className="w-full mx-auto flex items-center justify-between px-6 md:px-8 py-4">
-
                 <Link to="/">
                     <div className="inline-block rounded-md">
                         <img
@@ -42,30 +70,31 @@ export default function Header() {
                     </div>
                 </Link>
 
+                {/* Desktop Nav */}
+                <nav className="hidden md:flex space-x-4 text-base uppercase items-center justify-end font-medium w-[80%]">
+                    {sections.map((section) => (
+                        <div
+                            key={section.name}
+                            className={`cursor-pointer h-full p- px-4 flex items-center justify-center gap-2 transition-colors duration-300 ${activeSection === section.name
+                                ? "bg-gray-800 text-white"
+                                : "bg-transparent text-white hover:bg-gray-700 hover:text-white"
+                                }`}
+                            onClick={() => handleScroll(section.name)}
+                        >
+                            <span>{section.name.charAt(0).toUpperCase() + section.name.slice(1)}</span>
+                        </div>
 
-                <nav className="hidden md:flex space-x-8 text-base uppercase items-center justify-end font-medium w-[80%]">
-                    {["home", "about", "resume", "projects", "skills", "contact"].map(
-                        (section) => (
-                            <span
-                                key={section}
-                                className="cursor-pointer text-white hover:text-blue-500 transition-colors"
-                                onClick={() => handleScroll(section)}
-                            >
-                                {section.charAt(0).toUpperCase() + section.slice(1)}
-                            </span>
-                        )
-                    )}
+                    ))}
 
-
-                    <span
+                    <div
                         className="p-3 text-white text-2xl hover:text-yellow-500 transition-colors cursor-pointer"
                         onClick={goToLogin}
                     >
                         <FaUser className="text-xl" />
-                    </span>
+                    </div>
                 </nav>
 
-
+                {/* Mobile Menu Button */}
                 <div className="md:hidden flex items-center">
                     <button
                         onClick={toggleMenu}
@@ -76,33 +105,27 @@ export default function Header() {
                 </div>
             </div>
 
-
+            {/* Mobile Sidebar */}
             <div
                 className={`fixed top-0 right-0 h-full w-64 transform transition-transform duration-300 
-            ${isOpen ? "translate-x-0" : "translate-x-full"} 
-           bg-gray-900 text-white shadow-2xl z-[10000]`}
+          ${isOpen ? "translate-x-0" : "translate-x-full"} 
+          bg-gray-900 text-white shadow-2xl z-[10000]`}
             >
-
                 <nav className="flex flex-col mt-6 space-y-2 px-6">
-                    {[
-                        { name: "Home", icon: <FaHome /> },
-                        { name: "About", icon: <FaIdCard /> },
-                        { name: "Resume", icon: <FaUserGraduate /> },
-                        { name: "Projects", icon: <FaProjectDiagram /> },
-                        { name: "Skills", icon: <FaTools /> },
-                        { name: "Contact", icon: <FaEnvelope /> },
-                    ].map((item) => (
+                    {sections.map((section) => (
                         <div
-                            key={item.name}
-                            className="flex items-center gap-4 py-2 px-3 rounded-lg cursor-pointer hover:bg-gray-800 transition-colors"
-                            onClick={() => handleScroll(item.name.toLowerCase())}
+                            key={section.name}
+                            className={`flex items-center gap-4 py-2 px-3 rounded-lg cursor-pointer transition-colors ${activeSection === section.name
+                                ? "bg-gray-700 text-white"
+                                : "hover:bg-gray-800"
+                                }`}
+                            onClick={() => handleScroll(section.name)}
                         >
-                            <span className="text-xl">{item.icon}</span>
-                            <span className="text-md">{item.name}</span>
+                            <span className="text-xl">{section.icon}</span>
+                            <span className="text-md">{section.name.charAt(0).toUpperCase() + section.name.slice(1)}</span>
                         </div>
                     ))}
                 </nav>
-
 
                 <div
                     className="flex items-center gap-4 py-2 px-6 mt-6 cursor-pointer hover:bg-yellow-500 transition-colors absolute bottom-6 w-full"
@@ -114,13 +137,7 @@ export default function Header() {
             </div>
 
 
-            {isOpen && (
-                <div
-                    className="fixed inset-0 "
-                    onClick={toggleMenu}
-                ></div>
-            )}
-
+            {isOpen && <div className="fixed inset-0" onClick={toggleMenu}></div>}
         </header>
     );
 }
