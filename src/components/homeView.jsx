@@ -47,21 +47,21 @@ export default function HomeView() {
     return (
         <section
             id="home"
-            className="flex flex-col items-center justify-center md:flex-row md:justify-between bg-gray-800 px-6 md:px-16 py-10 min-h-screen border-b-2 border-gray-200"
+            className="flex flex-col mt-8 items-center justify-center md:flex-row md:justify-between bg-gray-800 px-6 md:px-16 py-10 min-h-screen border-b-2 border-gray-200"
         >
 
             <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0 ">
-                <p className="text-yellow-500 text-[20px] font-medium">
+                <p className="text-yellow-500 text-[20px] font-medium ">
                     Hey, I'm Gavrawa Thilakshana
                 </p>
 
-                <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-2 leading-snug">
+                <h1 className="text-2xl  md:text-5xl font-bold text-white mt-2 leading-snug bg-gray-900  lg:bg-gray-900 p-4">
                     <span className="transition-all duration-500 uppercase">
                         {textArray[textIndex]}
                     </span>
                 </h1>
 
-                <p className="text-gray-50 leading-relaxed mb-6 max-w-[1000px] mt-6 mx-auto md:mx-0 ">
+                <p className="text-gray-50 leading-relaxed mb-6 max-w-[1000px] mt-6 mx-auto md:mx-0 bg-gray-700 lg:bg-gray-700 p-4">
                     Enthusiastic MERN Stack Developer with strong expertise in React and Node.js, currently
                     expanding skills in Next.js. Possess a solid foundation in Linux and AWS, with a passion
                     for building clean, responsive, and user-friendly interfaces backed by robust back-end
@@ -79,7 +79,7 @@ export default function HomeView() {
                                 href={link.url}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 text-white hover:bg-blue-500 transition"
+                                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 text-white hover:bg-yellow-500 transition"
                             >
                                 {link.icon}
                             </a>
