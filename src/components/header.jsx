@@ -75,7 +75,7 @@ export default function Header() {
                     {sections.map((section) => (
                         <div
                             key={section.name}
-                            className={`cursor-pointer h-full px-3 flex items-center justify-center gap-2 transition-colors duration-300 ${activeSection === section.name
+                            className={`cursor-pointer py-3 px-3 flex items-center justify-center gap-2 transition-colors duration-300 ${activeSection === section.name
                                 ? "bg-gray-800 text-white"
                                 : "bg-transparent text-white hover:bg-gray-700 hover:text-yellow-400"
                                 }`}
