@@ -53,7 +53,7 @@ export default function Resume() {
                                             <p className="text-[14px] lg:text-[16px] text-gray-600">{edu.org}</p>
                                         </div>
                                     </div>
-                                    <span className="text-[10px] lg:text-[12px] text-gray-500 ">{edu.year}</span>
+                                    <span className="text-[10px] font-semibold lg:text-[12px] text-gray-400 ">{edu.year}</span>
                                 </div>
                             ))}
                         </div>
