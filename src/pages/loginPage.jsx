@@ -61,7 +61,7 @@ export default function LoginPage() {
                     className="p-3 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 
                text-gray-900 shadow-lg hover:shadow-xl 
                hover:scale-110 transform transition-all duration-300 
-               focus:outline-none focus:ring-2 focus:ring-yellow-300 cursor-pointer"
+               focus:outline-none focus:ring-2 focus:ring-yellow-300 cursor-pointer animate-bounce"
                 >
                     <FaHome className="text-xl" />
                 </button>
