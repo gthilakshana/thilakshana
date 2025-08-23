@@ -9,9 +9,9 @@ export default function Resume() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const certifications = [
-        { title: "CS50's Introduction to Database with SQL", org: "Harvard University", year: "2023", link: "", img: "CS50_SQL.png" },
-        { title: "CS50's Introduction to Programming with Python", org: "Harvard University", year: "2022", link: "", img: "CS50_Python.png" },
-        { title: "AWSome Day Online Conference", org: "Amazon Web Services (AWS)", year: "2022", link: "", img: "aws.jpg" },
+        { title: "CS50's Introduction to Database with SQL", org: "Harvard University", year: "2025", link: "https://certificates.cs50.io/b6832460-efea-41e4-ac1e-950300e93c1c.pdf?size=letter", img: "CS50_SQL.png" },
+        { title: "CS50's Introduction to Programming with Python", org: "Harvard University", year: "2025", link: "https://certificates.cs50.io/3dbc26fe-3967-4c39-902e-52639810aa77.pdf?size=letter", img: "CS50_Python.png" },
+        { title: "AWSome Day Online Conference", org: "Amazon Web Services (AWS)", year: "2023", link: "", img: "aws.jpg" },
         { title: "Java Programming", org: "Evotech Education", year: "2021", link: "", img: "java_evo.jpg" },
         { title: "Photoshop Basics to Advanced", org: "Kelani External Degree Institute", year: "2021", link: "", img: "photoshop.jpg" },
 

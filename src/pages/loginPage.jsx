@@ -1,59 +1,72 @@
 import { FaUser, FaLock, FaHome } from "react-icons/fa";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function LoginPage() {
     const navigate = useNavigate();
 
     const goHome = () => {
-        navigate("/"); // Navigate back to home
+        navigate("/");
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-50 px-6">
-            <div className="w-full max-w-md bg-white rounded-2xl shadow-lg p-8 space-y-6">
-                <h1 className="text-3xl font-bold text-center text-gray-800">Welcome Back</h1>
-                <p className="text-center text-red-500 font-semibold">
-                    Admin Only
-                </p>
+        <div className="flex items-center justify-center min-h-screen bg-gray-900 px-6 ">
+            <div className="w-full max-w-md bg-gray-700 shadow-lg p-8 space-y-6  ">
 
 
-                <form className="space-y-4">
-                    <div className="flex items-center border border-gray-500  px-3 py-2 focus-within:ring-2 focus-within:ring-blue-500">
-                        <FaUser className="text-gray-400 mr-2" />
+                <div className="flex items-center justify-center h-[100px] w-full">
+                    <Link >
+                        <img
+                            src="logo.png"
+                            alt="Thilakshana Logo"
+                            className="h-[250px]  hover:scale-105 transition-transform duration-300"
+                        />
+                    </Link>
+                </div>
+
+
+
+
+                <form className="space-y-4 mb-[30px]">
+                    <div className="flex items-center border border-gray-50 px-3 py-2 focus-within:ring-2 focus-within:ring-white">
+                        <FaUser className="text-gray-50 mr-2" />
                         <input
                             type="email"
                             placeholder="Email"
-                            className="w-full outline-none text-gray-700"
+                            className="w-full outline-none text-gray-50"
                         />
                     </div>
 
-                    <div className="flex items-center border border-gray-500 px-3 py-2 focus-within:ring-2 focus-within:ring-blue-500">
-                        <FaLock className="text-gray-400 mr-2" />
+                    <div className="flex items-center border border-gray-50 px-3 py-2 focus-within:ring-2 focus-within:ring-white">
+                        <FaLock className="text-gray-50 mr-2" />
                         <input
                             type="password"
                             placeholder="Password"
-                            className="w-full outline-none text-gray-700"
+                            className="w-full outline-none text-gray-50"
                         />
                     </div>
 
                     <button
                         type="submit"
-                        className="w-full bg-gray-300 hover:bg-gray-400 text-gray-800 font-semibold py-2 shadow-md transition"
+                        className="w-full bg-gray-50 hover:bg-gray-100 text-gray-800 font-semibold py-2 shadow-md transition cursor-pointer"
                     >
                         Login
                     </button>
                 </form>
 
-                {/* Back to Home Link */}
-                <div className="text-center mt-4">
-                    <span
-                        onClick={goHome}
-                        className="inline-flex items-center text-gray-600 hover:text-gray-800 cursor-pointer font-medium transition"
-                    >
-                        <FaHome className="mr-2" /> Back to Home
-                    </span>
-                </div>
             </div>
+
+            <div className="flex absolute bottom-6 right-6">
+                <button
+                    onClick={goHome}
+                    className="p-3 rounded-full bg-gradient-to-r from-yellow-400 to-yellow-500 
+               text-gray-900 shadow-lg hover:shadow-xl 
+               hover:scale-110 transform transition-all duration-300 
+               focus:outline-none focus:ring-2 focus:ring-yellow-300 cursor-pointer"
+                >
+                    <FaHome className="text-xl" />
+                </button>
+            </div>
+
         </div>
     );
 }

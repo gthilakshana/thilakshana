@@ -85,6 +85,13 @@ for managing users, products, and students. Tested and validated endpoints using
     image: "/project/spring-boot.png",
     github: "https://github.com/gthilakshana/Springboot-crud",
   },
+  {
+    title: "MI Shop",
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+    image: "/project/php.png",
+    github: "https://github.com/gthilakshana/MI-Shop-App",
+  }
 
    
 ];
