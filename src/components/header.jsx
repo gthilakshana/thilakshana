@@ -65,7 +65,7 @@ export default function Header() {
                         <img
                             src="logo.png"
                             alt="Thilakshana Logo"
-                            className="h-10 sm:h-12 md:h-12 w-[140px] sm:w-[150px] md:w-[220px] object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
+                            className="h-10 sm:h-12 md:h-12 w-[140px] sm:w-[150px] md:w-[220px] object-cover cursor-pointer hover:scale-105 transition-transform duration-300 animate-pulse"
                         />
                     </div>
                 </Link>
@@ -75,9 +75,9 @@ export default function Header() {
                     {sections.map((section) => (
                         <div
                             key={section.name}
-                            className={`cursor-pointer h-full p- px-4 flex items-center justify-center gap-2 transition-colors duration-300 ${activeSection === section.name
+                            className={`cursor-pointer h-full px-3 flex items-center justify-center gap-2 transition-colors duration-300 ${activeSection === section.name
                                 ? "bg-gray-800 text-white"
-                                : "bg-transparent text-white hover:bg-gray-700 hover:text-white"
+                                : "bg-transparent text-white hover:bg-gray-700 hover:text-yellow-500"
                                 }`}
                             onClick={() => handleScroll(section.name)}
                         >
@@ -87,10 +87,10 @@ export default function Header() {
                     ))}
 
                     <div
-                        className="p-3 text-white text-2xl hover:text-yellow-500 transition-colors cursor-pointer"
+                        className="p-2 text-white text-[18px] hover:text-yellow-500 transition-colors cursor-pointer border-2 border-gray-50  rounded-full "
                         onClick={goToLogin}
                     >
-                        <FaUser className="text-xl" />
+                        <FaUser />
                     </div>
                 </nav>
 
@@ -98,7 +98,7 @@ export default function Header() {
                 <div className="md:hidden flex items-center">
                     <button
                         onClick={toggleMenu}
-                        className="text-white text-2xl focus:outline-none"
+                        className="text-white text-1xl focus:outline-none cursor-pointer hover:text-yellow-500 transition-colors"
                     >
                         {isOpen ? <FaTimes /> : <FaBars />}
                     </button>
@@ -115,7 +115,7 @@ export default function Header() {
                     {sections.map((section) => (
                         <div
                             key={section.name}
-                            className={`flex items-center gap-4 py-2 px-3 rounded-lg cursor-pointer transition-colors ${activeSection === section.name
+                            className={`flex items-center gap-4 py-2 px-3 cursor-pointer transition-colors ${activeSection === section.name
                                 ? "bg-gray-700 text-white"
                                 : "hover:bg-gray-800"
                                 }`}
