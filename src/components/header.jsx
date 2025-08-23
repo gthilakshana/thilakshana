@@ -87,7 +87,7 @@ export default function Header() {
                     ))}
 
                     <div
-                        className="p-2 text-white text-[18px] hover:text-yellow-400 transition-colors cursor-pointer border-2 border-gray-50  rounded-full "
+                        className="p-2 text-white text-[18px] hover:text-yellow-400 transition-colors cursor-pointer border-2 border-gray-500 "
                         onClick={goToLogin}
                     >
                         <FaUser />
