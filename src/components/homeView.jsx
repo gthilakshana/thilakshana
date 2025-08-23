@@ -5,6 +5,7 @@ import {
     FaBootstrap, FaGitAlt
 } from "react-icons/fa";
 import { SiMongodb, SiMysql, SiExpress, SiFigma, SiTailwindcss } from "react-icons/si";
+import { FaWhatsapp, FaTelegramPlane, FaFacebookMessenger } from "react-icons/fa";
 
 
 export default function HomeView() {
@@ -116,6 +117,19 @@ export default function HomeView() {
                     })}
 
                 </div>
+            </div>
+
+            <div className="fixed bottom-2 left-2 flex flex-col space-y-4 z-50">
+
+                <button
+                    onClick={() => window.open("https://wa.me/94774571927", "_blank")}
+                    className="flex items-center justify-center w-12 h-12 rounded-full bg-green-500 
+                   text-white shadow-lg hover:scale-110 transform transition duration-300 cursor-pointer"
+                >
+                    <FaWhatsapp className="text-2xl" />
+                </button>
+
+
             </div>
         </section>
     );

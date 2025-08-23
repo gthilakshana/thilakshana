@@ -12,7 +12,7 @@ import { ClimbingBoxLoader } from "react-spinners";
 
 export default function Home() {
     const [showScrollButton, setShowScrollButton] = useState(false);
-    const [loadingSections, setLoadingSections] = useState(true); // <-- fixed here
+    const [loadingSections, setLoadingSections] = useState(true);
     const lastScrollY = useRef(0);
 
 
@@ -70,6 +70,8 @@ export default function Home() {
                     <FaArrowUp />
                 </button>
             )}
+
+
         </div>
     );
 }
