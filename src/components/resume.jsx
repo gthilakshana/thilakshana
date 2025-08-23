@@ -39,8 +39,8 @@ export default function Resume() {
 
                     {/* Education */}
                     <div className="lg:w-1/2">
-                        <h3 className="text-2xl font-semibold text-blue-600 flex items-center gap-2 mb-6 uppercase">
-                            <FaGraduationCap className="text-blue-500" /> Education
+                        <h3 className="text-2xl font-semibold text-yellow-500 flex items-center gap-2 mb-6 uppercase">
+                            <FaGraduationCap className="text-yellow-500" /> Education
                         </h3>
 
                         <div className="space-y-8">
@@ -49,11 +49,11 @@ export default function Resume() {
                                     <div className="flex items-center gap-4">
                                         <img src={edu.img} alt={edu.title} className="w-12 h-12 object-contain rounded" />
                                         <div>
-                                            <h4 className="text-lg font-semibold text-gray-800">{edu.title}</h4>
-                                            <p className="text-gray-600">{edu.org}</p>
+                                            <h4 className="sm:text-md lg:text-lg font-semibold text-gray-800">{edu.title}</h4>
+                                            <p className="text-[14px] lg:text-[16px] text-gray-600">{edu.org}</p>
                                         </div>
                                     </div>
-                                    <span className="text-gray-500 text-[12px]">{edu.year}</span>
+                                    <span className="text-[10px] lg:text-[12px] text-gray-500 ">{edu.year}</span>
                                 </div>
                             ))}
                         </div>
@@ -61,7 +61,7 @@ export default function Resume() {
 
                     {/* Certifications */}
                     <div className="lg:w-1/2">
-                        <h3 className="text-2xl font-semibold text-blue-600 flex items-center gap-2 mb-6 uppercase">
+                        <h3 className="text-2xl font-semibold text-yellow-500 flex items-center gap-2 mb-6 uppercase">
                             Certifications
                         </h3>
 
@@ -71,7 +71,7 @@ export default function Resume() {
                                     key={i}
                                     className="flex justify-between items-center bg-white p-4 rounded-lg shadow hover:shadow-lg transition hover:bg-gray-50 group"
                                 >
-                                    {/* Image - opens zoom modal */}
+
                                     <div
                                         className="relative cursor-pointer"
                                         onClick={() => {
@@ -85,19 +85,19 @@ export default function Resume() {
                                         </div>
                                     </div>
 
-                                    {/* Text - opens link */}
+
                                     <div className="ml-4 flex-1">
-                                        <h4 className="text-lg font-semibold text-gray-800">
+                                        <h4 className="sm:text-md lg:text-lg  font-semibold text-gray-800">
                                             {cert.title}
                                         </h4>
 
-                                        <div className="flex items-center gap-2 text-gray-600">
+                                        <div className="text-[14px] lg:text-[16px] flex items-center gap-2 text-gray-600">
                                             <span>{cert.org}</span>
                                             <a
                                                 href={cert.link}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="text-blue-600 hover:underline transition text-[15px]"
+                                                className="text-[14px] lg:text-[16px] text-blue-600 hover:underline transition "
                                             >
                                                 View Certificate
                                             </a>

@@ -65,7 +65,7 @@ export default function Header() {
                         <img
                             src="logo.png"
                             alt="Thilakshana Logo"
-                            className="h-10 sm:h-12 md:h-12 w-[140px] sm:w-[150px] md:w-[220px] object-cover cursor-pointer hover:scale-105 transition-transform duration-300 animate-pulse"
+                            className="h-10 sm:h-12 md:h-12 w-[140px] sm:w-[150px] md:w-[220px] object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
                         />
                     </div>
                 </Link>
