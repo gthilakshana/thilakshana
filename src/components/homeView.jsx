@@ -80,7 +80,7 @@ export default function HomeView() {
                                 href={link.url}
                                 target="_blank"
                                 rel="noreferrer"
-                                className="w-10 h-10 flex items-center justify-center rounded-full bg-gray-700 text-white hover:bg-yellow-500 transition"
+                                className="w-10 h-10 flex items-center justify-center bg-gray-700 text-white hover:bg-yellow-500 transition"
                             >
                                 {link.icon}
                             </a>
