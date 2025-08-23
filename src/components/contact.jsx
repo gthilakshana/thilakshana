@@ -7,15 +7,14 @@ export default function Contact() {
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mt-1 uppercase">
                     Contact
                 </h2>
-                <p className="text-gray-600 mt-2 text-lg">
-                    I’d love to hear from you! Whether you have a question, project idea,
-                    or just want to say hi — feel free to reach out.
+                <p className="text-gray-600 mt-2 text-medium">
+                    Always open to questions, ideas, or a friendly hello let’s connect
                 </p>
             </div>
 
             {/* Contact Form */}
             <form className="max-w-6xl mx-auto mt-12 bg-white shadow-lg p-10 space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 ">
                     <div>
                         <label className="block text-sm font-medium text-gray-700 mb-1">First Name</label>
                         <input
@@ -67,7 +66,7 @@ export default function Contact() {
                     <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
                     <textarea
                         rows="5"
-                        className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-blue-200 focus:outline-none transition"
+                        className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
                         placeholder="Type your message..."
                     ></textarea>
                 </div>
@@ -77,7 +76,7 @@ export default function Contact() {
                 <div className="text-center">
                     <button
                         type="submit"
-                        className="px-10 py-3 bg-gradient-to-r text-white bg-yellow-500 hover:bg-yellow-600 transition duration-300 cursor-pointer rounded-lg"
+                        className="px-10 py-3 bg-gradient-to-r text-white bg-yellow-400 hover:bg-yellow-500 transition duration-300 cursor-pointer rounded-lg"
                     >
                         Submit
                     </button>

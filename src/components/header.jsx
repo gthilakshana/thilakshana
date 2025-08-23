@@ -77,7 +77,7 @@ export default function Header() {
                             key={section.name}
                             className={`cursor-pointer h-full px-3 flex items-center justify-center gap-2 transition-colors duration-300 ${activeSection === section.name
                                 ? "bg-gray-800 text-white"
-                                : "bg-transparent text-white hover:bg-gray-700 hover:text-yellow-500"
+                                : "bg-transparent text-white hover:bg-gray-700 hover:text-yellow-400"
                                 }`}
                             onClick={() => handleScroll(section.name)}
                         >
@@ -87,7 +87,7 @@ export default function Header() {
                     ))}
 
                     <div
-                        className="p-2 text-white text-[18px] hover:text-yellow-500 transition-colors cursor-pointer border-2 border-gray-50  rounded-full "
+                        className="p-2 text-white text-[18px] hover:text-yellow-400 transition-colors cursor-pointer border-2 border-gray-50  rounded-full "
                         onClick={goToLogin}
                     >
                         <FaUser />
@@ -98,7 +98,7 @@ export default function Header() {
                 <div className="md:hidden flex items-center">
                     <button
                         onClick={toggleMenu}
-                        className="text-white text-1xl focus:outline-none cursor-pointer hover:text-yellow-500 transition-colors"
+                        className="text-white text-1xl focus:outline-none cursor-pointer hover:text-yellow-400 transition-colors"
                     >
                         {isOpen ? <FaTimes /> : <FaBars />}
                     </button>
@@ -128,7 +128,7 @@ export default function Header() {
                 </nav>
 
                 <div
-                    className="flex items-center gap-4 py-2 px-6 mt-6 cursor-pointer hover:bg-yellow-500 transition-colors absolute bottom-6 w-full"
+                    className="flex items-center gap-4 py-2 px-6 mt-6 cursor-pointer hover:bg-yellow-400 transition-colors absolute bottom-6 w-full"
                     onClick={goToLogin}
                 >
                     <FaUser className="text-xl" />
