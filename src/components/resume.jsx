@@ -9,6 +9,7 @@ export default function Resume() {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     const certifications = [
+        // { title: "C++ ", org: "LSEG", year: "2025", link: "", img: "" },
         { title: "CS50's Introduction to Database with SQL", org: "Harvard University", year: "2025", link: "https://certificates.cs50.io/b6832460-efea-41e4-ac1e-950300e93c1c.pdf?size=letter", img: "CS50_SQL.png" },
         { title: "CS50's Introduction to Programming with Python", org: "Harvard University", year: "2025", link: "https://certificates.cs50.io/3dbc26fe-3967-4c39-902e-52639810aa77.pdf?size=letter", img: "CS50_Python.png" },
         { title: "AWSome Day Online Conference", org: "Amazon Web Services (AWS)", year: "2023", link: "", img: "aws.jpg" },
@@ -69,7 +70,7 @@ export default function Resume() {
                             {(showMore ? certifications : certifications.slice(0, 2)).map((cert, i) => (
                                 <div
                                     key={i}
-                                    className="flex justify-between items-center bg-white p-4 rounded-lg shadow hover:shadow-lg transition hover:bg-gray-50 group"
+                                    className="flex justify-between items-center bg-gray-100 p-4 shadow hover:shadow-lg transition hover:bg-gray-50 group"
                                 >
 
                                     <div
@@ -79,8 +80,8 @@ export default function Resume() {
                                             setZoomed(true);
                                         }}
                                     >
-                                        <img src={cert.img} alt={cert.title} className="w-12 h-12 object-contain rounded" />
-                                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition duration-300 rounded">
+                                        <img src={cert.img} alt={cert.title} className="w-12 h-12 object-contain rounded border-2 border-gray-300" />
+                                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 flex items-center justify-center transition duration-300">
                                             <FiSearch className="text-gary-600 text-xl opacity-0 group-hover:opacity-100 transition duration-300" />
                                         </div>
                                     </div>
@@ -97,14 +98,14 @@ export default function Resume() {
                                                 href={cert.link}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="text-[14px] lg:text-[16px] text-blue-600 hover:underline transition "
+                                                className="text-[14px] lg:text-[16px] text-yellow-600 hover:underline transition "
                                             >
-                                                View Certificate
+                                                View
                                             </a>
                                         </div>
                                     </div>
 
-                                    <span className="text-gray-500">{cert.year}</span>
+                                    <span className="text-gray-500 text-[13px]">{cert.year}</span>
                                 </div>
                             ))}
 

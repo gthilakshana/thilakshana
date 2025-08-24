@@ -20,7 +20,7 @@ export default function Contact() {
                         <input
                             type="text"
                             placeholder="First Name"
-                            className="w-full px-5 py-3 border  border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
+                            className="w-full px-5 py-3 border  border-gray-300 focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
                         />
                     </div>
                     <div>
@@ -28,7 +28,7 @@ export default function Contact() {
                         <input
                             type="text"
                             placeholder="Last Name"
-                            className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
+                            className="w-full px-5 py-3 border border-gray-300 focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
                         />
                     </div>
                 </div>
@@ -38,7 +38,7 @@ export default function Contact() {
                         <input
                             type="email"
                             placeholder="Email"
-                            className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
+                            className="w-full px-5 py-3 border border-gray-300 focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
                         />
                     </div>
                     <div>
@@ -46,18 +46,17 @@ export default function Contact() {
                         <input
                             type="text"
                             placeholder="Phone Number"
-                            className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
+                            className="w-full px-5 py-3 border border-gray-300 focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
                         />
                     </div>
                 </div>
 
                 <div>
                     <label className="block text-sm font-medium text-gray-700 mb-1">Choose a Topic</label>
-                    <select className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-200 focus:outline-none transition">
+                    <select className="w-full px-5 py-3 border border-gray-300 focus:ring-2 focus:ring-gray-200 focus:outline-none transition">
                         <option>Select One...</option>
                         <option>Web Development</option>
                         <option>UI/UX Design</option>
-                        <option>Consultation</option>
                         <option>Other</option>
                     </select>
                 </div>
@@ -66,7 +65,7 @@ export default function Contact() {
                     <label className="block text-sm font-medium text-gray-700 mb-1">Message</label>
                     <textarea
                         rows="5"
-                        className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
+                        className="w-full px-5 py-3 border border-gray-300 focus:ring-2 focus:ring-gray-200 focus:outline-none transition"
                         placeholder="Type your message..."
                     ></textarea>
                 </div>
@@ -76,7 +75,7 @@ export default function Contact() {
                 <div className="text-center">
                     <button
                         type="submit"
-                        className="px-10 py-3 bg-gradient-to-r text-white bg-yellow-400 hover:bg-yellow-500 transition duration-300 cursor-pointer rounded-lg"
+                        className="px-10 py-3 bg-gradient-to-r text-white bg-yellow-400 hover:bg-yellow-500 transition duration-300 cursor-pointer"
                     >
                         Submit
                     </button>

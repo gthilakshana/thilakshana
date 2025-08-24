@@ -77,7 +77,7 @@ export default function Header() {
                             key={section.name}
                             className={`cursor-pointer py-3 px-3 flex items-center justify-center gap-2 transition-colors duration-300 ${activeSection === section.name
                                 ? "bg-gray-800 text-white"
-                                : "bg-transparent text-white hover:bg-gray-700 hover:text-yellow-400"
+                                : "bg-transparent text-white hover:bg-gray-700 hover:text-yellow-300"
                                 }`}
                             onClick={() => handleScroll(section.name)}
                         >
@@ -87,7 +87,7 @@ export default function Header() {
                     ))}
 
                     <div
-                        className="p-2 text-white text-[18px] hover:text-yellow-400 transition-colors cursor-pointer border-2 border-gray-500 "
+                        className="p-2 text-white text-[18px] hover:text-yellow-300 transition-colors cursor-pointer border-2 border-gray-500 "
                         onClick={goToLogin}
                     >
                         <FaUser />

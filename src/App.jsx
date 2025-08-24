@@ -12,11 +12,13 @@ function App() {
     <>
 
       <BrowserRouter>
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/login' element={<LoginPage />} />
-          <Route path='/*' element={<NotFound />} />
-        </Routes>
+        <div className='w-full h-[100vh]'>
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/login' element={<LoginPage />} />
+            <Route path='/*' element={<NotFound />} />
+          </Routes>
+        </div>
       </BrowserRouter>
 
     </>

@@ -1,22 +1,31 @@
-import { FaNodeJs, FaReact, FaJava, FaDatabase, FaFigma, FaLinux, FaHtml5, FaCss3Alt, FaBootstrap, FaGitAlt, FaAws } from "react-icons/fa";
-import { SiExpress, SiMongodb, SiMysql, SiTailwindcss } from "react-icons/si";
+import { FaNodeJs, FaJava, FaReact, FaFigma, FaLinux, FaHtml5, FaCss3Alt, FaBootstrap, FaGitAlt, FaAws, FaPython, FaCuttlefish } from "react-icons/fa";
+import { SiExpress, SiMongodb, SiMysql, SiTailwindcss, SiPostman, SiDocker, SiJenkins, SiUbuntu, SiCentos } from "react-icons/si";
 
 export default function Skills() {
     const skills = [
         { icon: <FaNodeJs />, name: "Node.js", color: "text-green-500", bg: "bg-green-100" },
         { icon: <SiExpress />, name: "Express.js", color: "text-gray-700", bg: "bg-gray-200" },
         { icon: <FaJava />, name: "Java", color: "text-red-600", bg: "bg-red-100" },
+        { icon: <FaCuttlefish />, name: "C++", color: "text-indigo-600", bg: "bg-indigo-100" },
+        { icon: <FaPython />, name: "Python", color: "text-yellow-500", bg: "bg-yellow-100" },
         { icon: <FaReact />, name: "React.js", color: "text-blue-500", bg: "bg-blue-100" },
         { icon: <SiMongodb />, name: "MongoDB", color: "text-green-600", bg: "bg-green-100" },
         { icon: <SiMysql />, name: "MySQL", color: "text-blue-700", bg: "bg-blue-100" },
         { icon: <FaFigma />, name: "UI/UX, Figma", color: "text-pink-500", bg: "bg-pink-100" },
         { icon: <FaLinux />, name: "Linux", color: "text-gray-900", bg: "bg-gray-100" },
+        { icon: <SiUbuntu />, name: "Ubuntu", color: "text-orange-500", bg: "bg-orange-100" },
+        { icon: <SiCentos />, name: "CentOS", color: "text-purple-700", bg: "bg-purple-100" },
         { icon: <FaHtml5 />, name: "HTML", color: "text-orange-600", bg: "bg-orange-100" },
         { icon: <FaCss3Alt />, name: "CSS", color: "text-blue-600", bg: "bg-blue-100" },
         { icon: <FaBootstrap />, name: "Bootstrap", color: "text-purple-600", bg: "bg-purple-100" },
         { icon: <SiTailwindcss />, name: "Tailwind CSS", color: "text-teal-500", bg: "bg-teal-100" },
         { icon: <FaGitAlt />, name: "Git, GitHub", color: "text-red-500", bg: "bg-red-100" },
         { icon: <FaAws />, name: "AWS", color: "text-orange-500", bg: "bg-orange-100" },
+        { icon: <SiPostman />, name: "Postman", color: "text-orange-600", bg: "bg-orange-100" },
+        { icon: <SiDocker />, name: "Docker", color: "text-blue-500", bg: "bg-blue-100" },
+        { icon: <SiJenkins />, name: "Jenkins", color: "text-red-700", bg: "bg-red-100" },
+
+
     ];
 
     return (

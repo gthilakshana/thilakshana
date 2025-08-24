@@ -10,12 +10,12 @@ export default function Footer() {
                 </p>
 
                 {/* Right Side - Social Icons */}
-                <div className="flex space-x-6 mt-4 md:mt-0 text-xl">
+                <div className="flex space-x-3 mt-4 md:mt-0 text-xl">
                     <a
                         href="https://github.com/gthilakshana"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-white transition"
+                        className="w-10 h-10 flex items-center justify-center bg-gray-700 text-white hover:bg-yellow-500 transition"
                     >
                         <FaGithub />
                     </a>
@@ -23,13 +23,13 @@ export default function Footer() {
                         href="https://linkedin.com/in/gavrawa-thilakshana"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-white transition"
+                        className="w-10 h-10 flex items-center justify-center bg-gray-700 text-white hover:bg-yellow-500 transition"
                     >
                         <FaLinkedin />
                     </a>
                     <a
                         href="mailto:gavrawavanniarachchi@gmail.com"
-                        className="hover:text-white transition"
+                        className="w-10 h-10 flex items-center justify-center bg-gray-700 text-white hover:bg-yellow-500 transition"
                     >
                         <FaEnvelope />
                     </a>
@@ -45,7 +45,7 @@ export default function Footer() {
                         href="https://instagram.com/gavrawa_thilakshana_"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="hover:text-white transition"
+                        className="w-10 h-10 flex items-center justify-center bg-gray-700 text-white hover:bg-yellow-500 transition"
                     >
                         <FaInstagram />
                     </a>

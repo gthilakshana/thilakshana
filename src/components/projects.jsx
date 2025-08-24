@@ -24,7 +24,7 @@ export default function Projects() {
                     href="https://github.com/gthilakshana"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="px-4 py-1.5 sm:px-5 sm:py-2 rounded-lg bg-gray-200 text-gray-900 font-medium shadow-md hover:bg-gray-300 hover:scale-105 active:scale-95 transition-transform duration-300 ease-in-out flex items-center gap-1 sm:gap-2 text-sm sm:text-base"
+                    className="px-4 py-1.5 sm:px-5 sm:py-2 bg-gray-100 text-gray-900 font-medium shadow-md hover:bg-gray-200 hover:scale-105 active:scale-95 transition-transform duration-300 ease-in-out flex items-center gap-1 sm:gap-2 text-sm sm:text-base"
                 >
                     <FaGithub className="text-sm sm:text-lg" />
                     GitHub
