@@ -50,7 +50,7 @@ export default function Resume() {
                                     <div className="flex items-center gap-4">
                                         <img src={edu.img} alt={edu.title} className="w-12 h-12 object-contain rounded" />
                                         <div>
-                                            <div className="flex items-center gap-2 w-[250px] lg:w-[400px]">
+                                            <div className="flex items-center gap-2 w-[210px] lg:w-[400px]">
                                                 <h4 className="sm:text-md lg:text-lg font-semibold text-gray-800">{edu.title}</h4>
                                             </div>
                                             <p className="text-[14px] lg:text-[16px] text-gray-600">{edu.org}</p>
