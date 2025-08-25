@@ -11,19 +11,27 @@ export const projects = [
     github: "https://github.com/gthilakshana/frontend_cbc",
     demo: "https://frontend-cbc.vercel.app/",
   },
+ {
+    title: "Organic Cosmetics",
+    description: "Currently developing an organic cosmetics store with a React.js, Vite, and Tailwind CSS frontend, and a Node.js, Express, MongoDB backend. Frontend deployed on Vercel for smooth performance and scalability",
+    image: "/project/organic.png", 
+    github: "https://github.com/gthilakshana/cosmatic-frontend",
+    demo: "https://cosmatic-frontend.vercel.app/",
+ },
   {
+    title: "CSS Animation Project",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+    video: "/project/css.mp4", 
+    github: "https://github.com/gthilakshana/CSS-Animation",
+  },
+
+   {
     title: "Cosmatic Backend",
     description:
       `Developed a RESTful API using Node.js, Express, and MongoDB with modular controllers and routes
 for managing users, products, and students. Tested and validated endpoints using Postman.`,
     image: "/project/Node_api.png",
     github: "https://github.com/gthilakshana/cosmatic_backend",
-  },
-  {
-    title: "CSS Animation Project",
-    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
-    video: "/project/css.mp4", 
-    github: "https://github.com/gthilakshana/CSS-Animation",
   },
     {
     title: "Mr_Kottu-AndroidApp",

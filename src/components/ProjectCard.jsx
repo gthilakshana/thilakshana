@@ -18,7 +18,7 @@ export default function ProjectCard({ project }) {
                 <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-56 object-cover shadow-md transition p-2"
+                    className="w-full h-56 object-cover shadow-md transition p-2 "
                 />
             )}
 
@@ -26,7 +26,7 @@ export default function ProjectCard({ project }) {
 
             <div className="p-6">
                 <h3 className="text-xl font-semibold text-gray-900">{project.title}</h3>
-                <p className="text-gray-600 mt-2">{project.description}</p>
+                <p className="text-gray-600 mt-2 ">{project.description}</p>
 
                 <div className="mt-4 flex items-center gap-4 ">
                     {project.github && (
@@ -34,7 +34,7 @@ export default function ProjectCard({ project }) {
                             href={project.github}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center text-sm font-medium text-gray-900 hover:text-blue-600 transition "
+                            className="flex items-center text-sm font-medium text-gray-900 hover:text-yellow-500 transition "
                         >
                             <FaGithub className="mr-2 " /> GitHub
                         </a>
