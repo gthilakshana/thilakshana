@@ -29,7 +29,7 @@ export default function Skills() {
     ];
 
     return (
-        <section id="skills" className="bg-gray-100 py-16 px-6 md:px-16 border-b-2 border-gray-200">
+        <section id='skills' className="bg-gray-100 py-16 px-6 md:px-16 border-b-2 border-gray-200">
             <div className="max-w-6xl mx-auto text-center">
                 <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 text-start uppercase">
                     Skills

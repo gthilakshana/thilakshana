@@ -48,7 +48,7 @@ export default function HomeView() {
     return (
         <section
             id="home"
-            className="flex flex-col mt-8 items-center justify-center md:flex-row md:justify-between bg-gray-800 px-6 md:px-16 py-10 min-h-screen border-b-2 border-gray-200"
+            className="flex flex-col mt-8 items-center justify-center md:flex-row md:justify-between bg-gray-900 px-6 md:px-16 py-10 min-h-screen border-b-2 border-gray-200"
         >
 
             <div className="w-full md:w-1/2 text-center md:text-left mb-8 md:mb-0 ">
@@ -56,7 +56,7 @@ export default function HomeView() {
                     Hey, I'm Gavrawa Thilakshana
                 </p>
 
-                <h1 className="text-2xl  md:text-5xl font-bold text-white mt-2 leading-snug bg-gray-900  lg:bg-gray-900 p-4">
+                <h1 className="text-2xl  md:text-5xl font-bold text-white mt-2 leading-snug  p-4">
                     <span className="transition-all duration-500 uppercase">
                         {textArray[textIndex]}
                     </span>

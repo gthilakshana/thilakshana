@@ -14,6 +14,7 @@ export default function Header() {
     const [isOpen, setIsOpen] = useState(false);
     const [activeSection, setActiveSection] = useState("home");
     const navigate = useNavigate();
+    // const [scrolled, setScrolled] = useState(false);
 
     const toggleMenu = () => setIsOpen(!isOpen);
 
@@ -48,6 +49,20 @@ export default function Header() {
         return () => sections.forEach((sec) => observer.unobserve(sec));
     }, []);
 
+
+    // useEffect(() => {
+    //     const handleScrollBg = () => {
+    //         if (window.scrollY > 50) {
+    //             setScrolled(true);
+    //         } else {
+    //             setScrolled(false);
+    //         }
+    //     };
+
+    //     window.addEventListener("scroll", handleScrollBg);
+    //     return () => window.removeEventListener("scroll", handleScrollBg);
+    // }, []);
+
     const sections = [
         { name: "home", icon: <FaHome /> },
         { name: "about", icon: <FaIdCard /> },
@@ -58,7 +73,7 @@ export default function Header() {
     ];
 
     return (
-        <header className="fixed top-0 left-0 w-full z-50 bg-gray-900 shadow-md border-b-2 border-gray-700">
+        <header className="fixed top-0 left-0 w-full z-50 bg-gray-900 shadow-md border-b-2 border-gray-700  ">
             <div className="w-full mx-auto flex items-center justify-between px-6 md:px-8 py-4">
                 <Link to="/">
                     <div className="inline-block rounded-md">
@@ -105,11 +120,11 @@ export default function Header() {
                 </div>
             </div>
 
-            {/* Mobile Sidebar */}
+
             <div
                 className={`fixed top-0 right-0 h-full w-64 transform transition-transform duration-300 
           ${isOpen ? "translate-x-0" : "translate-x-full"} 
-          bg-gray-900 text-white shadow-2xl z-[10000]`}
+          bg-gray-900 text-white shadow-2xl z-[10000] md:hidden`}
             >
                 <nav className="flex flex-col mt-6 space-y-2 px-6">
                     {sections.map((section) => (

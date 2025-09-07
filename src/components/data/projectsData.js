@@ -1,6 +1,13 @@
 
 export const projects = [
   {
+    title: "Portfolio Web Next.js",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse varius enim in eros elementum tristique.",
+    image: "/project/portfolio.png",
+    github: "https://github.com/gthilakshana/my-portfolio",
+    demo: "https://my-portfolio-eta-wine-16.vercel.app/",
+  },
+  {
     title: "Mahee Fashion Store",
     description: `Built a full-stack e-commerce web application with user and admin dashboards, authentication,
     product management, and advanced search. The frontend was developed with React.js, Vite, and
@@ -11,6 +18,7 @@ export const projects = [
     github: "https://github.com/gthilakshana/frontend_cbc",
     demo: "https://frontend-cbc.vercel.app/",
   },
+  
  {
     title: "Organic Cosmetics",
     description: "Currently developing an organic cosmetics store with a React.js, Vite, and Tailwind CSS frontend, and a Node.js, Express, MongoDB backend. Frontend deployed on Vercel for smooth performance and scalability",
