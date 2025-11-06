@@ -53,6 +53,9 @@ export default function Header() {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
+
+
+
     return (
         <header
             className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/20 border-b border-white/30 shadow-sm transition-colors duration-300 ${isTopSection ? "text-white" : "text-gray-900"
