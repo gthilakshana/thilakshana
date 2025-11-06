@@ -19,7 +19,7 @@ export default function GitHubContributions() {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
                 viewport={{ once: true }}
-                className="text-center text-gray-600 mt-3 mb-10 text-base md:text-lg px-6"
+                className="text-center text-gray-600 mt-3 mb-10  px-6"
             >
                 A visual timeline of my daily coding activity on GitHub.
             </motion.p>

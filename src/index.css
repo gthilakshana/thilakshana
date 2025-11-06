@@ -4,6 +4,6 @@
 
 @layer base {
   body {
-    @apply  text-white font-[Poppins] ;
+    @apply  text-white font-[Poppins] text-sm md:text-base; ;
   }
 }

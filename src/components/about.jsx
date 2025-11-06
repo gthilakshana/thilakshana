@@ -100,7 +100,7 @@ export default function About() {
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: 0.6, duration: 0.7 }}
                     >
-                        Hi, I’m <span className="font-semibold text-black">Gavrawa Thilakshana</span>,
+                        Hi, I’m <span className="font-semibold  text-black">Gavrawa Thilakshana</span>,
                         a passionate <span className="font-semibold text-yellow-600">Full Stack Developer</span> and
                         <span className="font-semibold text-yellow-600"> UI/UX Designer</span> dedicated to creating
                         modern, responsive, and user-friendly web applications. I enjoy transforming complex ideas into

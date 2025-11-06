@@ -100,7 +100,7 @@ export default function Skills() {
                 </h2>
 
                 <motion.p
-                    className="text-gray-600 mb-14 max-w-2xl mx-auto text-lg"
+                    className="text-gray-600 mb-14 max-w-2xl mx-auto "
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.2, duration: 0.6 }}
