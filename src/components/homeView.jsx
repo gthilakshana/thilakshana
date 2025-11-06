@@ -27,7 +27,7 @@ export default function HomeView() {
     return (
         <section
             id="home"
-            className="relative flex flex-col-reverse md:flex-row items-center bg-white justify-between px-6 md:px-16 py-30 min-h-screen overflow-hidden"
+            className="relative flex flex-col-reverse md:flex-row items-center bg-white justify-between px-6 md:px-16 py-30 lg:h-screen overflow-hidden"
         >
             {/* Background Video */}
             <video
