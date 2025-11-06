@@ -45,8 +45,8 @@ export default function Home() {
 
 
             {loadingSections ? (
-                <div className="flex-1 flex items-center justify-center bg-white">
-                    <ClimbingBoxLoader color="#FACC3E" loading={loadingSections} size={15} />
+                <div className="flex-1 flex items-center justify-center bg-gray-50">
+                    <ClimbingBoxLoader color="#222222" loading={loadingSections} size={15} />
                 </div>
             ) : (
                 <>
@@ -64,7 +64,7 @@ export default function Home() {
             {showScrollButton && (
                 <button
                     onClick={scrollToTop}
-                    className="fixed bottom-6 right-6 z-50 cursor-pointer bg-gray-800 hover:bg-gray-900 text-white p-3 rounded-full shadow-lg transition animate-bounce"
+                    className="fixed bottom-0 right-6 z-50 cursor-pointer bg-yellow-600 hover:bg-yellow-700 text-white p-3  shadow-lg transition "
                     aria-label="Scroll to top"
                 >
                     <FaArrowUp />
