@@ -7,7 +7,7 @@ import './App.css';
 function App() {
   return (
     <HashRouter>
-      <div className='w-full h-[100vh]'>
+      <div className='w-full h-[100vh] '>
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/login' element={<LoginPage />} />
