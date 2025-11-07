@@ -61,7 +61,7 @@ export default function Header() {
             className={`fixed top-0 left-0 w-full z-50 backdrop-blur-md bg-white/20 border-b border-white/30 shadow-sm transition-colors duration-300 ${isTopSection ? "text-white" : "text-gray-900"
                 }`}
         >
-            <div className="w-full mx-auto flex items-center justify-between px-6 md:px-8 py-4">
+            <div className="w-full mx-auto flex items-center justify-between px-6 lg:px-8 py-4">
 
 
                 <div className="inline-block rounded-md">
@@ -87,7 +87,7 @@ export default function Header() {
 
 
                 {/* Desktop Nav */}
-                <nav className="hidden md:flex space-x-4 text-sm uppercase items-center justify-end font-medium w-[80%]">
+                <nav className="hidden lg:flex space-x-4 text-sm uppercase items-center justify-end font-medium w-[80%]">
                     {sections.map((item) => (
                         <div
                             key={item.id}
@@ -103,7 +103,7 @@ export default function Header() {
                 </nav>
 
                 {/* Mobile Menu Button */}
-                <div className="md:hidden flex items-center">
+                <div className="lg:hidden flex items-center">
                     <button
                         onClick={toggleMenu}
                         className="text-2xl focus:outline-none cursor-pointer hover:text-yellow-400 transition-colors"
@@ -116,7 +116,7 @@ export default function Header() {
             {/* Mobile Menu */}
             <div
                 className={`fixed top-0 left-0 h-screen w-64 transform transition-transform duration-300 ${isOpen ? "translate-x-0" : "-translate-x-full"
-                    } bg-white/100 text-gray-900 shadow-2xl z-[10000] md:hidden`}
+                    } bg-white/100 text-gray-900 shadow-2xl z-[10000] lg:hidden`}
             >
                 <nav className="flex flex-col flex-grow px-6 py-5 space-y-2 overflow-y-auto">
                     {sections.map((item) => (

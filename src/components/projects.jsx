@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { FaCode, FaGithub, FaBehance } from "react-icons/fa";
 import { ChevronDown, ChevronUp } from "lucide-react";
-import { FaArrowRight } from "react-icons/fa6";
 import ProjectCard from "./ProjectCard.jsx";
 import { projects } from "../components/data/projectsData.js";
 import GitHubContributions from "./gitHubContributions.jsx";
@@ -75,36 +73,7 @@ export default function Projects() {
 
                 </div>
 
-                {/* Social Buttons */}
-                <div className="flex flex-wrap gap-3">
-                    {/* GitHub */}
-                    <a
-                        href="https://github.com/gthilakshana"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group px-5 py-2 bg-gray-900 text-white text-xs 
-                        rounded-full shadow-md hover:bg-gray-800 hover:scale-[1.03] 
-                        active:scale-95 transition-all duration-300 flex items-center gap-2"
-                    >
-                        <FaGithub className="text-base group-hover:text-yellow-400 transition" />
-                        GitHub
-                        <FaArrowRight className="text-sm group-hover:translate-x-1 transition" />
-                    </a>
 
-                    {/* Behance */}
-                    <a
-                        href="#"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="group px-5 py-2 bg-[#1769ff] text-white text-xs 
-                        rounded-full shadow-md hover:bg-[#0f55d1] hover:scale-[1.03] 
-                        active:scale-95 transition-all duration-300 flex items-center gap-2"
-                    >
-                        <FaBehance className="text-lg group-hover:text-yellow-200 transition" />
-                        Behance
-                        <FaArrowRight className="text-sm group-hover:translate-x-1 transition" />
-                    </a>
-                </div>
             </motion.div>
 
             {/* Project Cards */}
@@ -154,9 +123,12 @@ export default function Projects() {
             )}
 
             {/* GitHub Contributions Section */}
-            <div className="mt-20">
+            <div className="mt-10">
                 <GitHubContributions />
             </div>
+
+
+
         </section>
     );
 }

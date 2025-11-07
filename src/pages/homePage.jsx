@@ -10,6 +10,7 @@ import Projects from "../components/projects";
 import Skills from "../components/skills";
 import HomeView from "../components/homeView";
 
+
 export default function Home() {
     const [showScrollButton, setShowScrollButton] = useState(false);
     const [loadingSections, setLoadingSections] = useState(true);
@@ -40,13 +41,17 @@ export default function Home() {
 
 
             {loadingSections ? (
-                <div className="flex items-center justify-center h-screen bg-gray-50">
+                <div className="flex items-center justify-center h-screen 
+    backdrop-blur-xl backdrop-saturate-150 bg-white/20">
+
                     <img
                         src="logoP.png"
                         alt="Thilakshana Logo"
-                        className="logo-color-change h-9 md:h-12 w-[155px] sm:w-[150px] md:w-[220px] object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
+                        className="logo-color-change h-9 md:h-14 w-[185px] md:w-[280px] 
+        object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
                     />
                 </div>
+
             ) : (
                 <>
                     <Header />

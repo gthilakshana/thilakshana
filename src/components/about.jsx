@@ -59,7 +59,7 @@ export default function About() {
 
 
             <motion.div
-                className="max-w-full mx-auto grid md:grid-cols-2 gap-2 items-center "
+                className="max-w-full mx-auto grid lg:grid-cols-2 gap-2 items-center "
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: "easeOut" }}
@@ -78,7 +78,7 @@ export default function About() {
                     <motion.img
                         src="/profile.png"
                         alt="Profile"
-                        className="w-40 sm:w-60 md:w-90 rounded-xl object-cover "
+                        className="w-40 sm:w-60 lg:w-90 rounded-xl object-cover "
                         whileHover={{ scale: 1.05, rotate: 1 }}
                         transition={{ type: "spring", stiffness: 150 }}
                     />
@@ -86,7 +86,7 @@ export default function About() {
 
                 {/* Right Side - Text */}
                 <motion.div
-                    className="text-center md:text-left mt-10 md:mt-0"
+                    className="text-center lg:text-left mt-10 lg:mt-0"
                     initial={{ opacity: 0, x: 100 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.8, delay: 0.4 }}

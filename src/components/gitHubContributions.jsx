@@ -1,6 +1,7 @@
 import GitHubCalendar from "react-github-calendar";
 import { motion } from "framer-motion";
 
+
 export default function GitHubContributions() {
     return (
         <section id="github" className="py-20 bg-gradient-to-b from-gray-50 to-white">
@@ -49,6 +50,8 @@ export default function GitHubContributions() {
                     />
                 </div>
             </motion.div>
+
+
         </section>
     );
 }

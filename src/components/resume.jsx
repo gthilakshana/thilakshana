@@ -120,11 +120,11 @@ export default function Resume() {
     return (
         <section
             id="resume"
-            className="bg-gray-50 to-white text-gray-900 py-20 px-6 md:px-16 font-inter border-b border-gray-200"
+            className="bg-gray-50 to-white text-gray-900 py-20 px-6 lg:px-16 font-inter border-b border-gray-200"
         >
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
-                <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-10 text-center uppercase text-gray-800">
+                <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight mb-10 text-center uppercase text-gray-800">
                     {displayedText}
                     <span className="animate-blink">|</span>
                     <style jsx>{`
@@ -153,7 +153,7 @@ export default function Resume() {
                         <Briefcase className="text-yellow-600 w-7 h-7" /> Experience
                     </h3>
 
-                    <div className="grid md:grid-cols-2 gap-8">
+                    <div className="grid lg:grid-cols-2 gap-8">
                         {experiences.map((exp, i) => (
                             <motion.div
                                 key={i}
@@ -163,10 +163,10 @@ export default function Resume() {
                                 transition={{ duration: 0.4, delay: i * 0.1 }}
                                 viewport={{ once: true }}
                             >
-                                <h4 className="text-lg md:text-xl font-bold text-gray-800">{exp.role}</h4>
-                                <p className="text-yellow-600 text-sm md:text-base font-semibold">{exp.company}</p>
+                                <h4 className="text-lg lg:text-xl font-bold text-gray-800">{exp.role}</h4>
+                                <p className="text-yellow-600 text-sm lg:text-base font-semibold">{exp.company}</p>
                                 <p className="text-sm text-gray-500 mb-3">{exp.period}</p>
-                                <p className="text-gray-700 text-sm md:text-base leading-relaxed">{exp.desc}</p>
+                                <p className="text-gray-700 text-sm lg:text-base leading-relaxed">{exp.desc}</p>
                             </motion.div>
                         ))}
                     </div>
@@ -203,10 +203,10 @@ export default function Resume() {
                                         />
                                         <div>
                                             <h4 className=" font-semibold text-sm md:text-base text-gray-800">{edu.title}</h4>
-                                            <p className="text-xs md:text-sm text-gray-600">{edu.org}</p>
+                                            <p className="text-xs lg:text-sm text-gray-600">{edu.org}</p>
                                         </div>
                                     </div>
-                                    <span className="text-xs md:text-sm text-gray-400 font-medium">{edu.year}</span>
+                                    <span className="text-xs lg:text-sm text-gray-400 font-medium">{edu.year}</span>
                                 </motion.div>
                             ))}
                         </div>
@@ -252,9 +252,9 @@ export default function Resume() {
                                     </div>
 
                                     <div className="ml-4 flex-1">
-                                        <h4 className=" font-semibold text-sm md:text-base text-gray-800">{cert.title}</h4>
+                                        <h4 className=" font-semibold text-sm lg:text-base text-gray-800">{cert.title}</h4>
                                         <div className="text-sm flex items-center gap-2 text-gray-600">
-                                            <span className="text-xs md:text-sm">{cert.org}</span>
+                                            <span className="text-xs lg:text-sm">{cert.org}</span>
                                             {cert.link && (
                                                 <a
                                                     href={cert.link}
@@ -267,7 +267,7 @@ export default function Resume() {
                                             )}
                                         </div>
                                     </div>
-                                    <span className="text-gray-500 text-xs md:text-sm">{cert.year}</span>
+                                    <span className="text-gray-500 text-xs lg:text-sm">{cert.year}</span>
                                 </motion.div>
                             ))}
                         </div>
