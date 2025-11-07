@@ -11,7 +11,7 @@ export default function Projects() {
     const displayedProjects = showMore ? projects : projects.slice(0, initialCount);
 
     const text =
-        "A selection of my recent development work, including full-stack apps, UI/UX projects, and experimental builds.";
+        "A selection of my recent development work...";
 
     const [displayedText, setDisplayedText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
