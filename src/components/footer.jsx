@@ -7,60 +7,47 @@ import {
 
 export default function Footer() {
     return (
-        <footer className="bg-gradient-to-r from-gray-50 via-white to-gray-50 text-gray-700 border-t border-gray-200 py-10">
-            <div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
+        <footer className="bg-gray-900 text-gray-300 py-10 border-t border-gray-800">
+            <div className="max-w-6xl mx-auto px-6 flex flex-col items-center space-y-6">
 
-
-
-
-
-                {/* Right Side - Social Icons */}
-                <div className="flex space-x-4">
+                {/* Social Icons */}
+                <div className="flex items-center gap-6">
                     <a
                         href="https://github.com/gthilakshana"
                         target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-9 h-9 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-200 text-gray-600 hover:text-yellow-500 hover:shadow-md transition-all duration-300"
+                        className="text-gray-300 hover:text-yellow-400 text-2xl transition duration-300 hover:scale-110"
                     >
-                        <FaGithub size={18} />
+                        <FaGithub />
                     </a>
 
                     <a
                         href="https://linkedin.com/in/gavrawa-thilakshana"
                         target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-9 h-9 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-200 text-gray-600 hover:text-yellow-500 hover:shadow-md transition-all duration-300"
+                        className="text-gray-300 hover:text-yellow-400 text-2xl transition duration-300 hover:scale-110"
                     >
-                        <FaLinkedin size={18} />
+                        <FaLinkedin />
                     </a>
 
                     <a
-                        href="mailto:gavrawavanniarachchi@gmail.com"
-                        className="w-9 h-9 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-200 text-gray-600 hover:text-yellow-500 hover:shadow-md transition-all duration-300"
+                        href="gavrawavanniarachchi@gmail.com"
+                        className="text-gray-300 hover:text-yellow-400 text-2xl transition duration-300 hover:scale-110"
                     >
-                        <FaEnvelope size={18} />
+                        <FaEnvelope />
                     </a>
 
-                    <a
-                        href="https://instagram.com/gavrawa_thilakshana_"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-9 h-9 flex items-center justify-center rounded-full bg-white shadow-sm border border-gray-200 text-gray-600 hover:text-yellow-500 hover:shadow-md transition-all duration-300"
-                    >
-                        <FaInstagram size={18} />
-                    </a>
+
                 </div>
 
+                {/* Divider Line */}
+                <div className="w-full border-t border-gray-800"></div>
 
-
-
-                {/* Left Side - Copyright */}
-                <p className="text-xs text-gray-500 text-center md:text-left">
+                {/* Copyright */}
+                <p className="text-xs text-gray-400 text-center">
                     © {new Date().getFullYear()}{" "}
-                    <span className="font-semibold text-gray-800 hover:text-yellow-500">
+                    <span className="font-semibold text-gray-100 hover:text-yellow-400 transition">
                         Gavrawa Thilakshana
                     </span>{" "}
-                    — All Rights Reserved
+                    — All Rights Reserved.
                 </p>
             </div>
         </footer>

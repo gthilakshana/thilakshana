@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaCode, FaGithub, FaBehance } from "react-icons/fa";
 import { ChevronDown, ChevronUp } from "lucide-react";
@@ -11,6 +11,33 @@ export default function Projects() {
     const [showMore, setShowMore] = useState(false);
     const initialCount = 3;
     const displayedProjects = showMore ? projects : projects.slice(0, initialCount);
+
+    const text =
+        "A selection of my recent development work, including full-stack apps, UI/UX projects, and experimental builds.";
+
+    const [displayedText, setDisplayedText] = useState("");
+    const [isDeleting, setIsDeleting] = useState(false);
+    const [index, setIndex] = useState(0);
+
+    useEffect(() => {
+        const speed = isDeleting ? 30 : 50;
+
+        const typingEffect = setTimeout(() => {
+            if (!isDeleting && index < text.length) {
+                setDisplayedText(text.substring(0, index + 1));
+                setIndex(index + 1);
+            } else if (isDeleting && index > 0) {
+                setDisplayedText(text.substring(0, index - 1));
+                setIndex(index - 1);
+            } else if (index === text.length) {
+                setTimeout(() => setIsDeleting(true), 1500);
+            } else if (index === 0 && isDeleting) {
+                setIsDeleting(false);
+            }
+        }, speed);
+
+        return () => clearTimeout(typingEffect);
+    }, [index, isDeleting]);
 
     return (
         <section
@@ -31,15 +58,21 @@ export default function Projects() {
                         Recent Projects
                     </p>
 
-                    <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 flex items-center gap-3">
-                        <FaCode className="text-yellow-600 text-2xl" />
+                    <h2 className="text-3xl md:text-4xl font-extrabold flex items-center gap-3 animate-yellow-glow">
                         Featured Work
                     </h2>
 
-                    <p className="text-gray-600 mt-2 text-sm md:text-base max-w-lg">
-                        A selection of my recent development work, including full-stack apps,
-                        UI/UX projects, and experimental builds.
-                    </p>
+
+                    <div className="flex items-start gap-2">
+
+
+
+                        <p className="text-gray-600 text-sm max-w-lg loop-type">
+                            {displayedText}
+                        </p>
+                    </div>
+
+
                 </div>
 
                 {/* Social Buttons */}

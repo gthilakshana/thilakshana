@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { FaLinkedinIn, FaGithub, FaEnvelope, FaWhatsapp } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub, FaEnvelope, FaWhatsapp, FaInstagram, FaFacebook } from "react-icons/fa";
 import { useEffect, useState } from "react";
 
 export default function HomeView() {
@@ -21,7 +21,7 @@ export default function HomeView() {
     const socialLinks = [
         { icon: <FaEnvelope />, url: "mailto:gavrawavanniarachchi@gmail.com" },
         { icon: <FaLinkedinIn />, url: "https://linkedin.com/in/gavrawa-thilakshana" },
-        { icon: <FaGithub />, url: "https://github.com/gthilakshana" },
+        { icon: <FaGithub />, url: "" },
     ];
 
     return (
@@ -128,20 +128,47 @@ export default function HomeView() {
                 </motion.div>
             </div>
 
-            {/* WhatsApp Floating Button */}
-            <motion.div
-                className="fixed bottom-5 left-5 flex flex-col space-y-4 z-50"
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 1, duration: 0.8 }}
-            >
+            <div className="fixed right-2 bottom-24 md:bottom-32 flex flex-col items-center space-y-2 z-50">
+
+                {/* WhatsApp */}
                 <button
                     onClick={() => window.open("https://wa.me/94774571927", "_blank")}
-                    className="flex items-center justify-center w-12 h-12 rounded-full bg-green-500 text-white shadow-xl hover:scale-110 transition-transform duration-300"
+                    className="flex items-center justify-center 
+                   w-10 h-10 md:w-12 md:h-12 
+                   bg-green-500 text-white shadow-xl 
+                   hover:scale-110 transition-transform duration-300
+                   [animation:floatButton_3s_ease-in-out_infinite]"
                 >
-                    <FaWhatsapp className="text-2xl" />
+                    <FaWhatsapp className="text-xl md:text-2xl" />
                 </button>
-            </motion.div>
+
+                {/* Facebook */}
+                <button
+                    onClick={() => window.open("https://www.facebook.com/gavrawa.thilakshana/", "_blank")}
+                    className="flex items-center justify-center 
+                   w-10 h-10 md:w-12 md:h-12
+                   bg-blue-600 text-white shadow-xl 
+                   hover:scale-110 transition-transform duration-300
+                   [animation:floatButton_3.2s_ease-in-out_infinite]"
+                >
+                    <FaFacebook className="text-xl md:text-2xl" />
+                </button>
+
+                {/* Instagram */}
+                <button
+                    onClick={() => window.open("https://www.instagram.com/gavrawa_thilakshana_", "_blank")}
+                    className="flex items-center justify-center 
+                   w-10 h-10 md:w-12 md:h-12
+                   bg-pink-600 text-white shadow-xl 
+                   hover:scale-110 transition-transform duration-300
+                   [animation:floatButton_3.4s_ease-in-out_infinite]"
+                >
+                    <FaInstagram className="text-xl md:text-2xl" />
+                </button>
+
+            </div>
+
+
         </section>
     );
 }
