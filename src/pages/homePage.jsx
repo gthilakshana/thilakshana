@@ -44,8 +44,7 @@ export default function Home() {
                     <img
                         src="logoP.png"
                         alt="Thilakshana Logo"
-                        className="h-9 md:h-12 w-[155px] sm:w-[150px] md:w-[220px] 
-                        object-cover animate-pulse opacity-90 transition-all duration-500"
+                        className="logo-color-change h-9 md:h-12 w-[155px] sm:w-[150px] md:w-[220px] object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
                     />
                 </div>
             ) : (
