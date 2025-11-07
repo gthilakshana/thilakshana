@@ -31,7 +31,7 @@ export default function Resume() {
 
     const education = [
         {
-            title: "BEng. In Software Engineering (Hons)",
+            title: "BEng. In Software Engineering",
             org: "IIC University of Technology, Cambodia",
             year: "2021 – 2025",
             img: "/IIC_Logo.png",

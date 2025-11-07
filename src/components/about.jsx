@@ -113,7 +113,7 @@ export default function About() {
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: 0.7, duration: 0.7 }}
                     >
-                        I hold a <span className="font-medium text-yellow-600">Bachelor of Engineering (Hons) Software Engineering </span>
+                        I hold a <span className="font-medium text-yellow-600">Bachelor of Engineering in Software Engineering </span>
                         from <span className="font-medium text-yellow-600">IIC University of Technology, Cambodia</span>.
                         I completed my <span className="font-medium text-yellow-600">Advanced Level</span> education at
                         <span className="font-medium text-yellow-600"> M/R Thihagoda National School, Matara, Sri Lanka</span>.
