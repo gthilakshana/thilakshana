@@ -61,7 +61,9 @@ export default function Home() {
                     <Projects />
                     <Skills />
                     <Contact />
-                    <Footer />
+                    <div className="">
+                        <Footer />
+                    </div>
                 </>
             )}
 
@@ -69,12 +71,13 @@ export default function Home() {
             {showScrollButton && (
                 <button
                     onClick={scrollToTop}
-                    className="fixed bottom-0 right-3  z-50 bg-yellow-600 hover:bg-yellow-700 
-                    text-white p-3  shadow-xl transition"
+                    className="fixed bottom-20 right-3 z-50 bg-yellow-600 hover:bg-yellow-700 
+               text-white p-3 rounded-full shadow-xl transition"
                     aria-label="Scroll to top"
                 >
                     <FaArrowUp />
                 </button>
+
             )}
         </div>
     );

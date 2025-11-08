@@ -7,7 +7,7 @@ const FloatingSocialBar = () => {
     const [open, setOpen] = useState(false);
 
     return (
-        <div className="fixed right-2 bottom-24 md:bottom-32 z-50 flex flex-col items-center">
+        <div className="fixed right-2 bottom-38 md:bottom-36 z-50 flex flex-col items-center">
 
             {/* Toggle Button */}
             <button
