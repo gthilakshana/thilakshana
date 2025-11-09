@@ -1,17 +1,22 @@
 import { useState, useEffect } from "react";
-import { FaHome, FaUser, FaFileAlt, FaFolderOpen, FaTools, FaPhone } from "react-icons/fa";
+import { LiaProjectDiagramSolid } from "react-icons/lia";
+import { TbDetails } from "react-icons/tb";
+import { TbTooltip } from "react-icons/tb";
+import { RiHome9Line } from "react-icons/ri";
+import { RiContactsLine } from "react-icons/ri";
+import { RxResume } from "react-icons/rx";
 
 export default function Header() {
     const [activeSection, setActiveSection] = useState("home");
     const [isTopSection, setIsTopSection] = useState(true);
 
     const sections = [
-        { name: "Home", id: "home", icon: <FaHome /> },
-        { name: "About", id: "about", icon: <FaUser /> },
-        { name: "Resume", id: "resume", icon: <FaFileAlt /> },
-        { name: "Projects", id: "projects", icon: <FaFolderOpen /> },
-        { name: "Skills", id: "skills", icon: <FaTools /> },
-        { name: "Contact", id: "contact", icon: <FaPhone /> }
+        { name: "Home", id: "home", icon: <RiHome9Line /> },
+        { name: "About", id: "about", icon: <TbDetails /> },
+        { name: "Resume", id: "resume", icon: <RxResume /> },
+        { name: "Projects", id: "projects", icon: <LiaProjectDiagramSolid /> },
+        { name: "Skills", id: "skills", icon: <TbTooltip /> },
+        { name: "Contact", id: "contact", icon: <RiContactsLine /> }
     ];
 
     const handleScroll = (id) => {
