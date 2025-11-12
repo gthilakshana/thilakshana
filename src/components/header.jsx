@@ -1,9 +1,11 @@
 import { useState, useEffect } from "react";
 import { LiaProjectDiagramSolid } from "react-icons/lia";
-import { TbDetails } from "react-icons/tb";
-import { TbTooltip } from "react-icons/tb";
-import { RiHome9Line } from "react-icons/ri";
-import { RiContactsLine } from "react-icons/ri";
+import { GoHome } from "react-icons/go";
+import { IoSettingsOutline } from "react-icons/io5";
+import { VscGithubProject } from "react-icons/vsc";
+import { PiReadCvLogo } from "react-icons/pi";
+import { LuUser } from "react-icons/lu";
+import { LuPhoneCall } from "react-icons/lu";
 import { RxResume } from "react-icons/rx";
 
 export default function Header() {
@@ -11,12 +13,12 @@ export default function Header() {
     const [isTopSection, setIsTopSection] = useState(true);
 
     const sections = [
-        { name: "Home", id: "home", icon: <RiHome9Line /> },
-        { name: "About", id: "about", icon: <TbDetails /> },
-        { name: "Resume", id: "resume", icon: <RxResume /> },
-        { name: "Projects", id: "projects", icon: <LiaProjectDiagramSolid /> },
-        { name: "Skills", id: "skills", icon: <TbTooltip /> },
-        { name: "Contact", id: "contact", icon: <RiContactsLine /> }
+        { name: "Home", id: "home", icon: <GoHome /> },
+        { name: "About", id: "about", icon: <LuUser /> },
+        { name: "Resume", id: "resume", icon: <PiReadCvLogo /> },
+        { name: "Projects", id: "projects", icon: <VscGithubProject /> },
+        { name: "Skills", id: "skills", icon: <IoSettingsOutline /> },
+        { name: "Contact", id: "contact", icon: <LuPhoneCall /> }
     ];
 
     const handleScroll = (id) => {
@@ -105,10 +107,9 @@ export default function Header() {
             <div
                 className="
     fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full 
-     backdrop-blur-md bg-white/10 
-                transition-colors duration-300
+     bg-gray-100 border-t border-gray-200
     
-    shadow-sm z-[9999] py-4 flex justify-around items-center
+    shadow-lg z-[9999] py-4 flex justify-around items-center
     lg:hidden
   "
             >
@@ -123,7 +124,7 @@ export default function Header() {
       `}
                     >
                         {/* Icon */}
-                        <span className="text-[18px]">{item.icon}</span>
+                        <span className="text-[22px] ">{item.icon}</span>
 
                         {/* Name with smooth transition */}
                         <span

@@ -7,7 +7,7 @@ import {
 
 export default function Footer() {
     return (
-        <footer className="bg-gray-900 text-gray-300 py-5 border-t mb-16 lg:mb-0  border-gray-800">
+        <footer className="bg-gray-900 text-gray-300 py-5 border-t mb-18 lg:mb-0  border-gray-800">
             <div className="max-w-6xl mx-auto py-5 lg:py-8  flex flex-col items-center space-y-6">
 
                 {/* Social Icons */}
