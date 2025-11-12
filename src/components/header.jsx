@@ -66,7 +66,7 @@ export default function Header() {
                 
             `}
             >
-                <div className="w-full mx-auto flex items-center justify-between  px-1  lg:px-8 py-4">
+                <div className="w-full mx-auto flex items-center justify-between  px-1  lg:px-8 py-2 lg:py-4">
                     {/* LOGO */}
                     <a
                         href="#home"
@@ -78,7 +78,7 @@ export default function Header() {
                         <img
                             src="logoP.png"
                             alt="Thilakshana Logo"
-                            className="logo-color-change h-9 md:h-14 w-[185px] md:w-[230px] 
+                            className="logo-color-change h-9 md:h-14 w-[175px] md:w-[230px] 
         object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
                         />
                     </a>
@@ -104,12 +104,12 @@ export default function Header() {
             </header>
 
             {/*BOTTOM MOBILE NAV */}
+            {/* BOTTOM MOBILE NAV */}
             <div
                 className="
     fixed bottom-0 left-1/2 transform -translate-x-1/2 w-full 
-     bg-gray-100 border-t border-gray-200
-    
-    shadow-lg z-[9999] py-4 flex justify-around items-center
+    bg-gray-100 border-t border-gray-200
+    shadow-lg z-[9999] py-2 flex justify-around items-center
     lg:hidden
   "
             >
@@ -119,31 +119,27 @@ export default function Header() {
                         onClick={() => handleScroll(item.id)}
                         className={`
         flex flex-col items-center justify-center cursor-pointer select-none
-        relative
+        relative transition-colors duration-300
         ${activeSection === item.id ? "text-yellow-500" : "text-gray-500 hover:text-yellow-400"}
       `}
                     >
                         {/* Icon */}
-                        <span className="text-[22px] ">{item.icon}</span>
+                        <span className="text-[22px]">{item.icon}</span>
 
-                        {/* Name with smooth transition */}
+                        {/* Name (always visible) */}
                         <span
                             className={`
-          text-[10px] mt-1 tracking-wide font-medium
+          text-[9px] mt-1 tracking-wide font-medium
           transition-all duration-300
-          ${activeSection === item.id
-                                    ? "opacity-100 translate-y-0"
-                                    : "opacity-0 -translate-y-1 h-0 overflow-hidden"
-                                }
+          ${activeSection === item.id ? "text-yellow-500" : "text-gray-500 hover:text-yellow-400"}
         `}
                         >
                             {item.name}
                         </span>
-
-
                     </div>
                 ))}
             </div>
+
 
 
 
