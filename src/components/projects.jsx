@@ -7,7 +7,7 @@ import GitHubContributions from "./gitHubContributions.jsx";
 
 export default function Projects() {
     const [showMore, setShowMore] = useState(false);
-    const initialCount = 3;
+    const initialCount = 4;
     const displayedProjects = showMore ? projects : projects.slice(0, initialCount);
 
     const text =
@@ -36,6 +36,16 @@ export default function Projects() {
 
         return () => clearTimeout(typingEffect);
     }, [index, isDeleting]);
+
+
+    const handleShowMore = () => {
+        setShowMore(!showMore);
+
+        setTimeout(() => {
+            const section = document.getElementById("projects-section");
+            section?.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 300);
+    };
 
     return (
         <section
@@ -77,14 +87,16 @@ export default function Projects() {
             </motion.div>
 
             {/* Project Cards */}
-            <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
+            <div
+                id="projects-section"
+                className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10"
+            >
                 {displayedProjects.map((project, index) => (
                     <motion.div
                         key={index}
                         initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.6, delay: index * 0.15 }}
-                        viewport={{ once: true }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 }}
                     >
                         <ProjectCard project={project} />
                     </motion.div>
@@ -95,17 +107,16 @@ export default function Projects() {
             {projects.length > initialCount && (
                 <motion.div
                     initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
+                    animate={{ opacity: 1 }}
                     transition={{ delay: 0.5 }}
-                    viewport={{ once: true }}
                     className="mt-12 flex justify-center"
                 >
                     <button
-                        onClick={() => setShowMore(!showMore)}
+                        onClick={handleShowMore}
                         className="flex items-center justify-center gap-2 
-                        px-7 py-3 rounded-full bg-gray-900 text-white font-semibold
-                        shadow-lg hover:bg-yellow-600 hover:text-white 
-                        hover:shadow-xl transition-all duration-300"
+              px-7 py-3 rounded-full bg-gray-900 text-white font-semibold
+              shadow-lg hover:bg-yellow-600 hover:text-white 
+              hover:shadow-xl transition-all duration-300"
                     >
                         {showMore ? (
                             <>
@@ -121,6 +132,7 @@ export default function Projects() {
                     </button>
                 </motion.div>
             )}
+
 
             {/* GitHub Contributions Section */}
             <div className="mt-10">

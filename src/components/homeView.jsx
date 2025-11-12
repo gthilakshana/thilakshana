@@ -110,7 +110,7 @@ export default function HomeView() {
             <FloatingSocialBar />
 
 
-            <div className="fixed left-2  bottom-35 lg:bottom-6  flex flex-col items-center space-y-2 z-50 ">
+            <div className="fixed left-2  bottom-18 lg:bottom-6  flex flex-col items-center space-y-2 z-50 ">
                 <SocialButtons />
             </div>
         </section>

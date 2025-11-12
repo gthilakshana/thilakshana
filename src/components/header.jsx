@@ -66,7 +66,7 @@ export default function Header() {
                 
             `}
             >
-                <div className="w-full mx-auto flex items-center justify-between  px-1  lg:px-8 py-2 lg:py-4">
+                <div className="w-full mx-auto flex items-center justify-between  px-1  lg:px-8 py-2 lg:py-2">
                     {/* LOGO */}
                     <a
                         href="#home"

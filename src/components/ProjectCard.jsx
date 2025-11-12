@@ -8,8 +8,9 @@ export default function ProjectCard({ project }) {
 
     return (
         <motion.div
-            className="flex flex-col bg-white rounded-2xl shadow-md overflow-hidden
-                       transition-all duration-500 sm:h-[480px] h-auto"
+            className="flex flex-col bg-white rounded-2xl shadow-md overflow-hidden border border-gray-600 
+                       transition-all duration-500 sm:h-[480px] h-auto  w-full
+"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             whileHover={{ scale: 1.03, boxShadow: "0px 10px 30px rgba(0,0,0,0.15)" }}

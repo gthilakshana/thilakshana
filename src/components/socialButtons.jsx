@@ -4,7 +4,7 @@ export default function SocialButtons() {
     return (
         <div
             className="
-                flex  gap-3 
+                gap-3 space-y-2
                 px-3 py-2.5
                 bg-white/10 backdrop-blur-xl
                 border border-gray-300
