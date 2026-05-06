@@ -96,7 +96,7 @@ export default function About() {
                         {/* Resume Button */}
                         <div className="pt-8">
                             <motion.a
-                                href="/cv/Gavrawa_Thilakshana.pdf"
+                                href="/cv/Gavrawa_Thilakshana_CV.pdf"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="premium-button inline-flex items-center gap-4 px-10 py-5 bg-primary text-white font-bold rounded-2xl shadow-xl shadow-primary/20 hover:bg-primary-dark"
