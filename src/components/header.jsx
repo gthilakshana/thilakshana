@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { usePathname, useRouter } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 import { GoHome } from "react-icons/go";
 import { IoSettingsOutline } from "react-icons/io5";
 import { VscGithubProject } from "react-icons/vsc";
@@ -11,6 +12,7 @@ import { LuUser, LuPhoneCall, LuSun, LuMoon, LuCircleHelp } from "react-icons/lu
 export default function Header() {
     const [activeSection, setActiveSection] = useState("home");
     const [isScrolled, setIsScrolled] = useState(false);
+    const [isMenuOpen, setIsMenuOpen] = useState(false);
     const pathname = usePathname();
     const router = useRouter();
 
@@ -26,8 +28,8 @@ export default function Header() {
     ];
 
     const handleScroll = (id) => {
+        setIsMenuOpen(false); // Close menu on click
         if (pathname !== "/") {
-            // If not on home page, go to home with hash
             router.push(`/#${id}`);
             return;
         }
@@ -64,12 +66,12 @@ export default function Header() {
 
     return (
         <>
-            {/* DESKTOP NAV */}
+            {/* DESKTOP & MOBILE TOP HEADER */}
             <header
                 className={`
-                fixed top-0 left-0 w-full z-50 
+                fixed top-0 left-0 w-full z-[100] 
                 transition-all duration-500 py-6
-                ${isScrolled || pathname !== "/" ? "backdrop-blur-2xl bg-black/80 py-4 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]" : "bg-transparent"}
+                ${isScrolled || pathname !== "/" || isMenuOpen ? "backdrop-blur-2xl bg-black/80 py-4 shadow-[0_10px_30px_-10px_rgba(0,0,0,0.5)]" : "bg-transparent"}
             `}
             >
                 <div className="max-w-7xl mx-auto flex items-center justify-between px-6 md:px-16">
@@ -87,7 +89,7 @@ export default function Header() {
                         </div>
                     </div>
 
-                    {/* NAV BUTTONS */}
+                    {/* DESKTOP NAV */}
                     <nav className="hidden lg:flex items-center gap-2">
                         {sections.map((item) => (
                             <button
@@ -103,41 +105,61 @@ export default function Header() {
                                 {item.name}
                             </button>
                         ))}
-                        {pathname === "/admin" && (
-                             <div className="ml-4 px-4 py-1 bg-primary/20 border border-primary/30 rounded-full text-[8px] font-black uppercase tracking-widest text-primary animate-pulse">
-                                Terminal Mode
-                             </div>
-                        )}
                     </nav>
+
+                    {/* MOBILE MENU TOGGLE */}
+                    <button 
+                        onClick={() => setIsMenuOpen(!isMenuOpen)}
+                        className="lg:hidden w-12 h-12 flex flex-col items-center justify-center gap-1.5 cinematic-glass rounded-xl text-primary border border-primary/20 transition-all active:scale-90"
+                    >
+                        <motion.span 
+                            animate={isMenuOpen ? { rotate: 45, y: 8 } : { rotate: 0, y: 0 }}
+                            className="w-6 h-0.5 bg-current rounded-full transition-all"
+                        />
+                        <motion.span 
+                            animate={isMenuOpen ? { opacity: 0, x: -20 } : { opacity: 1, x: 0 }}
+                            className="w-4 h-0.5 bg-current rounded-full transition-all"
+                        />
+                        <motion.span 
+                            animate={isMenuOpen ? { rotate: -45, y: -8 } : { rotate: 0, y: 0 }}
+                            className="w-6 h-0.5 bg-current rounded-full transition-all"
+                        />
+                    </button>
                 </div>
             </header>
 
-            {/* BOTTOM MOBILE NAV */}
-            <div
-                className="
-                    fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md
-                    cinematic-glass rounded-3xl
-                    shadow-2xl z-[9999] py-3 px-6 flex justify-around items-center
-                    lg:hidden border border-white/20
-                "
-            >
-                {sections.map((item) => (
-                    <button
-                        key={item.id}
-                        onClick={() => handleScroll(item.id)}
-                        className={`
-                            flex flex-col items-center justify-center cursor-pointer
-                            transition-all duration-300
-                            ${activeSection === item.id && pathname === "/" ? "text-primary scale-110" : "text-[var(--text-muted)] hover:text-primary"}
-                        `}
+            {/* MOBILE MENU OVERLAY */}
+            <AnimatePresence>
+                {isMenuOpen && (
+                    <motion.div
+                        initial={{ opacity: 0, x: "100%" }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: "100%" }}
+                        transition={{ type: "spring", damping: 25, stiffness: 200 }}
+                        className="fixed inset-0 z-[90] bg-black/95 backdrop-blur-3xl pt-32 px-8 lg:hidden overflow-y-auto pb-20 custom-scrollbar"
                     >
-                        <span className="text-xl">{item.icon}</span>
-                        <span className="text-[10px] mt-1 font-bold uppercase tracking-tighter">
-                            {item.name}
-                        </span>
-                    </button>
-                ))}
-            </div>
+                        <div className="flex flex-col gap-4">
+                            <span className="text-[10px] font-bold uppercase tracking-[0.6em] text-primary mb-4 opacity-50">Navigation</span>
+                            {sections.map((item, idx) => (
+                                <motion.button
+                                    initial={{ opacity: 0, x: 20 }}
+                                    animate={{ opacity: 1, x: 0 }}
+                                    transition={{ delay: idx * 0.05 }}
+                                    key={item.id}
+                                    onClick={() => handleScroll(item.id)}
+                                    className={`
+                                        flex items-center gap-6 py-4 px-6 rounded-2xl transition-all
+                                        ${activeSection === item.id && pathname === "/" ? "bg-primary/10 text-primary border border-primary/20" : "text-white/40 hover:text-white/80"}
+                                    `}
+                                >
+                                    <span className="text-2xl">{item.icon}</span>
+                                    <span className="text-xl font-bold uppercase tracking-widest">{item.name}</span>
+                                </motion.button>
+                            ))}
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </>
     );
 }

@@ -15,16 +15,16 @@ export default function GitHubContributions() {
                 viewport={{ once: true }}
                 className="max-w-7xl mx-auto px-6 md:px-16"
             >
-                <div className="cinematic-glass p-8 md:p-16 rounded-[3rem] border border-white/5 relative overflow-hidden group">
+                <div className="cinematic-glass p-6 md:p-16 rounded-[2rem] md:rounded-[3rem] border border-white/5 relative overflow-hidden group">
                     <div className="absolute top-0 right-0 w-64 h-64 bg-primary/10 blur-[100px] -z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
                     
-                    <div className="flex flex-col md:flex-row items-center justify-between mb-16 gap-8 relative z-10">
+                    <div className="flex flex-col md:flex-row items-center justify-between mb-10 md:mb-16 gap-6 md:gap-8 relative z-10">
                         <div className="text-center md:text-left">
-                            <span className="text-xs font-bold uppercase tracking-[0.6em] text-primary mb-4 block">Activity</span>
-                            <h3 className="text-3xl md:text-5xl font-display font-black uppercase tracking-tighter leading-none mb-4">
+                            <span className="text-[10px] font-bold uppercase tracking-[0.6em] text-primary mb-3 md:mb-4 block">Activity</span>
+                            <h3 className="text-2xl md:text-5xl font-display font-black uppercase tracking-tighter leading-none mb-4">
                                 GitHub <span className="text-gradient">Contributions</span>
                             </h3>
-                            <p className="text-[var(--text-muted)] text-sm md:text-base font-light max-w-md">
+                            <p className="text-[var(--text-muted)] text-xs md:text-base font-light max-w-md mx-auto md:mx-0">
                                 Visualizing daily coding consistency and open-source commitments across various projects.
                             </p>
                         </div>
@@ -33,14 +33,14 @@ export default function GitHubContributions() {
                             href="https://github.com/gthilakshana" 
                             target="_blank" 
                             rel="noopener noreferrer"
-                            className="premium-button px-10 py-5 bg-primary text-white text-xs font-bold uppercase tracking-[0.3em] rounded-2xl shadow-xl shadow-primary/20 hover:scale-105 transition-all group/btn"
+                            className="premium-button w-full md:w-auto px-8 md:px-10 py-4 md:py-5 bg-primary text-white text-[10px] font-bold uppercase tracking-[0.3em] rounded-2xl shadow-xl shadow-primary/20 hover:scale-105 transition-all group/btn flex items-center justify-center"
                         >
                             View Full Profile
                         </a>
                     </div>
 
-                    <div className="flex justify-center overflow-x-auto pb-6 custom-scrollbar relative z-10">
-                        <div className="min-w-[850px] flex justify-center scale-90 md:scale-100 transition-transform duration-500">
+                    <div className="flex justify-start md:justify-center overflow-x-auto pb-6 custom-scrollbar relative z-10">
+                        <div className="min-w-fit flex justify-center scale-[0.75] sm:scale-90 md:scale-100 origin-left md:origin-center transition-transform duration-500 pr-10">
                             <GitHubCalendar
                                 username="gthilakshana"
                                 blockSize={14}
@@ -54,7 +54,7 @@ export default function GitHubContributions() {
                         </div>
                     </div>
                     
-                    <div className="mt-12 flex items-center justify-center gap-8 text-[10px] font-bold uppercase tracking-[0.4em] text-white/20">
+                    <div className="mt-8 md:mt-12 flex flex-wrap items-center justify-center gap-4 md:gap-8 text-[8px] md:text-[10px] font-bold uppercase tracking-[0.4em] text-white/20">
                         <div className="flex items-center gap-2">
                             <div className="w-3 h-3 rounded-sm bg-[#111827] border border-white/5"></div>
                             <span>Less</span>

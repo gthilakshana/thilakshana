@@ -161,9 +161,9 @@ export default function HomeView() {
                 <div className="mb-14">
                     <motion.p key={textIndex} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-xs md:text-sm font-bold uppercase text-primary tracking-[0.4em]">{texts[textIndex]}</motion.p>
                 </div>
-                <div className="flex flex-col sm:flex-row gap-5">
-                    <button onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })} className="premium-button px-10 py-5 bg-primary text-white font-bold rounded-2xl flex items-center gap-3"><span className="uppercase tracking-widest text-[10px]">Projects</span><ChevronRight size={14} /></button>
-                    <button onClick={startGame} className="premium-button px-10 py-5 bg-white/5 border border-white/10 text-white font-bold rounded-2xl flex items-center gap-3"><Play size={14} className="text-primary" /><span className="uppercase tracking-widest text-[10px]">Play Mini Game</span></button>
+                <div className="flex flex-col sm:flex-row gap-5 w-full sm:w-auto px-4 sm:px-0">
+                    <button onClick={() => document.getElementById('projects').scrollIntoView({ behavior: 'smooth' })} className="premium-button w-full sm:w-auto px-10 py-5 bg-primary text-white font-bold rounded-2xl flex items-center justify-center gap-3"><span className="uppercase tracking-widest text-[10px]">Projects</span><ChevronRight size={14} /></button>
+                    <button onClick={startGame} className="premium-button w-full sm:w-auto px-10 py-5 bg-white/5 border border-white/10 text-white font-bold rounded-2xl flex items-center justify-center gap-3"><Play size={14} className="text-primary" /><span className="uppercase tracking-widest text-[10px]">Play Mini Game</span></button>
                 </div>
             </motion.div>
 
