@@ -1,132 +1,132 @@
+'use client';
+
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import {
-    FaNodeJs, FaJava, FaReact, FaFigma, FaLinux, FaHtml5, FaCss3Alt,
-    FaBootstrap, FaGitAlt, FaAws, FaPython, FaCuttlefish
+    FaNodeJs, FaJava, FaReact, FaFigma, FaLinux, FaAws, FaPython, FaGitAlt
 } from "react-icons/fa";
 import {
     SiExpress, SiMongodb, SiMysql, SiTailwindcss, SiPostman,
-    SiDocker, SiJenkins, SiUbuntu, SiCentos
+    SiNextdotjs, SiSupabase, SiSanity, SiTypescript, SiFramer, SiDocker
 } from "react-icons/si";
-import { useState, useEffect } from "react";
+import { Code2, Server, Wrench, Palette } from "lucide-react";
 
 export default function Skills() {
-    const skills = [
-        { icon: <FaNodeJs />, name: "Node.js", color: "text-green-600", bg: "bg-green-50" },
-        { icon: <SiExpress />, name: "Express.js", color: "text-gray-700", bg: "bg-gray-50" },
-        { icon: <FaJava />, name: "Java", color: "text-red-600", bg: "bg-red-50" },
-        { icon: <FaCuttlefish />, name: "C++", color: "text-indigo-600", bg: "bg-indigo-50" },
-        { icon: <FaPython />, name: "Python", color: "text-yellow-600", bg: "bg-yellow-50" },
-        { icon: <FaReact />, name: "React.js", color: "text-sky-500", bg: "bg-sky-50" },
-        { icon: <SiMongodb />, name: "MongoDB", color: "text-green-700", bg: "bg-green-50" },
-        { icon: <SiMysql />, name: "MySQL", color: "text-blue-700", bg: "bg-blue-50" },
-        { icon: <FaFigma />, name: "UI/UX, Figma", color: "text-pink-500", bg: "bg-pink-50" },
-        { icon: <FaLinux />, name: "Linux", color: "text-gray-800", bg: "bg-gray-50" },
-        { icon: <SiUbuntu />, name: "Ubuntu", color: "text-orange-500", bg: "bg-orange-50" },
-        { icon: <SiCentos />, name: "CentOS", color: "text-purple-600", bg: "bg-purple-50" },
-        { icon: <FaHtml5 />, name: "HTML", color: "text-orange-600", bg: "bg-orange-50" },
-        { icon: <FaCss3Alt />, name: "CSS", color: "text-blue-600", bg: "bg-blue-50" },
-        { icon: <FaBootstrap />, name: "Bootstrap", color: "text-violet-600", bg: "bg-violet-50" },
-        { icon: <SiTailwindcss />, name: "Tailwind CSS", color: "text-teal-500", bg: "bg-teal-50" },
-        { icon: <FaGitAlt />, name: "Git, GitHub", color: "text-red-500", bg: "bg-red-50" },
-        { icon: <FaAws />, name: "AWS", color: "text-orange-500", bg: "bg-orange-50" },
-        { icon: <SiPostman />, name: "Postman", color: "text-orange-600", bg: "bg-orange-50" },
-        { icon: <SiDocker />, name: "Docker", color: "text-blue-500", bg: "bg-blue-50" },
-        { icon: <SiJenkins />, name: "Jenkins", color: "text-red-700", bg: "bg-red-50" },
+    const skillCategories = [
+        {
+            title: "Frontend Mastery",
+            icon: <Code2 className="w-5 h-5" />,
+            skills: [
+                { icon: <SiNextdotjs />, name: "Next.js", color: "text-white" },
+                { icon: <FaReact />, name: "React.js", color: "text-sky-400" },
+                { icon: <SiTypescript />, name: "TypeScript", color: "text-blue-500" },
+                { icon: <SiTailwindcss />, name: "Tailwind", color: "text-teal-400" },
+                { icon: <SiFramer />, name: "Framer Motion", color: "text-pink-500" },
+            ]
+        },
+        {
+            title: "Backend & Systems",
+            icon: <Server className="w-5 h-5" />,
+            skills: [
+                { icon: <FaNodeJs />, name: "Node.js", color: "text-green-500" },
+                { icon: <SiExpress />, name: "Express.js", color: "text-gray-400" },
+                { icon: <SiMongodb />, name: "MongoDB", color: "text-green-400" },
+                { icon: <SiSupabase />, name: "Supabase", color: "text-emerald-500" },
+                { icon: <SiMysql />, name: "MySQL", color: "text-blue-400" },
+                { icon: <FaPython />, name: "Python", color: "text-yellow-500" },
+            ]
+        },
+        {
+            title: "Infrastructure & Tools",
+            icon: <Wrench className="w-5 h-5" />,
+            skills: [
+                { icon: <FaAws />, name: "AWS", color: "text-orange-400" },
+                { icon: <FaLinux />, name: "Linux", color: "text-gray-300" },
+                { icon: <SiDocker />, name: "Docker", color: "text-blue-500" },
+                { icon: <FaGitAlt />, name: "Git", color: "text-red-400" },
+                { icon: <SiPostman />, name: "Postman", color: "text-orange-500" },
+            ]
+        },
+        {
+            title: "Design & Others",
+            icon: <Palette className="w-5 h-5" />,
+            skills: [
+                { icon: <FaFigma />, name: "Figma UI/UX", color: "text-pink-400" },
+                { icon: <SiSanity />, name: "Sanity.io", color: "text-red-500" },
+                { icon: <FaJava />, name: "Java Core", color: "text-red-500" },
+            ]
+        }
     ];
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { staggerChildren: 0.06 },
-        },
-    };
 
-    const itemVariants = {
-        hidden: { opacity: 0, y: 20 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.4 } },
-    };
-
-    const fullText = "Skills";
-    const [displayedText, setDisplayedText] = useState("");
-    const [index, setIndex] = useState(0);
-    const [deleting, setDeleting] = useState(false);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (!deleting) {
-                // Typing letters
-                setDisplayedText(fullText.slice(0, index + 1));
-                setIndex(index + 1);
-                if (index + 1 === fullText.length) {
-                    setDeleting(true);
-                }
-            } else {
-
-                setDisplayedText(fullText.slice(0, index - 1));
-                setIndex(index - 1);
-                if (index - 1 === 0) {
-                    setDeleting(false);
-                }
-            }
-        }, 150);
-
-        return () => clearInterval(interval);
-    }, [index, deleting]);
 
     return (
-        <section id="skills" className=" bg-gray-50 py-20 px-6 md:px-16 border-b border-gray-200">
-            <motion.div
-                className="max-w-6xl mx-auto text-center"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={containerVariants}
-            >
-                <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-10 text-center uppercase text-gray-800">
-                    {displayedText}
-                    <span className="animate-blink">|</span>
-                    <style jsx>{`
-        .animate-blink {
-          display: inline-block;
-          width: 1ch;
-          animation: blink 1s infinite;
-        }
-        @keyframes blink {
-          0%, 50%, 100% { opacity: 1; }
-          25%, 75% { opacity: 0; }
-        }
-      `}</style>
-                </h2>
-
-                <motion.p
-                    className="text-gray-600 mb-14 max-w-2xl mx-auto "
-                    initial={{ opacity: 0, y: -20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2, duration: 0.6 }}
-                >
-                    Tools and technologies I use to build elegant, high-performance web solutions.
-                </motion.p>
-
+        <section id="skills" className="relative py-24 overflow-hidden">
+            <div className="max-w-7xl mx-auto px-6 md:px-16">
+                {/* Header */}
                 <motion.div
-                    className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 justify-center"
-                    variants={containerVariants}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    viewport={{ once: true }}
+                    className="mb-20"
                 >
-                    {skills.map((skill, index) => (
+                    <div className="flex items-center gap-4 text-primary mb-6">
+                        <div className="h-[1px] w-8 bg-primary"></div>
+                        <span className="text-[10px] font-bold uppercase tracking-[0.4em]">Expertise</span>
+                    </div>
+                    <h2 className="text-3xl sm:text-5xl md:text-6xl font-display font-black uppercase tracking-tighter leading-none mb-8">
+                        Technical <span className="text-gradient">Arsenal</span>
+                    </h2>
+                    <p className="text-[var(--text-muted)] text-base md:text-xl font-light max-w-2xl leading-relaxed">
+                        A specialized collection of technologies I leverage to build scalable, high-performance digital ecosystems.
+                    </p>
+                </motion.div>
+
+                {/* Categories Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    {skillCategories.map((category, catIndex) => (
                         <motion.div
-                            key={index}
-                            className="cursor-pointer flex flex-col items-center p-6 bg-white/70 backdrop-blur-md rounded-2xl shadow-[0_4px_14px_rgba(0,0,0,0.05)] border border-gray-100 hover:shadow-[0_8px_24px_rgba(0,0,0,0.1)] hover:-translate-y-1 transition-all duration-300"
-                            variants={itemVariants}
-                            whileHover={{ scale: 1.04 }}
+                            key={catIndex}
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.8, delay: catIndex * 0.1 }}
+                            viewport={{ once: true }}
+                            className="space-y-6"
                         >
-                            <div className={`w-14 h-14 flex items-center justify-center rounded-full ${skill.bg} mb-4`}>
-                                <span className={`text-3xl ${skill.color}`}>{skill.icon}</span>
+                            <div className="flex items-center gap-3">
+                                <div className="p-2 bg-primary/10 rounded-lg text-primary">
+                                    {category.icon}
+                                </div>
+                                <h3 className="text-sm font-bold uppercase tracking-[0.3em] text-white/80">
+                                    {category.title}
+                                </h3>
                             </div>
-                            <p className="text-gray-700 font-medium text-sm tracking-wide">{skill.name}</p>
+
+                            <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                                {category.skills.map((skill, i) => (
+                                    <motion.div
+                                        key={i}
+                                        whileHover={{ y: -5, scale: 1.02 }}
+                                        className="bg-white/5 border border-white/5 p-6 rounded-2xl flex flex-col items-center justify-center gap-4 group cursor-pointer hover:bg-white/[0.08] hover:border-primary/30 transition-all duration-300"
+                                    >
+                                        <div className="text-3xl transition-all duration-500 group-hover:scale-110">
+                                            <span className={skill.color}>{skill.icon}</span>
+                                        </div>
+                                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--text-muted)] group-hover:text-primary transition-colors text-center">
+                                            {skill.name}
+                                        </span>
+                                    </motion.div>
+                                ))}
+                            </div>
                         </motion.div>
                     ))}
-                </motion.div>
-            </motion.div>
+                </div>
+            </div>
+
+            {/* Background Decorative Elements */}
+            <div className="absolute top-1/4 right-0 w-96 h-96 bg-primary/5 blur-[120px] -z-10"></div>
+            <div className="absolute bottom-1/4 left-0 w-96 h-96 bg-primary/5 blur-[120px] -z-10"></div>
         </section>
     );
 }

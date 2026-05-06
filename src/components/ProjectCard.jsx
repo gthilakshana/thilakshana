@@ -1,3 +1,5 @@
+'use client';
+
 import { FaGithub } from "react-icons/fa";
 import { FiExternalLink } from "react-icons/fi";
 import { useState } from "react";
@@ -8,134 +10,76 @@ export default function ProjectCard({ project }) {
 
     return (
         <motion.div
-            className="flex flex-col bg-white rounded-2xl shadow-md overflow-hidden border border-gray-600 
-                       transition-all duration-500 sm:h-[480px] h-auto  w-full
-"
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            whileHover={{ scale: 1.03, boxShadow: "0px 10px 30px rgba(0,0,0,0.15)" }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
+            className="group relative flex flex-col bg-[var(--bg-main)] border border-[var(--glass-border)] rounded-2xl overflow-hidden h-full hover:border-primary/30 transition-all duration-500 hover:shadow-2xl hover:shadow-primary/5"
         >
             {/* Image / Video Section */}
-            <motion.div
-                className="w-full sm:h-[200px] h-[180px] overflow-hidden relative"
-                whileHover={{ scale: 1.01 }}
-                transition={{ duration: 0.4 }}
-            >
+            <div className="relative aspect-video overflow-hidden">
                 {project.video ? (
-                    <motion.video
+                    <video
                         src={project.video}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                         autoPlay
                         loop
                         muted
                         playsInline
-                        whileHover={{ scale: 1.08 }}
-                        transition={{ duration: 0.4 }}
                     />
                 ) : (
-                    <motion.img
+                    <img
                         src={project.image}
                         alt={project.title}
-                        className="w-full h-full object-cover"
-                        whileHover={{ scale: 1.08 }}
-                        transition={{ duration: 0.4 }}
+                        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                     />
                 )}
-
-                {/* Mobile gradient overlay */}
-                <div className="absolute bottom-0 left-0 right-0 h-20 
-                                bg-gradient-to-t from-white via-transparent sm:hidden"></div>
-            </motion.div>
+                {/* Overlay on hover */}
+                <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4 backdrop-blur-[2px]">
+                    {project.github && (
+                        <a href={project.github} target="_blank" rel="noopener noreferrer" className="p-3 bg-white/10 backdrop-blur-md rounded-xl text-white hover:bg-primary transition-all duration-300 hover:scale-110">
+                            <FaGithub className="text-xl" />
+                        </a>
+                    )}
+                    {project.demo && (
+                        <a href={project.demo} target="_blank" rel="noopener noreferrer" className="p-3 bg-white/10 backdrop-blur-md rounded-xl text-white hover:bg-primary transition-all duration-300 hover:scale-110">
+                            <FiExternalLink className="text-xl" />
+                        </a>
+                    )}
+                </div>
+            </div>
 
             {/* Content Section */}
-            <motion.div
-                className="flex flex-col justify-between flex-grow sm:p-6 p-4"
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={{
-                    hidden: { opacity: 0, y: 20 },
-                    visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-                }}
-            >
-                {/* Title + Description */}
-                <motion.div variants={{ visible: { transition: { staggerChildren: 0.15 } } }}>
-                    <motion.h3
-                        className="text-lg font-semibold text-gray-900 mb-2 truncate"
-                        variants={{
-                            hidden: { opacity: 0, y: 10 },
-                            visible: { opacity: 1, y: 0 },
-                        }}
-                    >
+            <div className="p-6 flex flex-col flex-grow">
+                <div className="flex items-start justify-between mb-4">
+                    <h3 className="text-xl font-display font-bold group-hover:text-primary transition-colors leading-tight">
                         {project.title}
-                    </motion.h3>
+                    </h3>
+                </div>
 
-                    <motion.p
-                        className="text-gray-600 text-sm leading-relaxed"
-                        variants={{
-                            hidden: { opacity: 0 },
-                            visible: { opacity: 1 },
-                        }}
+                <p className="text-[var(--text-muted)] text-sm leading-relaxed mb-6 font-light">
+                    {expanded
+                        ? project.description
+                        : project.description.slice(0, 90) + (project.description.length > 90 ? "..." : "")}
+                </p>
+
+                {project.description.length > 90 && (
+                    <button
+                        onClick={() => setExpanded(!expanded)}
+                        className="text-primary font-bold text-[10px] uppercase tracking-[0.2em] hover:text-primary-dark transition-colors mb-6 self-start"
                     >
-                        {expanded
-                            ? project.description
-                            : project.description.slice(0, 120) +
-                            (project.description.length > 120 ? "..." : "")}
-                    </motion.p>
+                        {expanded ? "Less Details" : "Project Details"}
+                    </button>
+                )}
 
-                    {/* See More Button Animation */}
-                    {project.description.length > 120 && (
-                        <motion.button
-                            onClick={() => setExpanded(!expanded)}
-                            className="text-yellow-500 hover:text-yellow-600 font-medium text-sm mt-2"
-                            whileHover={{ scale: 1.08 }}
-                            whileTap={{ scale: 0.95 }}
-                        >
-                            {expanded ? "See Less" : "See More"}
-                        </motion.button>
-                    )}
-                </motion.div>
-
-                {/* Footer Links */}
-                <motion.div
-                    className="mt-5 flex flex-wrap items-center justify-start gap-4 pt-3 border-t border-gray-200"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.3, duration: 0.6 }}
-                >
-                    {project.github && (
-                        <motion.a
-                            href={project.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center text-sm font-medium text-gray-900 hover:text-yellow-500 transition"
-                            whileHover={{ x: 5 }}
-                        >
-                            <motion.span whileHover={{ rotate: -10 }}>
-                                <FaGithub className="mr-2 text-sm" />
-                            </motion.span>
-                            GitHub
-                        </motion.a>
-                    )}
-
-                    {project.demo && (
-                        <motion.a
-                            href={project.demo}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="flex items-center text-sm font-medium text-gray-900 hover:text-red-500 transition"
-                            whileHover={{ x: 5 }}
-                        >
-                            <motion.span whileHover={{ rotate: 10 }}>
-                                <FiExternalLink className="mr-2 text-sm" />
-                            </motion.span>
-                            Live Demo
-                        </motion.a>
-                    )}
-                </motion.div>
-            </motion.div>
+                <div className="mt-auto pt-6 border-t border-[var(--glass-border)] flex flex-wrap gap-2">
+                    {project.tech?.map((tech, index) => (
+                        <span key={index} className="px-3 py-1 bg-primary/5 text-primary text-[9px] font-bold rounded-lg uppercase tracking-widest border border-primary/10">
+                            {tech}
+                        </span>
+                    ))}
+                </div>
+            </div>
         </motion.div>
     );
 }

@@ -1,90 +1,68 @@
 import React, { useState } from "react";
 import { FaWhatsapp, FaFacebook, FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const FloatingSocialBar = () => {
     const [open, setOpen] = useState(false);
 
-    return (
-        <div className="fixed right-2 bottom-38 md:bottom-36 z-50 flex flex-col items-center">
+    const socials = [
+        { icon: <FaWhatsapp />, href: "https://wa.me/94774571927", color: "bg-primary" },
+        { icon: <FaFacebook />, href: "https://www.facebook.com/gavrawa.thilakshana/", color: "bg-primary" },
+        { icon: <FaInstagram />, href: "https://www.instagram.com/gavrawa_thilakshana_", color: "bg-primary" },
+        { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/gavrawa-thilakshana/", color: "bg-primary" },
+        { icon: <FaEnvelope />, href: "mailto:gavrawavanniarachchi@gmail.com", color: "bg-primary" },
+    ];
 
+    return (
+        <div className="fixed right-1 md:right-4 bottom-32 md:bottom-36 z-[100] flex flex-col items-center">
             {/* Toggle Button */}
             <button
                 onClick={() => setOpen(!open)}
                 className="
-        w-9 h-9
-        flex items-center justify-center
-        rounded-full
-
-        bg-gradient-to-br from-gray-900 to-gray-800
-        backdrop-blur-md
-        border border-white/20
-
-        shadow-md shadow-black/10
-        hover:shadow-lg hover:shadow-black/20
-
-        hover:scale-105 active:scale-95
-        hover:ring-1 hover:ring-white/30
-
-        transition-all duration-300
-    "
+                    w-10 h-10
+                    flex items-center justify-center
+                    rounded-full
+                    cinematic-glass
+                    text-[var(--text-main)]
+                    shadow-xl
+                    hover:scale-110 active:scale-90
+                    hover:border-primary/40
+                    transition-all duration-300
+                "
             >
                 {open ? (
-                    <ChevronRight className="w-4 h-4 text-white" />
+                    <ChevronRight className="w-5 h-5 text-primary" />
                 ) : (
-                    <ChevronLeft className="w-4 h-4 text-white" />
+                    <ChevronLeft className="w-5 h-5" />
                 )}
             </button>
 
             {/* Social Icons Container */}
             <div
-                className={`flex flex-col items-center space-y-2 mt-3 transition-all duration-500 ${open
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-20 pointer-events-none"
-                    }`}
+                className={`flex flex-col items-center space-y-3 mt-4 transition-all duration-500 origin-bottom ${
+                    open
+                    ? "opacity-100 translate-y-0 scale-100"
+                    : "opacity-0 translate-y-10 scale-0 pointer-events-none"
+                }`}
             >
-
-                {/* WhatsApp */}
-                <button
-                    onClick={() => window.open("https://wa.me/94774571927", "_blank")}
-                    className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 bg-green-500 text-white shadow-xl  hover:scale-110 transition-transform duration-300"
-                >
-                    <FaWhatsapp className="text-xl md:text-2xl" />
-                </button>
-
-                {/* Facebook */}
-                <button
-                    onClick={() => window.open("https://www.facebook.com/gavrawa.thilakshana/", "_blank")}
-                    className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 bg-blue-600 text-white shadow-xl  hover:scale-110 transition-transform duration-300"
-                >
-                    <FaFacebook className="text-xl md:text-2xl" />
-                </button>
-
-                {/* Instagram */}
-                <button
-                    onClick={() => window.open("https://www.instagram.com/gavrawa_thilakshana_", "_blank")}
-                    className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 bg-pink-600 text-white shadow-xl  hover:scale-110 transition-transform duration-300"
-                >
-                    <FaInstagram className="text-xl md:text-2xl" />
-                </button>
-
-                {/* LinkedIn */}
-                <button
-                    onClick={() => window.open("https://www.linkedin.com/in/gavrawa-thilakshana/", "_blank")}
-                    className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 bg-blue-600 text-white shadow-xl  hover:scale-110 transition-transform duration-300"
-                >
-                    <FaLinkedin className="text-xl md:text-2xl" />
-                </button>
-
-                {/* Email */}
-                <button
-                    onClick={() => window.open("mailto:gavrawavanniarachchi@gmail.com", "_blank")}
-                    className="flex items-center justify-center w-10 h-10 md:w-11 md:h-11 bg-red-600 text-white shadow-xl  hover:scale-110 transition-transform duration-300"
-                >
-                    <FaEnvelope className="text-xl md:text-2xl" />
-                </button>
-
+                {socials.map((social, i) => (
+                    <button
+                        key={i}
+                        onClick={() => window.open(social.href, "_blank")}
+                        className={`
+                            flex items-center justify-center 
+                            w-11 h-11 md:w-12 md:h-12 
+                            ${social.color} 
+                            text-white 
+                            rounded-2xl
+                            shadow-lg 
+                            hover:scale-115 hover:-translate-x-2
+                            transition-all duration-300
+                        `}
+                    >
+                        <span className="text-xl md:text-2xl">{social.icon}</span>
+                    </button>
+                ))}
             </div>
         </div>
     );

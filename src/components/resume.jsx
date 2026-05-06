@@ -1,31 +1,33 @@
+'use client';
+
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Briefcase, GraduationCap, Search, X, ChevronDown, ChevronUp } from "lucide-react";
 import { MdOutlineBookmarkAdded } from "react-icons/md";
-
 
 export default function Resume() {
     const [showMore, setShowMore] = useState(false);
     const [zoomed, setZoomed] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
 
-    const fullText = "Resume";
-    const [displayedText, setDisplayedText] = useState("");
-    const [index, setIndex] = useState(0);
-    const [deleting, setDeleting] = useState(false);
-
     const experiences = [
         {
-            role: "Full Stack Developer Intern",
-            company: "Make It Viral Media & Tech Pvt Ltd",
-            period: "2025 – Present",
-            desc: "Contributing to scalable full-stack web applications using the MERN stack (MongoDB, Express.js, React, Node.js) and Next.js. Focused on crafting responsive UI/UX interfaces, enhancing user engagement, and optimizing backend APIs for performance and reliability.",
+            role: "Full Stack Software Engineer",
+            company: "Make It Viral Media & Technologies",
+            period: "Present",
+            desc: "Leading the development of high-impact web applications using Next.js. Developed Warehouse & Logistics platforms, Restaurant Management systems, and managed cloud infrastructure on AWS and Hostinger.",
         },
         {
-            role: "React Developer & UI/UX Designer",
-            company: "Freelance / Personal Projects",
-            period: "2024 – 2025",
-            desc: "Designed and developed responsive web applications using React, Next.js, and Tailwind CSS, with strong focus on user-centered UI/UX design. Integrated RESTful APIs built with Node.js, Express, and MongoDB for complete full-stack solutions.",
+            role: "Software Engineering Intern",
+            company: "Make It Viral Media & Technologies",
+            period: "6 Months",
+            desc: "Designed and engineered professional portfolio websites, full-stack MERN applications like 'Lustre Salon' with admin dashboards, and Property Management Systems using Next.js.",
+        },
+        {
+            role: "Freelance Full Stack Developer",
+            company: "Self-Employed",
+            period: "Present",
+            desc: "Developing and deploying custom web solutions for diverse clients. Specialized in building high-performance e-commerce platforms, portfolio websites, and custom management systems using the Next.js and MERN stack.",
         },
     ];
 
@@ -33,24 +35,24 @@ export default function Resume() {
         {
             title: "BEng. In Software Engineering",
             org: "IIC University of Technology, Cambodia",
-            year: "2021 – 2025",
+            year: "Graduated",
             img: "/IIC_Logo.png",
         },
         {
-            title: "RQF Level 5 Professional Diploma in Software Engineering",
+            title: "Higher National Diploma (HND)",
             org: "SEG Awards, UK",
-            year: "2022 – 2023",
+            year: "Completed",
             img: "/Seg_awards.png",
         },
         {
-            title: "RQF Level 4 Professional Diploma in Software Engineering",
+            title: "Diploma in Software Engineering",
             org: "SEG Awards, UK",
-            year: "2021 – 2022",
+            year: "Completed",
             img: "/Seg_awards.png",
         },
         {
-            title: "Thihagoda National School Matara",
-            org: "Advanced Level",
+            title: "Advanced Level (A/L)",
+            org: "Combined Mathematics Stream • Thihagoda National School",
             year: "2017 – 2020",
             img: "/school.jpg",
         },
@@ -58,262 +60,248 @@ export default function Resume() {
 
     const certifications = [
         {
-            title: "CS50's Introduction to Database with SQL",
+            title: "Cloud Operations & AWS Practitioner Masterclass",
+            org: "IDET",
+            year: "In Progress",
+            img: "/aws.jpg",
+        },
+        {
+            title: "CS50's Introduction to Databases with SQL",
             org: "Harvard University",
             year: "2025",
             link: "https://certificates.cs50.io/b6832460-efea-41e4-ac1e-950300e93c1c.pdf?size=letter",
-            img: "CS50_SQL.png",
+            img: "/CS50_SQL.png",
         },
         {
             title: "CS50's Introduction to Programming with Python",
             org: "Harvard University",
             year: "2025",
             link: "https://certificates.cs50.io/3dbc26fe-3967-4c39-902e-52639810aa77.pdf?size=letter",
-            img: "CS50_Python.png",
+            img: "/CS50_Python.png",
         },
         {
-            title: "AWSome Day Online Conference",
-            org: "Amazon Web Services (AWS)",
-            year: "2023",
-            img: "aws.jpg",
+            title: "CS50's Web Programming with Python and JavaScript",
+            org: "Harvard University",
+            year: "In Progress",
+            img: "/CS50_SQL.png",
         },
         {
             title: "Java Programming",
             org: "Evotech Education",
             year: "2021",
-            img: "java_evo.jpg",
+            img: "/java_evo.jpg",
         },
         {
             title: "Photoshop Basics to Advanced",
             org: "Kelani External Degree Institute",
             year: "2021",
-            img: "photoshop.jpg",
+            img: "/photoshop.jpg",
         },
     ];
 
     const zoomImages = certifications.map((c) => c.img);
 
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (!deleting) {
-                // Typing letters
-                setDisplayedText(fullText.slice(0, index + 1));
-                setIndex(index + 1);
-                if (index + 1 === fullText.length) {
-                    setDeleting(true);
-                }
-            } else {
-
-                setDisplayedText(fullText.slice(0, index - 1));
-                setIndex(index - 1);
-                if (index - 1 === 0) {
-                    setDeleting(false);
-                }
-            }
-        }, 150);
-
-        return () => clearInterval(interval);
-    }, [index, deleting]);
-
 
     return (
         <section
             id="resume"
-            className="bg-gray-50 to-white text-gray-900 py-20 px-6 lg:px-16 font-inter border-b border-gray-200"
+            className="relative py-24 overflow-hidden"
         >
-            <div className="max-w-6xl mx-auto">
+            <div className="max-w-7xl mx-auto px-6 md:px-16">
                 {/* Header */}
-                <h2 className="text-4xl lg:text-5xl font-extrabold tracking-tight mb-10 text-center uppercase text-gray-800">
-                    {displayedText}
-                    <span className="animate-blink">|</span>
-                    <style jsx>{`
-        .animate-blink {
-          display: inline-block;
-          width: 1ch;
-          animation: blink 1s infinite;
-        }
-        @keyframes blink {
-          0%, 50%, 100% { opacity: 1; }
-          25%, 75% { opacity: 0; }
-        }
-      `}</style>
-                </h2>
-
-
-                {/* Experience */}
                 <motion.div
-                    className="mb-20"
                     initial={{ opacity: 0, y: 40 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6 }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     viewport={{ once: true }}
+                    className="text-center mb-20"
                 >
-                    <h3 className="text-2xl font-semibold text-yellow-600 flex items-center gap-3 mb-10 uppercase">
-                        <Briefcase className="text-yellow-600 w-7 h-7" /> Experience
-                    </h3>
-
-                    <div className="grid lg:grid-cols-2 gap-8">
-                        {experiences.map((exp, i) => (
-                            <motion.div
-                                key={i}
-                                className="p-6 bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-lg transition-all duration-300"
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
-                                transition={{ duration: 0.4, delay: i * 0.1 }}
-                                viewport={{ once: true }}
-                            >
-                                <h4 className="text-lg lg:text-xl font-bold text-gray-800">{exp.role}</h4>
-                                <p className="text-yellow-600 text-sm lg:text-base font-semibold">{exp.company}</p>
-                                <p className="text-sm text-gray-500 mb-3">{exp.period}</p>
-                                <p className="text-gray-700 text-sm lg:text-base leading-relaxed">{exp.desc}</p>
-                            </motion.div>
-                        ))}
-                    </div>
+                    <span className="text-xs font-bold uppercase tracking-[0.6em] text-primary mb-4 block">Milestones</span>
+                    <h2 className="text-3xl sm:text-5xl md:text-6xl font-display font-black uppercase tracking-tighter leading-none mb-8">
+                        My <span className="text-gradient">Background</span>
+                    </h2>
+                    <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: 80 }}
+                        transition={{ duration: 1, delay: 0.5 }}
+                        className="h-1 bg-primary mx-auto mt-8 rounded-full"
+                    ></motion.div>
                 </motion.div>
 
-                {/* Education & Certifications */}
-                <div className="grid lg:grid-cols-2 gap-16">
-                    {/* Education */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -100 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                    >
-                        <h3 className="text-2xl font-semibold text-yellow-600 flex items-center gap-3 mb-10 uppercase">
-                            <GraduationCap className="text-yellow-600 w-7 h-7" /> Education
-                        </h3>
+                <div className="flex flex-col lg:grid lg:grid-cols-2 gap-16">
+                    {/* Experience Section */}
+                    <div className="w-full pr-6 md:pr-0 space-y-12">
+                        <div className="flex items-center gap-4 mb-10 px-2 md:px-0">
+                            <div className="p-2.5 bg-primary/10 rounded-xl">
+                                <Briefcase className="text-primary w-6 h-6 md:w-8 md:h-8" />
+                            </div>
+                            <h3 className="text-xl md:text-3xl font-display font-bold uppercase tracking-wider">Experience</h3>
+                        </div>
 
-                        <div className="space-y-8">
-                            {education.map((edu, i) => (
+                        <div className="space-y-10">
+                            {experiences.map((exp, i) => (
                                 <motion.div
                                     key={i}
-                                    className="flex justify-between items-center border-b border-gray-300 pb-4"
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.4, delay: i * 0.1 }}
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    transition={{ duration: 0.5, delay: i * 0.1 }}
                                     viewport={{ once: true }}
+                                    className="flex gap-2 md:gap-8 w-full max-w-full overflow-hidden pr-4 md:pr-0"
                                 >
-                                    <div className="flex items-center gap-4">
-                                        <img
-                                            src={edu.img}
-                                            alt={edu.title}
-                                            className="w-12 h-12 object-contain rounded-lg border border-gray-200"
-                                        />
-                                        <div>
-                                            <h4 className=" font-semibold text-sm md:text-base text-gray-800">{edu.title}</h4>
-                                            <p className="text-xs lg:text-sm text-gray-600">{edu.org}</p>
-                                        </div>
+                                    {/* Timeline Line & Dot */}
+                                    <div className="flex flex-col items-center flex-shrink-0 w-8 md:w-auto">
+                                        <div className="w-3 h-3 md:w-4 md:h-4 bg-primary rounded-full ring-4 ring-primary/20"></div>
+                                        <div className="flex-1 w-[2px] bg-primary/20 my-2"></div>
                                     </div>
-                                    <span className="text-xs lg:text-sm text-gray-400 font-medium">{edu.year}</span>
+ 
+                                    {/* Content Card */}
+                                    <div className="flex-1 cinematic-glass p-5 md:p-8 rounded-2xl md:rounded-3xl group hover:border-primary/40 transition-colors overflow-hidden min-w-0 mb-6">
+                                        <span className="inline-block px-3 py-1 bg-primary/10 text-primary text-[10px] font-bold rounded-full mb-4 uppercase tracking-widest">
+                                            {exp.period}
+                                        </span>
+                                        <h4 className="text-base md:text-xl font-bold mb-1 group-hover:text-primary transition-colors break-words leading-tight">
+                                            {exp.role}
+                                        </h4>
+                                        <p className="text-primary font-medium text-[10px] md:text-sm mb-4">{exp.company}</p>
+                                        <p className="text-[var(--text-muted)] text-xs md:text-base leading-relaxed font-light break-words">
+                                            {exp.desc}
+                                        </p>
+                                    </div>
                                 </motion.div>
                             ))}
                         </div>
-                    </motion.div>
+                    </div>
 
-                    {/* Certifications */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 100 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 0.8 }}
-                        viewport={{ once: true }}
-                    >
-                        <h3 className="text-2xl font-semibold text-yellow-600 flex items-center gap-3 mb-10 uppercase">
-                            <MdOutlineBookmarkAdded className="text-yellow-600 text-3xl" /> Certifications
-                        </h3>
+                    {/* Education & Certifications Section */}
+                    <div className="w-full pr-6 md:pr-0 space-y-16 md:space-y-20">
+                        {/* Education */}
+                        <div className="space-y-8 md:space-y-10">
+                            <div className="flex items-center gap-4">
+                                <div className="p-2.5 bg-primary/10 rounded-xl">
+                                    <GraduationCap className="text-primary w-6 h-6 md:w-8 md:h-8" />
+                                </div>
+                                <h3 className="text-xl md:text-3xl font-display font-bold uppercase tracking-wider">Education</h3>
+                            </div>
 
+                            <div className="space-y-6">
+                                {education.map((edu, i) => (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5, delay: i * 0.1 }}
+                                        viewport={{ once: true }}
+                                        className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 p-5 rounded-2xl hover:bg-primary/5 transition-colors group pr-4 md:pr-0"
+                                    >
+                                        <img
+                                            src={edu.img}
+                                            alt={edu.org}
+                                            className="w-12 h-12 md:w-14 md:h-14 object-contain rounded-xl bg-white p-2 shadow-lg group-hover:scale-110 transition-transform"
+                                        />
+                                        <div className="flex-1 w-full">
+                                            <div className="flex flex-wrap items-center justify-between gap-2 mb-1">
+                                                <h4 className="font-bold text-[var(--text-main)] text-sm md:text-base group-hover:text-primary transition-colors">
+                                                    {edu.title}
+                                                </h4>
+                                                <span className="text-[10px] font-bold text-primary px-2 py-0.5 bg-primary/10 rounded-md">
+                                                    {edu.year}
+                                                </span>
+                                            </div>
+                                            <p className="text-xs md:text-sm text-[var(--text-muted)] break-words">{edu.org}</p>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
 
-                        <div className="space-y-4">
-                            {(showMore ? certifications : certifications.slice(0, 2)).map((cert, i) => (
-                                <motion.div
-                                    key={i}
-                                    className="flex justify-between items-center bg-white p-4 rounded-xl border border-gray-200 shadow-sm hover:shadow-md hover:bg-gray-50 transition group"
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    transition={{ duration: 0.4, delay: i * 0.1 }}
-                                    viewport={{ once: true }}
-                                >
-                                    <div
-                                        className="relative cursor-pointer"
+                        {/* Certifications */}
+                        <div className="space-y-8 md:space-y-10">
+                            <div className="flex items-center gap-4">
+                                <div className="p-2.5 bg-primary/10 rounded-xl">
+                                    <MdOutlineBookmarkAdded className="text-primary w-6 h-6 md:w-8 md:h-8" />
+                                </div>
+                                <h3 className="text-xl md:text-3xl font-display font-bold uppercase tracking-wider">Certifications</h3>
+                            </div>
+
+                            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                {certifications.map((cert, i) => (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, scale: 0.9 }}
+                                        whileInView={{ opacity: 1, scale: 1 }}
+                                        transition={{ duration: 0.4, delay: i * 0.05 }}
+                                        viewport={{ once: true }}
+                                        className={`cinematic-glass p-4 rounded-2xl flex items-center gap-4 group cursor-pointer hover:border-primary/40 mx-1 ${!showMore && i >= 4 ? 'hidden md:flex' : 'flex'}`}
                                         onClick={() => {
                                             setCurrentIndex(zoomImages.indexOf(cert.img));
                                             setZoomed(true);
                                         }}
                                     >
-                                        <img
-                                            src={cert.img}
-                                            alt={cert.title}
-                                            className="w-12 h-12 object-contain rounded border border-gray-300"
-                                        />
-                                        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 flex items-center justify-center transition">
-                                            <Search className="text-white text-lg opacity-0 group-hover:opacity-100 transition" />
+                                        <div className="relative overflow-hidden rounded-lg w-12 h-12 flex-shrink-0">
+                                            <img
+                                                src={cert.img}
+                                                alt={cert.title}
+                                                className="w-full h-full object-cover transition-transform group-hover:scale-110"
+                                            />
+                                            <div className="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                                <Search className="text-white w-5 h-5" />
+                                            </div>
                                         </div>
-                                    </div>
-
-                                    <div className="ml-4 flex-1">
-                                        <h4 className=" font-semibold text-sm lg:text-base text-gray-800">{cert.title}</h4>
-                                        <div className="text-sm flex items-center gap-2 text-gray-600">
-                                            <span className="text-xs lg:text-sm">{cert.org}</span>
-                                            {cert.link && (
-                                                <a
-                                                    href={cert.link}
-                                                    target="_blank"
-                                                    rel="noopener noreferrer"
-                                                    className="text-yellow-600 hover:underline text-xs"
-                                                >
-                                                    View
-                                                </a>
-                                            )}
+                                        <div className="flex-1 min-w-0">
+                                            <h4 className="text-sm font-bold truncate group-hover:text-primary transition-colors">
+                                                {cert.title}
+                                            </h4>
+                                            <p className="text-[10px] text-[var(--text-muted)] uppercase tracking-tighter">
+                                                {cert.org} • {cert.year}
+                                            </p>
                                         </div>
-                                    </div>
-                                    <span className="text-gray-500 text-xs lg:text-sm">{cert.year}</span>
-                                </motion.div>
-                            ))}
-                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
 
-                        {/* Show More / Less */}
-                        <div className="mt-6 flex justify-end">
-                            <motion.button
+                            <button
                                 onClick={() => setShowMore(!showMore)}
-                                className="p-3 rounded-full bg-gray-100 text-gray-700 shadow hover:bg-yellow-500 hover:text-white transition"
-                                whileTap={{ scale: 0.9 }}
-                                whileHover={{ scale: 1.1 }}
+                                className="flex items-center gap-2 text-primary font-bold text-xs uppercase tracking-[0.2em] hover:opacity-70 transition-opacity mx-auto pt-8 md:hidden"
                             >
-                                {showMore ? <ChevronUp size={22} /> : <ChevronDown size={22} />}
-                            </motion.button>
+                                {showMore ? (
+                                    <>Show Less <ChevronUp className="w-4 h-4" /></>
+                                ) : (
+                                    <>View All Certs <ChevronDown className="w-4 h-4" /></>
+                                )}
+                            </button>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
 
-            {/* Zoomed Image Modal */}
+            {/* Lightbox */}
             <AnimatePresence>
                 {zoomed && (
                     <motion.div
-                        className="fixed inset-0  bg-opacity-80 flex items-center justify-center z-50 p-4"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
+                        className="fixed inset-0 z-[9999] backdrop-blur-2xl bg-black/80 flex items-center justify-center p-6"
                         onClick={() => setZoomed(false)}
                     >
                         <motion.div
-                            className="relative max-w-3xl w-full"
-                            initial={{ scale: 0.8, opacity: 0 }}
-                            animate={{ scale: 1, opacity: 1 }}
-                            exit={{ scale: 0.8, opacity: 0 }}
-                            transition={{ duration: 0.3 }}
+                            initial={{ scale: 0.8, rotateX: 20 }}
+                            animate={{ scale: 1, rotateX: 0 }}
+                            exit={{ scale: 0.8, rotateX: -20 }}
+                            className="relative max-w-4xl w-full"
+                            onClick={(e) => e.stopPropagation()}
                         >
                             <img
                                 src={zoomImages[currentIndex]}
-                                alt="Zoomed"
-                                className="w-full h-auto rounded-xl shadow-2xl"
+                                alt="Certification"
+                                className="w-full rounded-2xl shadow-[0_0_50px_rgba(234,179,8,0.3)]"
                             />
                             <button
-                                className="absolute top-3 right-3 text-gray-700 text-3xl"
                                 onClick={() => setZoomed(false)}
+                                className="absolute -top-12 right-0 text-white hover:text-primary transition-colors"
                             >
-                                <X />
+                                <X className="w-8 h-8" />
                             </button>
                         </motion.div>
                     </motion.div>

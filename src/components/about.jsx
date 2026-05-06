@@ -1,176 +1,113 @@
+'use client';
+
 import { motion } from "framer-motion";
 import { FaDownload } from "react-icons/fa";
 import { useState, useEffect } from "react";
 
 export default function About() {
-    const fullText = "About Me";
-    const [displayedText, setDisplayedText] = useState("");
-    const [index, setIndex] = useState(0);
-    const [deleting, setDeleting] = useState(false);
-
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (!deleting) {
-
-                setDisplayedText(fullText.slice(0, index + 1));
-                setIndex(index + 1);
-                if (index + 1 === fullText.length) {
-                    setDeleting(true);
-                }
-            } else {
-
-                setDisplayedText(fullText.slice(0, index - 1));
-                setIndex(index - 1);
-                if (index - 1 === 0) {
-                    setDeleting(false);
-                }
-            }
-        }, 150);
-
-        return () => clearInterval(interval);
-    }, [index, deleting]);
-
-
     return (
         <section
             id="about"
-            className="bg-gray-50 py-16 px-6 md:px-16 border-b border-gray-200"
+            className="relative py-24 overflow-hidden"
         >
-
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-10 text-center uppercase text-gray-800">
-                {displayedText}
-                <span className="animate-blink">|</span>
-                <style jsx>{`
-        .animate-blink {
-          display: inline-block;
-          width: 1ch;
-          animation: blink 1s infinite;
-        }
-        @keyframes blink {
-          0%, 50%, 100% { opacity: 1; }
-          25%, 75% { opacity: 0; }
-        }
-      `}</style>
-            </h2>
-
-
-
-
-
-
-            <motion.div
-                className="max-w-full mx-auto grid lg:grid-cols-2 gap-2 items-center "
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                viewport={{ once: true }}
-            >
-
-
-                {/* Left Side - Image */}
+            <div className="max-w-7xl mx-auto px-6 md:px-16">
                 <motion.div
-                    className="flex justify-center items-center"
-                    initial={{ opacity: 0, x: -100 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.3 }}
+                    initial={{ opacity: 0, y: 40 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                     viewport={{ once: true }}
+                    className="text-center mb-20"
                 >
-                    <motion.img
-                        src="/profile.png"
-                        alt="Profile"
-                        className="w-40 sm:w-60 lg:w-90 rounded-xl object-cover "
-                        whileHover={{ scale: 1.05, rotate: 1 }}
-                        transition={{ type: "spring", stiffness: 150 }}
-                    />
+                    <span className="text-xs font-bold uppercase tracking-[0.6em] text-primary mb-4 block">Discovery</span>
+                    <h2 className="text-3xl sm:text-5xl md:text-6xl font-display font-black uppercase tracking-tighter leading-none">
+                        About <span className="text-gradient">Me</span>
+                    </h2>
+                    <motion.div 
+                        initial={{ width: 0 }}
+                        whileInView={{ width: 80 }}
+                        transition={{ duration: 1, delay: 0.5 }}
+                        className="h-1 bg-primary mx-auto mt-8 rounded-full"
+                    ></motion.div>
                 </motion.div>
 
-                {/* Right Side - Text */}
-                <motion.div
-                    className="text-center lg:text-left mt-10 lg:mt-0"
-                    initial={{ opacity: 0, x: 100 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.8, delay: 0.4 }}
-                    viewport={{ once: true }}
-                >
-
-
-                    <motion.p
-                        className="text-gray-900  leading-relaxed mb-6 "
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ delay: 0.6, duration: 0.7 }}
+                <div className="grid lg:grid-cols-2 gap-20 items-center">
+                    {/* Left Side - Image */}
+                    <motion.div
+                        className="relative group"
+                        initial={{ opacity: 0, scale: 0.9 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: true }}
                     >
-                        Hi, I’m <span className="font-semibold  text-black">Gavrawa Thilakshana</span>,
-                        a passionate <span className="font-semibold text-yellow-600">Full Stack Developer</span> and
-                        <span className="font-semibold text-yellow-600"> UI/UX Designer</span> dedicated to creating
-                        modern, responsive, and user-friendly web applications. I enjoy transforming complex ideas into
-                        elegant, scalable solutions using cutting-edge web technologies.
-                    </motion.p>
+                        <div className="absolute -inset-4 bg-primary/10 rounded-[2.5rem] blur-3xl group-hover:bg-primary/20 transition-all duration-700"></div>
+                        <div className="relative p-2 bg-gradient-to-br from-primary/20 to-transparent rounded-[2.5rem] border border-white/10">
+                            <img
+                                src="/profile.png"
+                                alt="Profile"
+                                className="w-full aspect-[4/5] object-cover rounded-[2rem] shadow-2xl transition-all duration-700 group-hover:scale-[1.01] group-hover:grayscale-0 grayscale-[20%]"
+                            />
+                        </div>
 
-                    <motion.p
-                        className="text-gray-900 leading-relaxed mb-6 "
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ delay: 0.7, duration: 0.7 }}
+                        {/* Experience Badge */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.5 }}
+                            className="absolute -bottom-6 -right-6 cinematic-glass p-6 rounded-2xl border border-primary/20 hidden md:block"
+                        >
+                            <span className="block text-3xl font-display font-bold text-primary">1+</span>
+                            <span className="text-[10px] uppercase tracking-widest font-bold text-[var(--text-muted)]">Year Experience</span>
+                        </motion.div>
+                    </motion.div>
+
+                    {/* Right Side - Text */}
+                    <motion.div
+                        className="space-y-8"
+                        initial={{ opacity: 0, x: 30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.8 }}
+                        viewport={{ once: true }}
                     >
-                        I hold a <span className="font-medium text-yellow-600">Bachelor of Engineering in Software Engineering </span>
-                        from <span className="font-medium text-yellow-600">IIC University of Technology, Cambodia</span>.
-                        I completed my <span className="font-medium text-yellow-600">Advanced Level</span> education at
-                        <span className="font-medium text-yellow-600"> M/R Thihagoda National School, Matara, Sri Lanka</span>.
-                    </motion.p>
+                        <div className="space-y-2">
+                            <span className="text-xs font-bold uppercase tracking-[0.4em] text-primary">Biographical</span>
+                            <h3 className="text-4xl md:text-5xl font-display font-bold">
+                                I'm <span className="text-gradient">Gavrawa Thilakshana</span>
+                            </h3>
+                        </div>
 
-                    <motion.p
-                        className="text-gray-900 leading-relaxed mb-6 "
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ delay: 0.8, duration: 0.7 }}
-                    >
-                        Currently, I’m working as a <span className="font-medium text-yellow-600">Full Stack Developer Intern </span>
-                        at <span className="font-medium text-yellow-600">Make It Viral Media & Tech Pvt Ltd</span>,
-                        where I develop full-stack web applications using the
-                        <span className="font-medium text-yellow-600"> MERN stack (MongoDB, Express.js, React, Node.js)</span> and
-                        <span className="font-medium text-yellow-600"> Next.js</span>. My focus is on building seamless UI/UX designs,
-                        enhancing performance, and delivering top-tier digital experiences.
-                    </motion.p>
+                        <div className="space-y-6 text-base md:text-lg text-[var(--text-muted)] leading-relaxed font-light">
+                            <p>
+                                I am a results-driven <span className="text-[var(--text-main)] font-semibold">Full Stack Software Engineer</span> with a deep passion for architecting high-performance digital ecosystems. My expertise lies in the <span className="text-primary font-bold">Next.js</span> and <span className="text-primary font-bold">MERN stack</span>, where I transform complex business challenges into elegant, scalable software solutions.
+                            </p>
 
+                            <p>
+                                My approach to development is rooted in <span className="text-[var(--text-main)] font-medium">Precision and Innovation</span>. Whether it's spearheading complex logistics platforms or designing intuitive restaurant management systems, I leverage <span className="text-primary font-medium">AI-driven methodologies</span> and modern best practices to ensure every line of code serves a purpose and every user interaction is seamless.
+                            </p>
 
-                    <motion.p
-                        className="text-gray-900 leading-relaxed mb-6 "
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ delay: 0.85, duration: 0.7 }}
-                    >
-                        I am also currently expanding my skills in <span className="font-medium text-yellow-600">Linux-based server-side development</span>,
-                        focusing on system administration, deployment, and optimization for high-performance web environments.
-                        This helps me understand the backend infrastructure that powers scalable web applications.
-                    </motion.p>
+                            <p>
+                                Beyond the frontend and backend, I am a firm believer in the power of robust infrastructure. With a solid foundation in <span className="text-[var(--text-main)] font-medium underline decoration-primary/30 decoration-2 underline-offset-8">Linux System Administration</span>, I am currently scaling my expertise into <span className="text-primary font-bold">Cloud Operations</span> and <span className="text-primary font-bold">AWS Architecture</span>. My goal is to bridge the gap between development and deployment, ensuring mission-critical applications are always resilient and highly available.
+                            </p>
 
-                    <motion.p
-                        className="text-gray-900 leading-relaxed  mb-8"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        transition={{ delay: 0.9, duration: 0.7 }}
-                    >
-                        Beyond coding, I’m passionate about creative design, continuous learning, and exploring
-                        emerging technologies that shape the web’s future. My goal is to blend technical mastery
-                        with creative innovation to build impactful applications that inspire and empower users.
-                    </motion.p>
+                            <p>
+                                Driven by curiosity and a commitment to excellence, I don't just build websites; I build <span className="text-[var(--text-main)] font-medium">Digital Experiences</span> that empower businesses and leave a lasting impact.
+                            </p>
+                        </div>
 
-
-                    {/* Resume Button */}
-                    <motion.a
-                        href="/cv/Gavrawa_Thilakshana.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 px-6 py-2.5 bg-yellow-600 text-white font-semibold rounded-full shadow-md hover:bg-yellow-700 hover:scale-105 active:scale-95 transition-transform duration-300 ease-in-out"
-                        whileHover={{ scale: 1.1 }}
-                        whileTap={{ scale: 0.95 }}
-                    >
-                        <FaDownload className="text-md" />
-                        Resume
-                    </motion.a>
-                </motion.div>
-            </motion.div>
+                        {/* Resume Button */}
+                        <div className="pt-8">
+                            <motion.a
+                                href="/cv/Gavrawa_Thilakshana.pdf"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="premium-button inline-flex items-center gap-4 px-10 py-5 bg-primary text-white font-bold rounded-2xl shadow-xl shadow-primary/20 hover:bg-primary-dark"
+                            >
+                                <FaDownload className="text-sm" />
+                                <span className="uppercase tracking-[0.2em] text-[10px]">Download Resume</span>
+                            </motion.a>
+                        </div>
+                    </motion.div>
+                </div>
+            </div>
         </section>
     );
 }
