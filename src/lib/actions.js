@@ -5,7 +5,7 @@ import { revalidatePath } from 'next/cache';
 import { cookies } from 'next/headers';
 import { jwtVerify } from 'jose';
 
-import { sanityClient } from './sanity';
+import { getSanityClient } from './sanity';
 
 async function verifyAuth() {
   const cookieStore = await cookies();
@@ -36,8 +36,9 @@ export async function addProject(formData) {
     if (!imageFile) throw new Error('Image file is required');
 
     // 1. Upload image to Sanity
+    const sanity = getSanityClient();
     const buffer = Buffer.from(await imageFile.arrayBuffer());
-    const asset = await sanityClient.assets.upload('image', buffer, {
+    const asset = await sanity.assets.upload('image', buffer, {
       filename: imageFile.name,
     });
 
