@@ -15,6 +15,9 @@ export const getSanityClient = () => {
       apiVersion: '2023-05-03',
       token: process.env.SANITY_API_TOKEN,
     });
+    if (projectId) {
+      console.log('✅ Sanity Client Connected Successfully');
+    }
   }
   return client;
 };

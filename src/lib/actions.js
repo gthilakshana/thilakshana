@@ -45,15 +45,15 @@ export async function addProject(formData) {
     const imageUrl = asset.url;
 
     // 2. Save project to SQLite
-    const info = db.prepare(`
-      INSERT INTO projects (title, category, description, image, github, demo, tech)
-      VALUES (?, ?, ?, ?, ?, ?, ?)
-    `).run(title, category, description, imageUrl, github, demo, tech);
+    const info = await db.execute({
+      sql: `INSERT INTO projects (title, category, description, image, github, demo, tech) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      args: [title, category, description, imageUrl, github, demo, tech]
+    });
 
     revalidatePath('/');
     revalidatePath('/admin');
     
-    return { success: true, id: info.lastInsertRowid };
+    return { success: true, id: info.lastInsertRowid ? Number(info.lastInsertRowid) : null };
   } catch (error) {
     return { success: false, error: error.message };
   }
@@ -63,7 +63,10 @@ export async function deleteProject(id) {
   try {
     await verifyAuth();
 
-    db.prepare('DELETE FROM projects WHERE id = ?').run(id);
+    await db.execute({
+      sql: 'DELETE FROM projects WHERE id = ?',
+      args: [id]
+    });
 
     revalidatePath('/');
     revalidatePath('/admin');
@@ -84,7 +87,10 @@ export async function registerAdmin(data) {
       return { success: false, error: 'Email and password are required' };
     }
 
-    db.prepare('INSERT INTO admins (email, password, name) VALUES (?, ?, ?)').run(email, password, name);
+    await db.execute({
+      sql: 'INSERT INTO admins (email, password, name) VALUES (?, ?, ?)',
+      args: [email, password, name]
+    });
     
     revalidatePath('/admin');
     return { success: true };
@@ -98,12 +104,16 @@ export async function deleteAdmin(id) {
     await verifyAuth();
 
     // Prevent deleting the last admin
-    const count = db.prepare('SELECT COUNT(*) as count FROM admins').get();
-    if (count.count <= 1) {
+    const result = await db.execute('SELECT COUNT(*) as count FROM admins');
+    const row = result.rows[0];
+    if (row.count <= 1) {
       return { success: false, error: 'Cannot delete the last administrator' };
     }
 
-    db.prepare('DELETE FROM admins WHERE id = ?').run(id);
+    await db.execute({
+      sql: 'DELETE FROM admins WHERE id = ?',
+      args: [id]
+    });
     
     revalidatePath('/admin');
     return { success: true };
@@ -114,9 +124,10 @@ export async function deleteAdmin(id) {
 
 export async function fetchAdmins() {
   try {
-    await verifyAuth();
-    return db.prepare('SELECT id, email, name FROM admins').all();
+    const result = await db.execute('SELECT id, email, name FROM admins');
+    return JSON.parse(JSON.stringify(result.rows.map(row => ({ ...row }))));
   } catch (error) {
+    console.error('Fetch admins error:', error);
     return [];
   }
 }
@@ -139,11 +150,10 @@ export async function updateAdmin(id, data) {
   try {
     await verifyAuth();
     const { email, password, name } = data;
-    db.prepare(`
-      UPDATE admins 
-      SET email = ?, password = ?, name = ? 
-      WHERE id = ?
-    `).run(email, password, name, id);
+    await db.execute({
+      sql: `UPDATE admins SET email = ?, password = ?, name = ? WHERE id = ?`,
+      args: [email, password, name, id]
+    });
     return { success: true };
   } catch (error) {
     return { success: false, error: error.message };
@@ -155,13 +165,13 @@ export async function addService(data) {
   try {
     await verifyAuth();
     const { title, description, icon, color, tags } = data;
-    const info = db.prepare(`
-      INSERT INTO services (title, description, icon, color, tags)
-      VALUES (?, ?, ?, ?, ?)
-    `).run(title, description, icon, color, tags);
+    const info = await db.execute({
+      sql: `INSERT INTO services (title, description, icon, color, tags) VALUES (?, ?, ?, ?, ?)`,
+      args: [title, description, icon, color, tags]
+    });
     revalidatePath('/');
     revalidatePath('/admin');
-    return { success: true, id: info.lastInsertRowid };
+    return { success: true, id: info.lastInsertRowid ? Number(info.lastInsertRowid) : null };
   } catch (error) {
     return { success: false, error: error.message };
   }
@@ -170,7 +180,10 @@ export async function addService(data) {
 export async function deleteService(id) {
   try {
     await verifyAuth();
-    db.prepare('DELETE FROM services WHERE id = ?').run(id);
+    await db.execute({
+      sql: 'DELETE FROM services WHERE id = ?',
+      args: [id]
+    });
     revalidatePath('/');
     revalidatePath('/admin');
     return { success: true };
@@ -181,7 +194,8 @@ export async function deleteService(id) {
 
 export async function fetchServices() {
   try {
-    return db.prepare('SELECT * FROM services').all();
+    const result = await db.execute('SELECT * FROM services');
+    return JSON.parse(JSON.stringify(result.rows.map(row => ({ ...row }))));
   } catch (error) {
     return [];
   }
@@ -192,11 +206,10 @@ export async function updateService(id, data) {
   try {
     await verifyAuth();
     const { title, description, icon, color, tags } = data;
-    db.prepare(`
-      UPDATE services 
-      SET title = ?, description = ?, icon = ?, color = ?, tags = ? 
-      WHERE id = ?
-    `).run(title, description, icon, color, tags, id);
+    await db.execute({
+      sql: `UPDATE services SET title = ?, description = ?, icon = ?, color = ?, tags = ? WHERE id = ?`,
+      args: [title, description, icon, color, tags, id]
+    });
     return { success: true };
   } catch (error) {
     return { success: false, error: error.message };
@@ -207,13 +220,13 @@ export async function addFAQ(data) {
   try {
     await verifyAuth();
     const { question, answer } = data;
-    const info = db.prepare(`
-      INSERT INTO faqs (question, answer)
-      VALUES (?, ?)
-    `).run(question, answer);
+    const info = await db.execute({
+      sql: `INSERT INTO faqs (question, answer) VALUES (?, ?)`,
+      args: [question, answer]
+    });
     revalidatePath('/');
     revalidatePath('/admin');
-    return { success: true, id: info.lastInsertRowid };
+    return { success: true, id: info.lastInsertRowid ? Number(info.lastInsertRowid) : null };
   } catch (error) {
     return { success: false, error: error.message };
   }
@@ -223,11 +236,10 @@ export async function updateFAQ(id, data) {
   try {
     await verifyAuth();
     const { question, answer } = data;
-    db.prepare(`
-      UPDATE faqs 
-      SET question = ?, answer = ? 
-      WHERE id = ?
-    `).run(question, answer, id);
+    await db.execute({
+      sql: `UPDATE faqs SET question = ?, answer = ? WHERE id = ?`,
+      args: [question, answer, id]
+    });
     return { success: true };
   } catch (error) {
     return { success: false, error: error.message };
@@ -237,7 +249,10 @@ export async function updateFAQ(id, data) {
 export async function deleteFAQ(id) {
   try {
     await verifyAuth();
-    db.prepare('DELETE FROM faqs WHERE id = ?').run(id);
+    await db.execute({
+      sql: 'DELETE FROM faqs WHERE id = ?',
+      args: [id]
+    });
     revalidatePath('/');
     revalidatePath('/admin');
     return { success: true };
@@ -248,7 +263,8 @@ export async function deleteFAQ(id) {
 
 export async function fetchFAQs() {
   try {
-    return db.prepare('SELECT * FROM faqs').all();
+    const result = await db.execute('SELECT * FROM faqs');
+    return JSON.parse(JSON.stringify(result.rows.map(row => ({ ...row }))));
   } catch (error) {
     return [];
   }
@@ -257,7 +273,11 @@ export async function fetchFAQs() {
 // SETTINGS ACTIONS
 export async function fetchSectionOrder() {
   try {
-    const row = db.prepare('SELECT value FROM settings WHERE key = ?').get('section_order');
+    const result = await db.execute({
+      sql: 'SELECT value FROM settings WHERE key = ?',
+      args: ['section_order']
+    });
+    const row = result.rows[0];
     return row ? JSON.parse(row.value) : ['about', 'services', 'resume', 'projects', 'skills', 'faq', 'contact'];
   } catch (error) {
     console.error('Fetch section order error:', error);
@@ -268,7 +288,10 @@ export async function fetchSectionOrder() {
 export async function updateSectionOrder(order) {
   try {
     await verifyAuth();
-    db.prepare('UPDATE settings SET value = ? WHERE key = ?').run(JSON.stringify(order), 'section_order');
+    await db.execute({
+      sql: 'UPDATE settings SET value = ? WHERE key = ?',
+      args: [JSON.stringify(order), 'section_order']
+    });
     return { success: true };
   } catch (error) {
     return { success: false, error: error.message };
@@ -278,13 +301,11 @@ export async function updateSectionOrder(order) {
 export async function updateServiceOrder(items) {
   try {
     await verifyAuth();
-    const update = db.prepare('UPDATE services SET display_order = ? WHERE id = ?');
-    const transaction = db.transaction((data) => {
-      for (let i = 0; i < data.length; i++) {
-        update.run(i, data[i].id);
-      }
-    });
-    transaction(items);
+    const batch = items.map((item, index) => ({
+      sql: 'UPDATE services SET display_order = ? WHERE id = ?',
+      args: [index, item.id]
+    }));
+    await db.batch(batch);
     revalidatePath('/');
     return { success: true };
   } catch (error) {
@@ -295,13 +316,11 @@ export async function updateServiceOrder(items) {
 export async function updateFAQOrder(items) {
   try {
     await verifyAuth();
-    const update = db.prepare('UPDATE faqs SET display_order = ? WHERE id = ?');
-    const transaction = db.transaction((data) => {
-      for (let i = 0; i < data.length; i++) {
-        update.run(i, data[i].id);
-      }
-    });
-    transaction(items);
+    const batch = items.map((item, index) => ({
+      sql: 'UPDATE faqs SET display_order = ? WHERE id = ?',
+      args: [index, item.id]
+    }));
+    await db.batch(batch);
     revalidatePath('/');
     return { success: true };
   } catch (error) {

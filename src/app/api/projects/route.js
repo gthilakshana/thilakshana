@@ -3,7 +3,8 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
-    const projects = db.prepare('SELECT * FROM projects ORDER BY id DESC').all();
+    const result = await db.execute('SELECT * FROM projects ORDER BY id DESC');
+    const projects = result.rows;
     const parsedProjects = projects.map(p => {
       let techArray = [];
       try {
@@ -28,10 +29,10 @@ export async function POST(request) {
   try {
     const data = await request.json();
     const { title, category, description, image, github, demo, tech } = data;
-    const info = db.prepare(`
-      INSERT INTO projects (title, category, description, image, github, demo, tech)
-      VALUES (?, ?, ?, ?, ?, ?, ?)
-    `).run(title, category, description, image, github, demo, JSON.stringify(tech || []));
+    const info = await db.execute({
+      sql: `INSERT INTO projects (title, category, description, image, github, demo, tech) VALUES (?, ?, ?, ?, ?, ?, ?)`,
+      args: [title, category, description, image, github, demo, JSON.stringify(tech || [])]
+    });
     return NextResponse.json({ id: info.lastInsertRowid, message: 'Project added successfully' });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });
@@ -43,7 +44,10 @@ export async function DELETE(request) {
     const { searchParams } = new URL(request.url);
     const id = searchParams.get('id');
     if (!id) return NextResponse.json({ error: 'ID is required' }, { status: 400 });
-    db.prepare('DELETE FROM projects WHERE id = ?').run(id);
+    await db.execute({
+      sql: 'DELETE FROM projects WHERE id = ?',
+      args: [id]
+    });
     return NextResponse.json({ message: 'Project deleted successfully' });
   } catch (error) {
     return NextResponse.json({ error: error.message }, { status: 500 });

@@ -9,7 +9,11 @@ export async function POST(request) {
     const jwtSecret = process.env.JWT_SECRET || 'secret';
 
     // Check admin in database
-    const admin = db.prepare('SELECT * FROM admins WHERE email = ? AND password = ?').get(email, password);
+    const result = await db.execute({
+      sql: 'SELECT * FROM admins WHERE email = ? AND password = ?',
+      args: [email, password]
+    });
+    const admin = result.rows[0];
 
     if (admin) {
       // Create JWT token

@@ -3,7 +3,8 @@ import db from '../../../lib/db';
 
 export async function GET() {
   try {
-    const services = db.prepare('SELECT * FROM services ORDER BY display_order ASC, id ASC').all();
+    const result = await db.execute('SELECT * FROM services ORDER BY display_order ASC, id ASC');
+    const services = result.rows;
     const parsedServices = services.map(s => ({
       ...s,
       tags: s.tags ? JSON.parse(s.tags) : []

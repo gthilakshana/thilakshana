@@ -4,7 +4,6 @@ import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ChevronUp, LayoutGrid, Filter, ExternalLink } from "lucide-react";
 import ProjectCard from "./ProjectCard.jsx";
-import { projects } from "../components/data/projectsData.js";
 import GitHubContributions from "./gitHubContributions.jsx";
 
 export default function Projects() {

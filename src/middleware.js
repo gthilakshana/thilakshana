@@ -5,12 +5,10 @@ export async function middleware(request) {
   const token = request.cookies.get('admin_session')?.value;
   const { pathname } = request.nextUrl;
 
-  // Protect /admin routes
-  if (pathname.startsWith('/admin')) {
+  // Protect /dashboard
+  if (pathname.startsWith('/dashboard')) {
     if (!token) {
-      // If it's the main admin page and not logged in, we let the client-side handle the login UI 
-      // or we can redirect. For now, we'll let the page handle it but protect the actions.
-      return NextResponse.next();
+      return NextResponse.redirect(new URL('/admin', request.url));
     }
 
     try {
@@ -24,9 +22,23 @@ export async function middleware(request) {
     }
   }
 
+  // Redirect from /admin to /dashboard if already logged in
+  if (pathname === '/admin') {
+    if (token) {
+      try {
+        const secret = new TextEncoder().encode(process.env.JWT_SECRET || 'secret');
+        await jwtVerify(token, secret);
+        return NextResponse.redirect(new URL('/dashboard', request.url));
+      } catch (error) {
+        // Invalid token, stay on admin page
+        return NextResponse.next();
+      }
+    }
+  }
+
   return NextResponse.next();
 }
 
 export const config = {
-  matcher: ['/admin/:path*'],
+  matcher: ['/admin', '/dashboard', '/dashboard/:path*'],
 };
