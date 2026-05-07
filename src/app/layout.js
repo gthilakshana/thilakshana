@@ -2,6 +2,7 @@ import './globals.css';
 import CursorAndBackground from '../components/CursorAndBackground';
 
 export const metadata = {
+  metadataBase: new URL('https://thilakshana.vercel.app/'),
   title: {
     default: 'Gavrawa Thilakshana | Full Stack Software Engineer',
     template: '%s | Gavrawa Thilakshana'
